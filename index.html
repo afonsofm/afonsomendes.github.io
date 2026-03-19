@@ -509,7 +509,14 @@ html{scroll-padding-top:60px}
 <footer>
   <span>Afonso Mendes</span>
   <span>© 2026 · Lisbon, Portugal</span>
+  <span id="last-updated" style="color:#bbb"></span>
 </footer>
+
+<script>
+  const d = new Date(document.lastModified);
+  const opts = { day: '2-digit', month: 'long', year: 'numeric' };
+  document.getElementById('last-updated').textContent = 'Last updated: ' + d.toLocaleDateString('en-GB', opts);
+</script>
 
 <script>
   
