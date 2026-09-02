@@ -1,6 +1,6 @@
 # Afonso Mendes — Portfolio
 
-Personal portfolio site, live at [afonsomendes.github.io](https://afonsomendes.github.io).
+Personal portfolio site, live at [afonsomendes.github.io](https://afonsomendes.github.io](https://afonsofm.github.io/afonsomendes.github.io/).
 
 A single-page site showcasing my background in Telecommunications & Informatics Engineering, professional experience, education, projects, and extracurricular activities.
 
