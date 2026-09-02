@@ -11,10 +11,10 @@
 body{background:#f0f0ed;color:#111;font-family:'Inter',sans-serif;font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(12,12,16,0.85);backdrop-filter:blur(14px);border-bottom:1px solid #222;transition:background .4s ease,border-color .4s ease}
-.logo{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:#e8e8e0;text-decoration:none;display:flex;align-items:center;gap:.5rem;letter-spacing:.02em;transition:color .4s ease}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 3rem;background:rgba(12,12,16,0.85);backdrop-filter:blur(14px);border-bottom:1px solid #222;transition:background .4s ease,border-color .4s ease}
+.logo{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:#e8e8e0;text-decoration:none;display:flex;align-items:center;gap:.5rem;letter-spacing:.02em;transition:color .4s ease;white-space:nowrap}
 .nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
-.nav-links a{font-size:.78rem;color:#888;text-decoration:none;transition:color .4s ease;letter-spacing:.05em;text-transform:uppercase}
+.nav-links a{font-size:.78rem;color:#b3b3b3;text-decoration:none;transition:color .4s ease;letter-spacing:.05em;text-transform:uppercase}
 .nav-links a:hover{color:#fff}
 
 /* HERO */
@@ -26,7 +26,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-tag{
   display:inline-block;
   font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
-  color:#666;margin-bottom:2rem;font-family:'Inter',sans-serif;
+  color:#9a9a9a;margin-bottom:2rem;font-family:'Inter',sans-serif;
 }
 h1{
   font-family:'Syne',sans-serif;
@@ -36,14 +36,14 @@ h1{
   color:#fff;
   margin-bottom:2rem;
 }
-.hero-desc{font-size:.95rem;color:#888;max-width:480px;line-height:1.85;margin-bottom:2.5rem;font-weight:300}
-.hero-desc strong{color:#bbb;font-weight:400}
+.hero-desc{font-size:.95rem;color:#bdbdbd;max-width:480px;line-height:1.85;margin-bottom:2.5rem;font-weight:300}
+.hero-desc strong{color:#e2e2e2;font-weight:400}
 .ctas{display:flex;gap:.8rem;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;font-size:.8rem;font-weight:500;text-decoration:none;padding:.6rem 1.4rem;border-radius:5px;transition:all .2s;letter-spacing:.02em}
 .btn-dark{background:#e8e8e0;color:#111}
 .btn-dark:hover{background:#c8c8c0;transform:translateY(-1px)}
-.btn-light{background:transparent;color:#888;border:1px solid #333}
-.btn-light:hover{color:#fff;border-color:#666;transform:translateY(-1px)}
+.btn-light{background:transparent;color:#b8b8b8;border:1px solid #444}
+.btn-light:hover{color:#fff;border-color:#777;transform:translateY(-1px)}
 
 /* WAVE */
 /* Scroll fade-in for sections */
@@ -79,19 +79,22 @@ h1{
 .section{padding:4.5rem 3rem}
 .section-inner{max-width:1100px;margin:0 auto}
 .sec-header{display:flex;align-items:baseline;gap:1.2rem;margin-bottom:3rem}
-.sec-num{font-size:.7rem;color:#aaa;letter-spacing:.15em}
+.sec-num{font-size:.7rem;color:#767676;letter-spacing:.15em}
 h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;letter-spacing:-.03em;color:#111}
 
-/* ABOUT - white bg */
-#about{background:#fff}
+/* ABOUT - grey bg */
+#about{background:#f2f2f0}
+.about-card{background:#fff;border-radius:14px;border:1px solid #e4e4e0;padding:2.5rem 3rem;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
-.about-text p{color:#666;margin-bottom:1rem;font-size:.95rem;line-height:1.85}
+.about-text p{color:#555;margin-bottom:1rem;font-size:.95rem;line-height:1.85}
 .about-text p strong{color:#111;font-weight:500}
-.skill-row{display:flex;gap:2rem;padding:.75rem 0;border-bottom:1px solid #eee;font-size:.87rem}
-.skill-row:first-child{border-top:1px solid #eee}
-.skill-key{color:#aaa;min-width:95px;font-size:.78rem}
+.skill-row{display:flex;align-items:center;gap:2rem;padding:.9rem 0;border-bottom:1px solid #eee;font-size:.87rem}
+.skill-row:last-child{border-bottom:none}
+.skill-key{color:#767676;min-width:95px;font-size:.78rem}
 .skill-val{color:#333}
 
+/* EXPERIENCE - white bg */
+#work{background:#fff}
 /* EDUCATION - grey bg */
 #education{background:#f2f2f0}
 /* PROJECTS - white bg */
@@ -108,51 +111,68 @@ h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weigh
 .tl-row{position:relative;padding:0 0 3rem 4.5rem}
 .tl-row:last-child{padding-bottom:0}
 .tl-row::before{content:'';position:absolute;left:4px;top:3px;width:18px;height:18px;background:#f2f2f0;border:2px solid #bbb;transform:rotate(45deg);z-index:1;transition:background .2s,border-color .2s}
-#education .tl-row::before{background:#f2f2f0}
-#experience .tl-row::before{background:#f2f2f0}
+#work .tl-row::before{background:#fff}
 .tl-row::after{content:'';position:absolute;left:9px;top:8px;width:8px;height:8px;background:#3b5bdb;transform:rotate(45deg);z-index:2}
 .tl-row:hover::before{background:#3b5bdb;border-color:#3b5bdb}
-.tl-date{display:inline-block;background:#111;color:#fff;font-size:.78rem;font-weight:600;padding:.22rem .7rem;border-radius:3px;margin-bottom:1rem;letter-spacing:.03em}
+.tl-date{display:inline-block;background:none;color:#767676;font-size:.72rem;font-weight:500;padding:0;border-radius:0;margin-bottom:.5rem;letter-spacing:.08em;text-transform:uppercase}
+.tl-duration{opacity:.6;font-weight:400}
 .tl-deg{font-family:'DM Sans',sans-serif;font-size:clamp(1.4rem,2.8vw,2rem);font-weight:300;color:#1a1a2e;line-height:1.2;margin-bottom:.5rem;letter-spacing:.01em}
 .tl-org{display:flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:700;color:#3b5bdb;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.7rem}
 .tl-org::before{content:'';width:26px;height:2px;background:#3b5bdb;flex-shrink:0}
-.tl-desc{font-size:.9rem;color:#666;line-height:1.8}
+.tl-desc{font-size:.9rem;color:#555;line-height:1.8}
 .tl-desc strong{color:#111;font-weight:600}
+.tl-desc a{color:#111;text-decoration:underline;text-underline-offset:2px}
+.tl-desc a:hover{color:#555}
+.tl-list{list-style:none;margin:.6rem 0 0}
+.tl-list li{position:relative;padding-left:1.1rem;margin-bottom:.5rem}
+.tl-list li:last-child{margin-bottom:0}
+.tl-list li::before{content:'';position:absolute;left:0;top:.6em;width:5px;height:5px;background:#3b5bdb;transform:rotate(45deg)}
+.tl-stack{margin-top:.9rem}
+.tl-roles{margin-top:1rem}
+.tl-role{padding-left:1.1rem;border-left:2px solid #ddd;margin-bottom:1.2rem}
+.tl-role:last-child{margin-bottom:0}
+.tl-role-title{font-size:.92rem;font-weight:600;color:#111;margin-bottom:.2rem}
+.tl-role-date{font-size:.7rem;color:#767676;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+.tl-role-desc{font-size:.87rem;color:#555;line-height:1.8}
 
 /* PROJECTS */
 .proj-row{padding:2rem 0;border-bottom:1px solid #eee}
 .proj-row:last-child{border-bottom:none}
 .proj-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.5rem;flex-wrap:wrap}
 .proj-name{font-size:1rem;font-weight:500;color:#111}
-.proj-period{font-size:.75rem;color:#aaa}
-.proj-desc{font-size:.87rem;color:#666;line-height:1.8;margin-bottom:.9rem}
+.proj-period{font-size:.75rem;color:#767676}
+.proj-desc{font-size:.87rem;color:#555;line-height:1.8;margin-bottom:.9rem}
+.proj-desc a{color:#111;text-decoration:underline;text-underline-offset:2px}
+.proj-desc a:hover{color:#555}
 .proj-imgs{display:flex;gap:.7rem;margin-bottom:.75rem;flex-wrap:wrap}
+.tl-row .proj-imgs{margin-top:.8rem}
 .proj-img{height:110px;width:auto;max-width:185px;object-fit:cover;border-radius:6px;border:1px solid #eee;cursor:pointer;transition:transform .2s,opacity .2s}
 .proj-img:hover{transform:scale(1.04) translateY(-2px)}
 .tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.65rem}
-.tag{font-size:.68rem;padding:.15rem .55rem;background:#f5f5f3;border:1px solid #e8e8e5;border-radius:4px;color:#888}
+.tag{font-size:.68rem;padding:.15rem .55rem;background:#f5f5f3;border:1px solid #e8e8e5;border-radius:4px;color:#666}
 
 /* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.contact-intro{font-size:.97rem;color:#666;line-height:1.85;margin-bottom:2rem}
+.contact-intro{font-size:.97rem;color:#555;line-height:1.85;margin-bottom:2rem}
 .c-row{display:flex;gap:2rem;align-items:baseline;padding:.75rem 0;border-bottom:1px solid #eee;font-size:.87rem}
 .c-row:first-child{border-top:1px solid #eee}
-.c-label{font-size:.73rem;color:#aaa;min-width:70px}
+.c-label{font-size:.73rem;color:#767676;min-width:70px}
 .c-row a{color:#111;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
 .c-row a:hover{border-color:#111}
 
 /* FOOTER */
-footer{background:#fff;padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #eee;font-size:.75rem;color:#aaa}
+footer{background:#fff;padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #eee;font-size:.75rem;color:#767676}
 
 
 
 /* RESPONSIVE */
 @media(max-width:900px){
   #home{grid-template-columns:1fr;}
-  .hero-photo-wrap{display:none;}
+  .hero-photo-wrap{display:none !important;}
   
   #home{padding:4rem 1.5rem 3rem}
   .about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}
+  .about-card{padding:1.75rem}
   nav{padding:1rem 1.5rem}
   .section{padding:3.5rem 1.5rem}
   .divwrap{padding:0 1.5rem}
@@ -160,6 +180,8 @@ footer{background:#fff;padding:2rem 3rem;display:flex;justify-content:space-betw
 }
 @media(max-width:600px){
   .nav-links li:not(:first-child):not(:last-child):not(:nth-last-child(2)){display:none}
+  .nav-links{gap:1rem}
+  .nav-links a{font-size:.7rem}
   .tl-row{padding-left:3.5rem}
 }
 
@@ -250,6 +272,25 @@ html{scroll-padding-top:60px}
   line-height:1;user-select:none;
 }
 #lb.lb-show #lb-close{opacity:1}
+.lb-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);
+  display:flex;align-items:center;justify-content:center;
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.2);
+  color:#fff;font-size:2rem;line-height:1;
+  cursor:pointer;opacity:0;user-select:none;
+  transition:opacity .3s ease,background .25s,border-color .25s,transform .25s;
+}
+.lb-arrow:hover{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.6)}
+#lb.lb-show .lb-arrow{opacity:1}
+#lb-prev{left:1.5rem}
+#lb-next{right:1.5rem}
+@media(max-width:600px){
+  .lb-arrow{width:42px;height:42px;font-size:1.6rem}
+  #lb-prev{left:.5rem}
+  #lb-next{right:.5rem}
+}
 
 /* HERO ICONS */
 .hero-icons{display:flex;gap:1.2rem;margin-top:2rem;}
@@ -295,9 +336,11 @@ html{scroll-padding-top:60px}
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#work">Experience</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Activities</a></li>
+    <li><a href="#awards">Awards</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="CV_AfonsoMendes_ENG.pdf" target="_blank">CV ↗</a></li>
   </ul>
@@ -353,22 +396,52 @@ html{scroll-padding-top:60px}
 <!-- ABOUT -->
 <div class="section fade-in" id="about">
   <div class="section-inner">
-    <div class="sec-header">
-      <h2>About Me</h2>
-    </div>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>I'm a <strong>technology-driven engineer</strong> focused on the infrastructure that connects the world — mobile networks, network architectures, security, and information systems. I thrive on complexity and bring a structured, committed approach to every challenge.</p>
-        <p>I'm a <strong>natural collaborator</strong> who communicates openly and adapts quickly to any team dynamic. Whether in the lab, at a hackathon, or representing a brand on campus, I bring the same energy: focused, proactive, and results-oriented.</p>
-        <p>Beyond engineering, I compete in <strong>padel, tennis, and running</strong> — having already completed a half marathon. That same discipline shapes how I approach every project.</p>
+    <div class="about-card">
+      <div class="sec-header">
+        <h2>About Me</h2>
       </div>
-      <div>
-        <div class="skill-row"><span class="skill-key">Programming</span><span class="skill-val">C, C++, Java, Python, SQL</span></div>
-        <div class="skill-row"><span class="skill-key">Networks</span><span class="skill-val">TCP/IP, GNS3, Packet Tracer, Wireshark</span></div>
-        <div class="skill-row"><span class="skill-key">Telecom</span><span class="skill-val">5G, LoRa, SDR, MATLAB, Arduino</span></div>
-        <div class="skill-row"><span class="skill-key">Tools</span><span class="skill-val">GNS3, Packet Tracer, VirtualBox, SDRSharp, Arduino IDE</span></div>
-        <div class="skill-row"><span class="skill-key">Languages</span><span class="skill-val">Portuguese (Native) · English (C1)</span></div>
-        <div class="skill-row"><span class="skill-key">Soft Skills</span><span class="skill-val">Teamwork · Leadership · Communication</span></div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I'm a <strong>technology-driven engineer</strong> focused on the infrastructure that connects the world — mobile networks, network architectures, security, and information systems. I thrive on complexity and bring a structured, committed approach to every challenge.</p>
+          <p>I'm a <strong>natural collaborator</strong> who communicates openly and adapts quickly to any team dynamic. Whether in the lab, at a hackathon, or representing a brand on campus, I bring the same energy: focused, proactive, and results-oriented.</p>
+          <p>Beyond engineering, I compete in <strong>padel, tennis, and running</strong> — having already completed a half marathon. That same discipline shapes how I approach every project.</p>
+        </div>
+        <div>
+          <div class="skill-row"><span class="skill-key">Programming</span><span class="skill-val">C, C++, Java, Python, SQL, FastAPI, Streamlit</span></div>
+          <div class="skill-row"><span class="skill-key">Networks</span><span class="skill-val">TCP/IP, GNS3, Packet Tracer, Wireshark</span></div>
+          <div class="skill-row"><span class="skill-key">Telecom</span><span class="skill-val">5G, LoRa, SDR, MATLAB, Arduino, SDRSharp, Arduino IDE</span></div>
+          <div class="skill-row"><span class="skill-key">Tools</span><span class="skill-val">VirtualBox, BigQuery, CloudSQL, Google Cloud Platform, Grafana</span></div>
+          <div class="skill-row"><span class="skill-key">Languages</span><span class="skill-val">Portuguese (Native) · English (C1)</span></div>
+          <div class="skill-row"><span class="skill-key">Soft Skills</span><span class="skill-val">Teamwork · Leadership · Communication</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divwrap"><hr/></div>
+
+<!-- PROFESSIONAL EXPERIENCE -->
+<div class="section fade-in" id="work">
+  <div class="section-inner">
+    <div class="sec-header">
+      <h2>Professional Experience</h2>
+    </div>
+    <div class="tl">
+      <div class="tl-row">
+        <div class="tl-date">Jul 2026 — Sep 2026</div>
+        <div class="tl-deg">Summer Intern</div>
+        <div class="tl-org">NOS SGPS</div>
+        <div class="tl-desc">Summer internship in <strong>Data Engineering &amp; Analytics</strong>, working on NOS's internal data portal.
+          <ul class="tl-list">
+            <li>Built an end-to-end <strong>Complaints Management module</strong> (BigQuery/CloudSQL backend via Cloud Functions) with CRUD forms, status workflow, and many-to-many data relationships.</li>
+            <li>Developed a <strong>Logs/Audit module</strong> with page-load time tracking, new filters (date, user, module), and a fix for lost audit events in production.</li>
+            <li>Diagnosed and fixed performance bottlenecks, cutting page load times from <strong>~10s to under 1s</strong>.</li>
+            <li>Built SLA/statistics and Grafana dashboards (BigQuery SQL) to monitor portal usage.</li>
+            <li>Migrated legacy data from the old <strong>PostgreSQL</strong>-based portal into the new platform.</li>
+          </ul>
+          <div class="tags tl-stack"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">BigQuery</span><span class="tag">CloudSQL</span><span class="tag">Google Cloud Platform</span><span class="tag">Grafana</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -392,7 +465,7 @@ html{scroll-padding-top:60px}
       <div class="tl-row">
         <div class="tl-date">2021 — 2025</div>
         <div class="tl-deg">Bachelor's in Electronics, Telecommunications and Computer Engineering</div>
-        <div class="tl-org">Instituto Superior de Engenharia de Lisboa (ISEL)</div>
+        <div class="tl-org">Instituto Superior de Engenharia de Lisboa — Polytechnic University of Lisbon</div>
         <div class="tl-desc">Interdisciplinary foundation in programming (C, C++, Java, Python), telecommunications (network protocols, simulation tools, transmission systems, radio communications), and electronics.</div>
       </div>
     </div>
@@ -409,18 +482,18 @@ html{scroll-padding-top:60px}
     </div>
     <div>
       <div class="proj-row" style="padding-top:0.5rem">
-        <div class="proj-top"><span class="proj-name">Centurion — Smart Helmet</span><span class="proj-period">Nov 2025 – Jan 2026</span></div>
-        <p class="proj-desc">Smart helmet for e-scooter riders built on C-ITS principles. Detects nearby vehicles using GPS and ultrasonic sensors, alerting riders in real time to improve urban road safety.</p>
-        <div class="proj-imgs">
-          <img src="images/img_6404-3233x1815.webp" alt="Centurion presentation" class="proj-img" onclick="openLb(this.src)"/>
-          <img src="images/img_6408-3861x2167.webp" alt="Centurion helmet" class="proj-img" onclick="openLb(this.src)"/>
-        </div>
-        <div class="tags"><span class="tag">C-ITS</span><span class="tag">GPS</span><span class="tag">IoT</span><span class="tag">Vehicular Networks</span></div>
+        <div class="proj-top"><span class="proj-name">New Scheduling Mechanisms for Multi-Link Operation in Wi-Fi 7</span><span class="proj-period">Sep 2026 – 2027</span></div>
+       <p class="proj-desc">Master's thesis in progress...</p>
+        <div class="tags"><span class="tag">Thesis</span><span class="tag">Telecommunications</span></div>
       </div>
-      <div class="proj-row">
-        <div class="proj-top"><span class="proj-name">5G Open-Source Network</span><span class="proj-period">Sep – Oct 2025</span></div>
-        <p class="proj-desc">Deployed a fully functional private 5G network using open-source core implementations. Built end-to-end from scratch — covering RAN, core, and user plane — enabling real connectivity for research and testing.</p>
-        <div class="tags"><span class="tag">5G</span><span class="tag">Open5GS</span><span class="tag">Mobile Networks</span><span class="tag">Linux</span></div>
+      <div class="proj-row" id="centurion">
+        <div class="proj-top"><span class="proj-name">Centurion — Smart Helmet</span><span class="proj-period">Nov 2025 – Jun 2026</span></div>
+        <p class="proj-desc">Smart helmet for e-scooter riders built on C-ITS principles. Detects nearby vehicles using GPS and ultrasonic sensors, alerting riders in real time to improve urban road safety. Recognized with the <a href="#merit-award"><strong>Critical Techworks Merit Award, Joy in Motion</strong></a>.</p>
+        <div class="proj-imgs">
+          <img src="images/Centurion/img_6404-3233x1815.webp" alt="Centurion presentation" class="proj-img" onclick="openLb(this)"/>
+          <img src="images/Centurion/img_6408-3861x2167.webp" alt="Centurion helmet" class="proj-img" onclick="openLb(this)"/>
+        </div>
+        <div class="tags"><span class="tag">C-ITS</span><span class="tag">GPS</span><span class="tag">IoT</span><span class="tag">Vehicular Networks</span><span class="tag">Award Winner</span></div>
       </div>
       <div class="proj-row">
         <div class="proj-top"><span class="proj-name">CSS-LoRa Signal Analysis</span><span class="proj-period">Feb – Jul 2025</span></div>
@@ -442,21 +515,26 @@ html{scroll-padding-top:60px}
     <div class="tl">
       <div class="tl-row">
         <div class="tl-date">Sep 2025 — Present</div>
-        <div class="tl-deg">NOS Ambassador</div>
+        <div class="tl-deg">Campus Ambassador</div>
         <div class="tl-org">NOS SGPS</div>
         <div class="tl-desc">Representing NOS within the IST university community — promoting career opportunities and building bridges between students and the company.</div>
       </div>
       <div class="tl-row">
         <div class="tl-date">Sep 2025 — Present</div>
-        <div class="tl-deg">External Relations Member</div>
+        <div class="tl-deg">External Relations Department</div>
         <div class="tl-org">JET — Jornadas Tecnológicas e Empresariais</div>
-        <div class="tl-desc">Organizing team for the largest job fair at IST Oeiras Campus. Managing partnerships and creating meaningful recruitment opportunities.</div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-date">Mar 2026</div>
-        <div class="tl-deg">BEST Entrepreneurship Experience</div>
-        <div class="tl-org">BEST Lisbon</div>
-        <div class="tl-desc">Corporate challenge competition applying engineering thinking to real business problems. Awarded <strong>1st Place</strong> for our solution and professional pitch.</div>
+        <div class="tl-roles">
+          <div class="tl-role">
+            <div class="tl-role-title">Team Leader</div>
+            <div class="tl-role-date">Aug 2026 — Present</div>
+            <div class="tl-role-desc">Leading the department responsible for connecting companies and the academic community at IST's largest business fair, coordinating the team and partnerships that generate recruitment, networking and collaboration opportunities.</div>
+          </div>
+          <div class="tl-role">
+            <div class="tl-role-title">Team Member</div>
+            <div class="tl-role-date">Sep 2025 — Jul 2026</div>
+            <div class="tl-role-desc">Contributed to connecting companies and the academic community, fostering a dynamic space for recruitment, networking and collaboration opportunities.</div>
+          </div>
+        </div>
       </div>
       <div class="tl-row">
         <div class="tl-date">Feb 2026</div>
@@ -465,7 +543,7 @@ html{scroll-padding-top:60px}
         <div class="tl-desc">Week-long volunteering immersion in isolated communities across Portugal. Sharpened resilience, empathy, and teamwork.</div>
       </div>
       <div class="tl-row">
-        <div class="tl-date">Nov 2023 &amp; 2024</div>
+        <div class="tl-date">Nov 2023 &amp; Nov 2024</div>
         <div class="tl-deg">Volunteer — Response &amp; Support</div>
         <div class="tl-org">Web Summit Lisbon</div>
         <div class="tl-desc">Two editions at one of the world's biggest tech conferences, providing direct support to attendees and internal teams.</div>
@@ -475,6 +553,43 @@ html{scroll-padding-top:60px}
         <div class="tl-deg">ISEL Ambassador at Futurália</div>
         <div class="tl-org">ISEL</div>
         <div class="tl-desc">Selected to represent ISEL's engineering programmes at Portugal's largest education fair.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divwrap"><hr/></div>
+
+<!-- AWARDS -->
+<div class="section fade-in" id="awards" style="background:#e6e6e0">
+  <div class="section-inner">
+    <div class="sec-header">
+      <h2>Awards &amp; Distinctions</h2>
+    </div>
+    <div class="tl">
+      <div class="tl-row" id="merit-award">
+        <div class="tl-date">Jun 2026</div>
+        <div class="tl-deg">Critical Techworks Merit Award, Joy in Motion</div>
+        <div class="tl-org">Critical Techworks</div>
+        <div class="tl-desc">Recognized for <a href="#centurion"><strong>Centurion</strong></a>, a smart helmet for e-scooter riders built on C-ITS principles, detecting nearby vehicles and alerting riders in real time to improve urban road safety.</div>
+        <div class="proj-imgs">
+          <img src="images/Centurion/merit4.jpg" alt="Centurion Merit Award 4" class="proj-img" onclick="openLb(this)"/>
+          <img src="images/Centurion/merit3.jpeg" alt="Centurion Merit Award 3" class="proj-img" onclick="openLb(this)"/>
+          <img src="images/Centurion/merit2.jpg" alt="Centurion Merit Award 2" class="proj-img" onclick="openLb(this)"/>
+          <img src="images/Centurion/merit1.jpg" alt="Centurion Merit Award 1" class="proj-img" onclick="openLb(this)"/>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Mar 2026</div>
+        <div class="tl-deg">BEST Entrepreneurship Experience</div>
+        <div class="tl-org">BEST Lisbon</div>
+        <div class="tl-desc">Awarded <strong>1st Place</strong> for our solution and professional pitch in a corporate challenge competition applying engineering thinking to real business problems.</div>
+        <div class="proj-imgs">
+          <img src="images/BEE/BEE1.JPEG" alt="BEST Entrepreneurship Experience 1" class="proj-img" onclick="openLb(this)"/>
+          <img src="images/BEE/BEE2.jpg" alt="BEST Entrepreneurship Experience 2" class="proj-img" onclick="openLb(this)"/>
+          <img src="images/BEE/BEE3.JPEG" alt="BEST Entrepreneurship Experience 3" class="proj-img" onclick="openLb(this)"/>
+          <img src="images/BEE/BEE4.jpg" alt="BEST Entrepreneurship Experience 4" class="proj-img" onclick="openLb(this)"/>
+        </div>
       </div>
     </div>
   </div>
@@ -499,8 +614,7 @@ html{scroll-padding-top:60px}
       <div>
         <div class="c-row"><span class="c-label">Email</span><a href="mailto:afonsomendes.tech@gmail.com">afonsomendes.tech@gmail.com</a></div>
         <div class="c-row"><span class="c-label">LinkedIn</span><a href="https://linkedin.com/in/afonso-figueira-mendes" target="_blank">Afonso Mendes ↗</a></div>
-        <div class="c-row"><span class="c-label">Phone</span><a href="tel:+351968404237">+351 968 404 237</a></div>
-        <div class="c-row"><span class="c-label">Location</span><span style="color:#aaa">Oeiras, Lisbon, Portugal</span></div>
+        <div class="c-row"><span class="c-label">Location</span><span style="color:#111">Oeiras, Lisbon, Portugal</span></div>
       </div>
     </div>
   </div>
@@ -508,7 +622,7 @@ html{scroll-padding-top:60px}
 
 <footer>
   <span>© 2026 · Afonso Mendes · Lisbon, Portugal</span>
-  <span id="last-updated" style="color:#bbb"></span>
+  <span id="last-updated"></span>
 </footer>
 
 <script>
@@ -524,7 +638,8 @@ html{scroll-padding-top:60px}
   const navEl = document.querySelector('nav');
   const navStyles = {
     'home-wrap': { bg: 'rgba(12,12,16,0.85)', border: '#222',    logo: '#e8e8e0', links: '#888' },
-    'about':     { bg: 'rgba(255,255,255,0.97)', border: '#e5e5e5', logo: '#111', links: '#999' },
+    'about':     { bg: 'rgba(242,242,240,0.97)', border: '#ddd',    logo: '#111', links: '#999' },
+    'work':      { bg: 'rgba(255,255,255,0.97)', border: '#e5e5e5', logo: '#111', links: '#999' },
     'education': { bg: 'rgba(242,242,240,0.97)', border: '#ddd',    logo: '#111', links: '#999' },
     'projects':  { bg: 'rgba(255,255,255,0.97)', border: '#e5e5e5', logo: '#111', links: '#999' },
     'experience':{ bg: 'rgba(242,242,240,0.97)', border: '#ddd',    logo: '#111', links: '#999' },
@@ -537,7 +652,7 @@ html{scroll-padding-top:60px}
     navEl.querySelector('.logo').style.color = s.logo;
     navEl.querySelectorAll('.nav-links a').forEach(a => a.style.color = s.links);
   }
-  const sectionIds = ['home-wrap','about','education','projects','experience','contact'];
+  const sectionIds = ['home-wrap','about','work','education','projects','experience','contact'];
   function onScroll(){
     const navH = navEl.offsetHeight;
     let current = 'home-wrap';
@@ -570,15 +685,39 @@ html{scroll-padding-top:60px}
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
   // Lightbox
-  function openLb(src){
+  let lbImages = [];
+  let lbIndex = 0;
+  function openLb(imgEl){
+    const group = imgEl.closest('.proj-imgs');
+    lbImages = group ? Array.from(group.querySelectorAll('img')) : [imgEl];
+    lbIndex = lbImages.indexOf(imgEl);
+    showLbImage();
     const lb = document.getElementById('lb');
-    const img = document.getElementById('lb-img');
-    img.src = src;
     lb.classList.add('lb-open');
     document.body.style.overflow = 'hidden';
     requestAnimationFrame(()=> requestAnimationFrame(()=>{
       lb.classList.add('lb-show');
     }));
+  }
+  function showLbImage(){
+    const img = document.getElementById('lb-img');
+    img.src = lbImages[lbIndex].src;
+    img.alt = lbImages[lbIndex].alt;
+    const showArrows = lbImages.length > 1;
+    document.getElementById('lb-prev').style.display = showArrows ? 'flex' : 'none';
+    document.getElementById('lb-next').style.display = showArrows ? 'flex' : 'none';
+  }
+  function lbPrev(e){
+    if(e) e.stopPropagation();
+    if(lbImages.length < 2) return;
+    lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
+    showLbImage();
+  }
+  function lbNext(e){
+    if(e) e.stopPropagation();
+    if(lbImages.length < 2) return;
+    lbIndex = (lbIndex + 1) % lbImages.length;
+    showLbImage();
   }
   function closeLb(){
     const lb = document.getElementById('lb');
@@ -586,12 +725,80 @@ html{scroll-padding-top:60px}
     document.body.style.overflow = '';
     setTimeout(()=> lb.classList.remove('lb-open'), 420);
   }
-  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLb(); });
+  document.addEventListener('keydown', e=>{
+    if(!document.getElementById('lb').classList.contains('lb-open')) return;
+    if(e.key==='Escape') closeLb();
+    if(e.key==='ArrowLeft') lbPrev();
+    if(e.key==='ArrowRight') lbNext();
+  });
+
+  // Duration labels next to date ranges (e.g. "Sep 2025 — Jan 2026 · 5 months")
+  const MONTHS = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+  function parseDateSide(side, fallbackYear){
+    const parts = side.trim().split(/\s+/);
+    if(parts.length === 2 && MONTHS.hasOwnProperty(parts[0]) && /^\d{4}$/.test(parts[1])){
+      return {month: MONTHS[parts[0]], year: parseInt(parts[1], 10), hasMonth: true};
+    }
+    if(parts.length === 1 && MONTHS.hasOwnProperty(parts[0]) && fallbackYear !== null){
+      return {month: MONTHS[parts[0]], year: fallbackYear, hasMonth: true};
+    }
+    if(parts.length === 1 && /^\d{4}$/.test(parts[0])){
+      return {month: null, year: parseInt(parts[0], 10), hasMonth: false};
+    }
+    return null;
+  }
+  function formatDuration(totalMonths){
+    if(totalMonths <= 0) return null;
+    if(totalMonths % 12 === 0){
+      const y = totalMonths / 12;
+      return y + (y === 1 ? ' year' : ' years');
+    }
+    if(totalMonths > 12){
+      const y = Math.floor(totalMonths / 12), m = totalMonths % 12;
+      return `${y} yr${y > 1 ? 's' : ''} ${m} mo${m > 1 ? 's' : ''}`;
+    }
+    return totalMonths + (totalMonths === 1 ? ' month' : ' months');
+  }
+  function computeDurationLabel(text){
+    if(text.includes('&')) return null;
+    const m = text.match(/^(.+?)\s*[—–]\s*(.+)$/);
+    if(!m) return null;
+    const left = m[1].trim(), right = m[2].trim();
+    let rightParsed;
+    if(/^present$/i.test(right)){
+      const now = new Date();
+      rightParsed = {month: now.getMonth(), year: now.getFullYear(), hasMonth: true};
+    } else {
+      rightParsed = parseDateSide(right, null);
+    }
+    if(!rightParsed) return null;
+    const leftParsed = parseDateSide(left, rightParsed.year);
+    if(!leftParsed) return null;
+    if(!leftParsed.hasMonth && !rightParsed.hasMonth){
+      const years = rightParsed.year - leftParsed.year;
+      return years > 0 ? years + (years === 1 ? ' year' : ' years') : null;
+    }
+    const startMonth = leftParsed.hasMonth ? leftParsed.month : 0;
+    const endMonth = rightParsed.hasMonth ? rightParsed.month : 11;
+    const totalMonths = (rightParsed.year * 12 + endMonth) - (leftParsed.year * 12 + startMonth) + 1;
+    return formatDuration(totalMonths);
+  }
+  document.querySelectorAll('#work .tl-date, #work .tl-role-date, #experience .tl-date, #experience .tl-role-date').forEach(el => {
+    const label = computeDurationLabel(el.textContent.trim());
+    if(label){
+      const span = document.createElement('span');
+      span.className = 'tl-duration';
+      span.textContent = ' · ' + label;
+      el.appendChild(span);
+    }
+  });
 </script>
 
 <div id="lb" onclick="if(event.target===this||event.target.id==='lb-close')closeLb()">
   <span id="lb-close">×</span>
+  <span id="lb-prev" class="lb-arrow" onclick="lbPrev(event)">‹</span>
   <img id="lb-img" src="" alt="" />
+  <span id="lb-next" class="lb-arrow" onclick="lbNext(event)">›</span>
 </div>
 
 </body>
