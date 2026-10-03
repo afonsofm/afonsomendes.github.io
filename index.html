@@ -112,6 +112,19 @@ h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weigh
 #education .tl::before{background:#c5c5c2}
 .tl-row{position:relative;padding:0 0 3rem 4.5rem}
 .tl-row:last-child{padding-bottom:0}
+#work .work-company,#experience .work-company{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+#work .work-company-logo,#experience .work-company-logo{display:flex;align-items:center;justify-content:center;width:64px;height:52px;flex:0 0 64px;background:#fff;border:1px solid #e7e7e4;border-radius:6px;padding:.35rem}
+#work .work-company-logo img,#experience .work-company-logo img{display:block;width:100%;height:100%;object-fit:contain}
+#work .work-company-name,#experience .work-company-name{font-family:'Inter',sans-serif;font-size:1.15rem;font-weight:600;line-height:1.25;letter-spacing:0;color:#111}
+#work .work-company-type,#experience .work-company-type{font-size:.78rem;color:#767676}
+#work .work-role-grid,#experience .work-role-grid{display:grid;grid-template-columns:12rem minmax(0,1fr);gap:1rem;margin-bottom:.8rem}
+#work .additional-role{margin-top:1.5rem}
+#work .work-role-grid .tl-date,#experience .work-role-grid .tl-date{margin:0;padding-top:.2rem}
+#work .work-role-grid .tl-deg,#experience .work-role-grid .tl-deg{font-size:1.35rem;font-weight:600;color:#111;margin:0}
+#work .tl-duration,#experience .tl-duration{display:block;margin-top:.1rem}
+#work .tl-desc,#experience .tl-desc{margin-left:13rem}
+#experience .activity-roles{margin-left:13rem}
+#experience .activity-role-block + .activity-role-block{margin-top:1.25rem}
 .tl-row::before{content:'';position:absolute;left:4px;top:3px;width:18px;height:18px;background:#f2f2f0;border:2px solid #bbb;transform:rotate(45deg);z-index:1;transition:background .2s,border-color .2s}
 #work .tl-row::before{background:#fff}
 .tl-row::after{content:'';position:absolute;left:9px;top:8px;width:8px;height:8px;background:#3b5bdb;transform:rotate(45deg);z-index:2}
@@ -213,6 +226,21 @@ footer{background:#fff;padding:2rem 3rem;display:flex;justify-content:space-betw
   .proj-imgs{gap:.5rem;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;padding:.15rem 0 .5rem}
   .proj-img{flex:0 0 auto;height:78px;max-width:132px}
   .tl-row{padding-left:3.5rem}
+  #work .work-company{gap:.75rem;margin-bottom:1.1rem}
+  #work .work-company-logo{width:54px;height:44px;flex-basis:54px}
+  #work .work-company-name{font-size:1.05rem}
+  #work .work-role-grid{grid-template-columns:1fr;gap:.15rem;margin-bottom:.7rem}
+  #work .additional-role{margin-top:1.25rem}
+  #work .work-role-grid .tl-date{font-size:.68rem}
+  #work .work-role-grid .tl-deg{font-size:1.2rem}
+  #work .tl-desc{margin-left:0}
+  #experience .work-company{gap:.75rem;margin-bottom:1.1rem}
+  #experience .work-company-logo{width:54px;height:44px;flex-basis:54px}
+  #experience .work-company-name{font-size:1.05rem}
+  #experience .work-role-grid{grid-template-columns:1fr;gap:.15rem;margin-bottom:.7rem}
+  #experience .work-role-grid .tl-date{font-size:.68rem}
+  #experience .work-role-grid .tl-deg{font-size:1.2rem}
+  #experience .tl-desc,#experience .activity-roles{margin-left:0}
   .skill-row{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:.75rem;align-items:start}
   .skill-key{min-width:0}
   .skill-val,.c-row a{min-width:0;overflow-wrap:anywhere}
@@ -468,9 +496,14 @@ html{scroll-padding-top:60px}
     </div>
     <div class="tl">
       <div class="tl-row">
-        <div class="tl-date">Jul 2026 — Sep 2026</div>
-        <div class="tl-deg">Summer Intern</div>
-        <div class="tl-org">NOS SGPS</div>
+        <div class="work-company">
+          <div class="work-company-logo"><img src="images/Logos/Log%C3%B3tipo_da_NOS.png" alt="NOS logo"/></div>
+          <div><div class="work-company-name">NOS SGPS</div><div class="work-company-type">Lisbon, Portugal</div></div>
+        </div>
+        <div class="work-role-grid">
+          <div class="tl-date">Jul 2026 — Sep 2026</div>
+          <div class="tl-deg">Summer Intern</div>
+        </div>
         <div class="tl-desc">Summer internship in <strong>Data Engineering &amp; Analytics</strong>, working on NOS's internal data portal.
           <ul class="tl-list">
             <li>Built an end-to-end <strong>Complaints Management module</strong> (BigQuery/CloudSQL backend via Cloud Functions) with CRUD forms, status workflow, and many-to-many data relationships.</li>
@@ -481,6 +514,11 @@ html{scroll-padding-top:60px}
           </ul>
           <div class="tags tl-stack"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">BigQuery</span><span class="tag">CloudSQL</span><span class="tag">Google Cloud Platform</span><span class="tag">Grafana</span></div>
         </div>
+        <div class="work-role-grid additional-role">
+          <div class="tl-date">Sep 2025 — Present</div>
+          <div class="tl-deg">Campus Ambassador</div>
+        </div>
+        <div class="tl-desc">Representing NOS within the IST university community — promoting career opportunities and building bridges between students and the company.</div>
       </div>
     </div>
   </div>
@@ -553,44 +591,56 @@ html{scroll-padding-top:60px}
     </div>
     <div class="tl">
       <div class="tl-row">
-        <div class="tl-date">Sep 2025 — Present</div>
-        <div class="tl-deg">Campus Ambassador</div>
-        <div class="tl-org">NOS SGPS</div>
-        <div class="tl-desc">Representing NOS within the IST university community — promoting career opportunities and building bridges between students and the company.</div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-date">Sep 2025 — Present</div>
-        <div class="tl-deg">External Relations Department</div>
-        <div class="tl-org">JET — Jornadas Tecnológicas e Empresariais</div>
-        <div class="tl-roles">
-          <div class="tl-role">
-            <div class="tl-role-title">Team Leader</div>
-            <div class="tl-role-date">Aug 2026 — Present</div>
-            <div class="tl-role-desc">Leading the department responsible for connecting companies and the academic community at IST's largest business fair, coordinating the team and partnerships that generate recruitment, networking and collaboration opportunities.</div>
+        <div class="work-company">
+          <div class="work-company-logo"><img src="images/Logos/Logo%20JET.png" alt="JET logo"/></div>
+          <div><div class="work-company-name">JET — Jornadas Tecnológicas e Empresariais</div></div>
+        </div>
+        <div class="activity-role-block">
+          <div class="work-role-grid">
+            <div class="tl-date">Aug 2026 — Present</div>
+            <div class="tl-deg">External Relations Team Leader</div>
           </div>
-          <div class="tl-role">
-            <div class="tl-role-title">Team Member</div>
-            <div class="tl-role-date">Sep 2025 — Jul 2026</div>
-            <div class="tl-role-desc">Contributed to connecting companies and the academic community, fostering a dynamic space for recruitment, networking and collaboration opportunities.</div>
+          <div class="tl-desc">Leading the department responsible for connecting companies and the academic community at IST's largest business fair, coordinating the team and partnerships that generate recruitment, networking and collaboration opportunities.</div>
+        </div>
+        <div class="activity-role-block">
+          <div class="work-role-grid">
+            <div class="tl-date">Sep 2025 — Jul 2026</div>
+            <div class="tl-deg">External Relations Team Member</div>
           </div>
+          <div class="tl-desc">Contributed to connecting companies and the academic community, fostering a dynamic space for recruitment, networking and collaboration opportunities.</div>
         </div>
       </div>
       <div class="tl-row">
-        <div class="tl-date">Feb 2026</div>
-        <div class="tl-deg">Missão País</div>
-        <div class="tl-org">Community Volunteering</div>
+        <div class="work-company">
+          <div class="work-company-logo"><img src="images/Logos/missao_pais.png" alt="Missão País logo"/></div>
+          <div><div class="work-company-name">Missão País</div></div>
+        </div>
+        <div class="work-role-grid">
+          <div class="tl-date">Feb 2026</div>
+          <div class="tl-deg">Community Volunteering</div>
+        </div>
         <div class="tl-desc">Week-long volunteering immersion in isolated communities across Portugal. Sharpened resilience, empathy, and teamwork.</div>
       </div>
       <div class="tl-row">
-        <div class="tl-date">Nov 2023 &amp; Nov 2024</div>
-        <div class="tl-deg">Volunteer — Response &amp; Support</div>
-        <div class="tl-org">Web Summit Lisbon</div>
+        <div class="work-company">
+          <div class="work-company-logo"><img src="images/Logos/Web_Summit_logo.webp" alt="Web Summit logo"/></div>
+          <div><div class="work-company-name">Web Summit Lisbon</div></div>
+        </div>
+        <div class="work-role-grid">
+          <div class="tl-date">Nov 2023 &amp; Nov 2024</div>
+          <div class="tl-deg">Volunteer — Response &amp; Support</div>
+        </div>
         <div class="tl-desc">Two editions at one of the world's biggest tech conferences, providing direct support to attendees and internal teams.</div>
       </div>
       <div class="tl-row">
-        <div class="tl-date">Mar 2023</div>
-        <div class="tl-deg">ISEL Ambassador at Futurália</div>
-        <div class="tl-org">ISEL</div>
+        <div class="work-company">
+          <div class="work-company-logo"><img src="images/Logos/futuralia-logo.png" alt="Futurália logo"/></div>
+          <div><div class="work-company-name">Futurália</div></div>
+        </div>
+        <div class="work-role-grid">
+          <div class="tl-date">Mar 2023</div>
+          <div class="tl-deg">ISEL Ambassador</div>
+        </div>
         <div class="tl-desc">Selected to represent ISEL's engineering programmes at Portugal's largest education fair.</div>
       </div>
     </div>
@@ -854,7 +904,7 @@ html{scroll-padding-top:60px}
     if(label){
       const span = document.createElement('span');
       span.className = 'tl-duration';
-      span.textContent = ' · ' + label;
+      span.textContent = el.closest('#work, #experience') ? label : ' · ' + label;
       el.appendChild(span);
     }
   });
