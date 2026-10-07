@@ -131,7 +131,7 @@ h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weigh
 .tl-row:hover::before{background:#3b5bdb;border-color:#3b5bdb}
 .tl-date{display:inline-block;background:none;color:#767676;font-size:.72rem;font-weight:500;padding:0;border-radius:0;margin-bottom:.5rem;letter-spacing:.08em;text-transform:uppercase}
 .tl-duration{opacity:.6;font-weight:400}
-.tl-deg{font-family:'DM Sans',sans-serif;font-size:clamp(1.4rem,2.8vw,2rem);font-weight:300;color:#1a1a2e;line-height:1.2;margin-bottom:.5rem;letter-spacing:.01em}
+.tl-deg{font-family:'Inter',sans-serif;font-size:1.35rem;font-weight:600;color:#111;line-height:1.3;margin-bottom:.5rem;letter-spacing:0}
 .tl-org{display:flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:700;color:#3b5bdb;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.7rem}
 .tl-org::before{content:'';width:26px;height:2px;background:#3b5bdb;flex-shrink:0}
 .tl-desc{font-size:.9rem;color:#555;line-height:1.8}
@@ -151,11 +151,17 @@ h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weigh
 .tl-role-desc{font-size:.87rem;color:#555;line-height:1.8}
 
 /* PROJECTS */
-.proj-row{padding:2rem 0;border-bottom:1px solid #eee}
-.proj-row:last-child{border-bottom:none}
-.proj-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.5rem;flex-wrap:wrap}
-.proj-name{font-size:1rem;font-weight:500;color:#111}
-.proj-period{font-size:.75rem;color:#767676}
+.proj-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
+.proj-card{display:flex;flex-direction:column;background:#fff;border:1px solid #e6e6e2;border-radius:14px;padding:1.8rem 2rem;transition:transform .25s ease,box-shadow .25s ease}
+.proj-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.07)}
+.proj-featured{grid-column:1/-1;display:grid;grid-template-columns:55% minmax(0,1fr);padding:0;overflow:hidden}
+.proj-covers{display:grid;grid-template-rows:1fr 1fr;gap:2px;min-height:300px;contain:size}
+.proj-cover{display:block;width:100%;height:100%;min-height:0;object-fit:cover;cursor:pointer}
+.proj-body{display:flex;flex-direction:column;padding:1.8rem 2rem}
+.proj-badge{align-self:flex-start;font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .7rem;border-radius:999px;background:#f1f1ee;color:#767676;margin-bottom:1rem}
+.proj-badge-award{background:#edf1ff;color:#3b5bdb}
+.proj-name{font-size:1.3rem;font-weight:600;color:#111;line-height:1.3}
+.proj-period{font-size:.75rem;color:#767676;margin-bottom:.8rem}
 .proj-desc{font-size:.87rem;color:#555;line-height:1.8;margin-bottom:.9rem}
 .proj-desc a{color:#111;text-decoration:underline;text-underline-offset:2px}
 .proj-desc a:hover{color:#555}
@@ -164,6 +170,8 @@ h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weigh
 .proj-img{height:110px;width:auto;max-width:185px;object-fit:cover;border-radius:6px;border:1px solid #eee;cursor:pointer;transition:transform .2s,opacity .2s}
 .proj-img:hover{transform:scale(1.04) translateY(-2px)}
 .tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.65rem}
+.proj-card .tags{margin-top:auto;padding-top:1rem}
+
 .tag{font-size:.68rem;padding:.15rem .55rem;background:#f5f5f3;border:1px solid #e8e8e5;border-radius:4px;color:#666}
 
 /* CONTACT */
@@ -188,6 +196,9 @@ footer{background:#fff;padding:2rem 3rem;display:flex;justify-content:space-betw
   #home{padding:4rem 1.5rem 3rem}
   .about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}
   .about-card{padding:1.75rem}
+  .proj-grid{grid-template-columns:minmax(0,1fr)}
+  .proj-featured{grid-template-columns:minmax(0,1fr)}
+  .proj-covers{min-height:400px}
   nav{padding:1rem 1.5rem}
   .section{padding:3.5rem 1.5rem}
   .divwrap{padding:0 1.5rem}
@@ -220,9 +231,12 @@ footer{background:#fff;padding:2rem 3rem;display:flex;justify-content:space-betw
   .section{padding:2.75rem 1.15rem}
   .sec-header{margin-bottom:2rem}
   h2{font-size:1.55rem}
-  .tl-deg{font-size:1.3rem}
+  .tl-deg{font-size:1.2rem}
   .tl-desc,.about-text p,.proj-desc{font-size:.84rem}
-  .proj-row{padding:1.5rem 0}
+  .proj-card{padding:1.5rem 1.4rem}
+  .proj-featured{padding:0}
+  .proj-body{padding:1.5rem 1.4rem}
+  .proj-name{font-size:1.2rem}
   .proj-imgs{gap:.5rem;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;padding:.15rem 0 .5rem}
   .proj-img{flex:0 0 auto;height:78px;max-width:132px}
   .tl-row{padding-left:3.5rem}
@@ -380,21 +394,13 @@ html{scroll-padding-top:60px}
 <div id="home-wrap">
 <nav>
   <a href="#home" class="logo">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-      <!-- edges -->
-      <line x1="12" y1="4" x2="20" y2="10"/>
-      <line x1="12" y1="4" x2="4" y2="10"/>
-      <line x1="4" y1="10" x2="8" y2="19"/>
-      <line x1="20" y1="10" x2="16" y2="19"/>
-      <line x1="8" y1="19" x2="16" y2="19"/>
-      <line x1="4" y1="10" x2="20" y2="10"/>
-      <line x1="12" y1="4" x2="8" y2="19"/>
-      <!-- nodes -->
-      <circle cx="12" cy="4" r="2" fill="currentColor" stroke="none"/>
-      <circle cx="4" cy="10" r="1.8" fill="currentColor" stroke="none"/>
-      <circle cx="20" cy="10" r="1.8" fill="currentColor" stroke="none"/>
-      <circle cx="8" cy="19" r="1.8" fill="currentColor" stroke="none"/>
-      <circle cx="16" cy="19" r="1.8" fill="currentColor" stroke="none"/>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <!-- antenna tower -->
+      <circle cx="12" cy="9" r="1.6" fill="currentColor" stroke="none"/>
+      <path d="M12 11L9 21M12 11L15 21M10.2 17H13.8"/>
+      <!-- radio waves -->
+      <path d="M8.5 5.5A5 5 0 0 0 8.5 12.5M15.5 5.5A5 5 0 0 1 15.5 12.5"/>
+      <path d="M5.6 2.6A9 9 0 0 0 5.6 15.4M18.4 2.6A9 9 0 0 1 18.4 15.4"/>
     </svg>
     Afonso Mendes
   </a>
@@ -560,23 +566,31 @@ html{scroll-padding-top:60px}
     <div class="sec-header">
       <h2>Projects</h2>
     </div>
-    <div>
-      <div class="proj-row" style="padding-top:0.5rem">
-        <div class="proj-top"><span class="proj-name">New Scheduling Mechanisms for Multi-Link Operation in Wi-Fi 7</span><span class="proj-period">Sep 2026 – 2027</span></div>
-       <p class="proj-desc">Master's thesis in progress...</p>
+    <div class="proj-grid">
+      <div class="proj-card proj-featured lb-group" id="centurion">
+        <div class="proj-covers">
+          <img src="images/Centurion/img_6408-3861x2167.webp" alt="Centurion helmet" class="proj-cover" onclick="openLb(this)"/>
+          <img src="images/Centurion/img_6404-3233x1815.webp" alt="Centurion presentation" class="proj-cover" onclick="openLb(this)"/>
+        </div>
+        <div class="proj-body">
+          <span class="proj-badge proj-badge-award">★ Award winner</span>
+          <div class="proj-name">Centurion — Smart Helmet</div>
+          <div class="proj-period">Nov 2025 – Jun 2026</div>
+          <p class="proj-desc">Smart helmet for e-scooter riders built on C-ITS principles. Detects nearby vehicles using GPS and ultrasonic sensors, alerting riders in real time to improve urban road safety. Recognized with the <a href="#merit-award"><strong>Critical Techworks Merit Award, Joy in Motion</strong></a>.</p>
+          <div class="tags"><span class="tag">C-ITS</span><span class="tag">GPS</span><span class="tag">IoT</span><span class="tag">Vehicular Networks</span></div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <span class="proj-badge">In progress · MSc thesis</span>
+        <div class="proj-name">Multi-Link Scheduling for Wi-Fi 7</div>
+        <div class="proj-period">Sep 2026 – 2027</div>
+        <p class="proj-desc">Master's thesis currently in development.</p>
         <div class="tags"><span class="tag">Thesis</span><span class="tag">Telecommunications</span></div>
       </div>
-      <div class="proj-row" id="centurion">
-        <div class="proj-top"><span class="proj-name">Centurion — Smart Helmet</span><span class="proj-period">Nov 2025 – Jun 2026</span></div>
-        <p class="proj-desc">Smart helmet for e-scooter riders built on C-ITS principles. Detects nearby vehicles using GPS and ultrasonic sensors, alerting riders in real time to improve urban road safety. Recognized with the <a href="#merit-award"><strong>Critical Techworks Merit Award, Joy in Motion</strong></a>.</p>
-        <div class="proj-imgs">
-          <img src="images/Centurion/img_6404-3233x1815.webp" alt="Centurion presentation" class="proj-img" onclick="openLb(this)"/>
-          <img src="images/Centurion/img_6408-3861x2167.webp" alt="Centurion helmet" class="proj-img" onclick="openLb(this)"/>
-        </div>
-        <div class="tags"><span class="tag">C-ITS</span><span class="tag">GPS</span><span class="tag">IoT</span><span class="tag">Vehicular Networks</span><span class="tag">Award Winner</span></div>
-      </div>
-      <div class="proj-row">
-        <div class="proj-top"><span class="proj-name">CSS-LoRa Signal Analysis</span><span class="proj-period">Feb – Jul 2025</span></div>
+      <div class="proj-card">
+        <span class="proj-badge">BSc thesis</span>
+        <div class="proj-name">CSS-LoRa Signal Analysis</div>
+        <div class="proj-period">Feb – Jul 2025</div>
         <p class="proj-desc">Bachelor's thesis on LoRa signal characterization and collision analysis. Combined hardware (Arduino, SDR) with software tools (SDRSharp, MATLAB) to model interference patterns in low-power wide-area networks.</p>
         <div class="tags"><span class="tag">LoRa</span><span class="tag">MATLAB</span><span class="tag">SDR</span><span class="tag">Arduino</span><span class="tag">LPWAN</span></div>
       </div>
@@ -810,7 +824,7 @@ html{scroll-padding-top:60px}
   let lbImages = [];
   let lbIndex = 0;
   function openLb(imgEl){
-    const group = imgEl.closest('.proj-imgs');
+    const group = imgEl.closest('.proj-imgs, .lb-group');
     lbImages = group ? Array.from(group.querySelectorAll('img')) : [imgEl];
     lbIndex = lbImages.indexOf(imgEl);
     showLbImage();
