@@ -154,6 +154,7 @@ h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weigh
 .proj-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
 .proj-card{display:flex;flex-direction:column;background:#fff;border:1px solid #e6e6e2;border-radius:14px;padding:1.8rem 2rem;transition:transform .25s ease,box-shadow .25s ease}
 .proj-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.07)}
+@media(hover:none){.proj-card:hover{transform:none;box-shadow:none}.proj-img:hover{transform:none}}
 .proj-featured{grid-column:1/-1;display:grid;grid-template-columns:55% minmax(0,1fr);padding:0;overflow:hidden}
 .proj-covers{display:grid;grid-template-rows:1fr 1fr;gap:2px;min-height:300px;contain:size}
 .proj-cover{display:block;width:100%;height:100%;min-height:0;object-fit:cover;cursor:pointer}
@@ -198,7 +199,8 @@ footer{background:#fff;padding:2rem 3rem;display:flex;justify-content:space-betw
   .about-card{padding:1.75rem}
   .proj-grid{grid-template-columns:minmax(0,1fr)}
   .proj-featured{grid-template-columns:minmax(0,1fr)}
-  .proj-covers{min-height:400px}
+  .proj-covers{grid-template-rows:none;min-height:0;contain:none}
+  .proj-cover{height:auto;aspect-ratio:16/9}
   nav{padding:1rem 1.5rem}
   .section{padding:3.5rem 1.5rem}
   .divwrap{padding:0 1.5rem}
