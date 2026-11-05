@@ -508,7 +508,7 @@ html{scroll-padding-top:60px}
           <div class="work-company-logo"><img src="images/Logos/Log%C3%B3tipo_da_NOS.png" alt="NOS logo"/></div>
           <div>
             <div class="work-company-name">NOS SGPS</div>
-            <div class="work-company-type">Lisbon, Portugal · 1 yr 2 mos</div>
+            <div class="work-company-type">Lisbon, Portugal</div>
           </div>
         </div>
         <div class="work-role-grid">
@@ -614,7 +614,7 @@ html{scroll-padding-top:60px}
           <div class="work-company-logo"><img src="images/Logos/Logo_JUNITEC.png" alt="JUNITEC logo"/></div>
           <div>
             <div class="work-company-name">JUNITEC — Júnior Empresa do Instituto Superior Técnico</div>
-            <div class="work-company-type">Lisbon, Portugal · 1 mo</div>
+            <div class="work-company-type">Lisbon, Portugal</div>
           </div>
         </div>
         <div class="work-role-grid">
@@ -628,7 +628,7 @@ html{scroll-padding-top:60px}
           <div class="work-company-logo"><img src="images/Logos/Logo%20JET.png" alt="JET logo"/></div>
           <div>
             <div class="work-company-name">JET — Jornadas Tecnológicas e Empresariais</div>
-            <div class="work-company-type">Oeiras, Portugal · 1 yr 2 mos</div>
+            <div class="work-company-type">Oeiras, Portugal</div>
           </div>
         </div>
         <div class="activity-role-block">
@@ -920,7 +920,7 @@ html{scroll-padding-top:60px}
     }
     return totalMonths + (totalMonths === 1 ? ' month' : ' months');
   }
-  function computeDurationLabel(text){
+  function parseRange(text){
     if(text.includes('&')) return null;
     const m = text.match(/^(.+?)\s*[—–]\s*(.+)$/);
     if(!m) return null;
@@ -935,6 +935,12 @@ html{scroll-padding-top:60px}
     if(!rightParsed) return null;
     const leftParsed = parseDateSide(left, rightParsed.year);
     if(!leftParsed) return null;
+    return {left: leftParsed, right: rightParsed};
+  }
+  function computeDurationLabel(text){
+    const r = parseRange(text);
+    if(!r) return null;
+    const leftParsed = r.left, rightParsed = r.right;
     if(!leftParsed.hasMonth && !rightParsed.hasMonth){
       const years = rightParsed.year - leftParsed.year;
       return years > 0 ? years + (years === 1 ? ' year' : ' years') : null;
@@ -944,6 +950,18 @@ html{scroll-padding-top:60px}
     const totalMonths = (rightParsed.year * 12 + endMonth) - (leftParsed.year * 12 + startMonth) + 1;
     return formatDuration(totalMonths);
   }
+  // Total time at each company/org, from its earliest role start to its latest role end
+  document.querySelectorAll('#work .work-company-type, #experience .work-company-type').forEach(el => {
+    let start = Infinity, end = -Infinity;
+    el.closest('.tl-row').querySelectorAll('.tl-date').forEach(d => {
+      const r = parseRange(d.textContent.trim());
+      if(!r || !r.left.hasMonth || !r.right.hasMonth) return;
+      start = Math.min(start, r.left.year * 12 + r.left.month);
+      end = Math.max(end, r.right.year * 12 + r.right.month);
+    });
+    const label = end >= start ? formatDuration(end - start + 1) : null;
+    if(label) el.textContent += ' · ' + label.replace(/\byears?\b/, m => m === 'year' ? 'yr' : 'yrs').replace(/\bmonths?\b/, m => m === 'month' ? 'mo' : 'mos');
+  });
   document.querySelectorAll('#work .tl-date, #work .tl-role-date, #experience .tl-date, #experience .tl-role-date').forEach(el => {
     const label = computeDurationLabel(el.textContent.trim());
     if(label){
