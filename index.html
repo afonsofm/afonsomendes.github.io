@@ -1,984 +1,1286 @@
 <!DOCTYPE html>
-<html lang="en" style="scroll-behavior:smooth">
+<html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="icon" type="image/png" href="images/cloud-code.png">
-<title>Afonso Mendes • Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@700;800&family=DM+Sans:wght@300;400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Afonso Mendes · Telecommunications &amp; Networks Engineer | Portfolio</title>
+<meta name="description" content="Portfolio of Afonso Mendes, MSc student in Telecommunications and Informatics Engineering at Instituto Superior Técnico (Lisbon). 5G, LoRa/SDR, C-ITS vehicular networks, Wi-Fi 7, data engineering at NOS and award-winning projects."/>
+<meta name="author" content="Afonso Mendes"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="theme-color" content="#0c0d11"/>
+<meta name="color-scheme" content="dark light"/>
+<link rel="canonical" href="https://afonsofm.github.io/afonsomendes.github.io/"/>
+<link rel="icon" type="image/png" href="images/cloud-code.png"/>
+<link rel="apple-touch-icon" href="images/cloud-code.png"/>
+<!-- Open Graph / social previews -->
+<meta property="og:type" content="profile"/>
+<meta property="og:site_name" content="Afonso Mendes"/>
+<meta property="og:title" content="Afonso Mendes · Telecommunications &amp; Networks Engineer"/>
+<meta property="og:description" content="MSc student in Telecommunications and Informatics Engineering at Instituto Superior Técnico. Projects, experience and awards."/>
+<meta property="og:url" content="https://afonsofm.github.io/afonsomendes.github.io/"/>
+<meta property="og:image" content="https://afonsofm.github.io/afonsomendes.github.io/images/opt/og-1200.jpg"/>
+<meta property="og:image:alt" content="Afonso Mendes"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:locale:alternate" content="pt_PT"/>
+<meta property="profile:first_name" content="Afonso"/>
+<meta property="profile:last_name" content="Mendes"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Afonso Mendes · Telecommunications &amp; Networks Engineer"/>
+<meta name="twitter:description" content="MSc student in Telecommunications and Informatics Engineering at Instituto Superior Técnico. Projects, experience and awards."/>
+<meta name="twitter:image" content="https://afonsofm.github.io/afonsomendes.github.io/images/opt/og-1200.jpg"/>
+<!-- Structured data for search engines -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Afonso Mendes",
+  "url": "https://afonsofm.github.io/afonsomendes.github.io/",
+  "image": "https://afonsofm.github.io/afonsomendes.github.io/images/opt/og-1200.jpg",
+  "jobTitle": "MSc Student in Telecommunications and Informatics Engineering",
+  "email": "mailto:afonsomendes.tech@gmail.com",
+  "address": {"@type": "PostalAddress", "addressLocality": "Lisbon", "addressCountry": "PT"},
+  "alumniOf": [
+    {"@type": "CollegeOrUniversity", "name": "Instituto Superior Técnico, University of Lisbon"},
+    {"@type": "CollegeOrUniversity", "name": "Instituto Superior de Engenharia de Lisboa"}
+  ],
+  "worksFor": {"@type": "Organization", "name": "NOS SGPS"},
+  "award": [
+    "Critical Techworks Merit Award, Joy in Motion (2026)",
+    "1st Place, BEST Entrepreneurship Experience (2026)"
+  ],
+  "knowsAbout": ["Telecommunications", "5G", "LoRa", "Software-defined radio", "C-ITS", "Vehicular networks", "Wi-Fi 7", "Computer networks", "Data engineering", "Google Cloud Platform", "Python"],
+  "knowsLanguage": ["Portuguese", "English"],
+  "sameAs": [
+    "https://linkedin.com/in/afonso-figueira-mendes",
+    "https://github.com/afonsofm"
+  ]
+}
+</script>
+<script>
+  // Apply saved theme and language before first paint (no flash)
+  (function(){
+    var r = document.documentElement, t, l;
+    try { t = localStorage.getItem('theme'); l = localStorage.getItem('lang'); } catch(e){}
+    if(t !== 'light' && t !== 'dark') t = 'dark';
+    if(l !== 'pt' && l !== 'en') l = (navigator.language || '').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en';
+    r.setAttribute('data-theme', t);
+    r.setAttribute('lang', l);
+    r.classList.add('js');
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:#f6f5f1;
+  --surface:#ffffff;
+  --surface-2:#efeee8;
+  --text:#14151a;
+  --muted:#565a63;
+  --faint:#83868e;
+  --line:#e3e1da;
+  --line-strong:#cfcdc5;
+  --accent:#2b47d1;
+  --accent-ink:#ffffff;
+  --accent-soft:#e8ecfd;
+  --dot:rgba(20,21,26,.09);
+  --shadow:0 1px 2px rgba(20,21,26,.04),0 8px 24px rgba(20,21,26,.06);
+  --nav-bg:rgba(246,245,241,.82);
+  --band:#ecebe5;
+  --font-display:'Plus Jakarta Sans',system-ui,sans-serif;
+  --font-body:'Plus Jakarta Sans',system-ui,sans-serif;
+  --radius:14px;
+  --max:1120px;
+  --gutter:clamp(1rem,4vw,3rem);
+}
+:root[data-theme="dark"]{
+  --bg:#0c0d11;
+  --surface:#14161b;
+  --surface-2:#1a1d23;
+  --text:#ecebe6;
+  --muted:#a4a7ae;
+  --faint:#757982;
+  --line:#24272e;
+  --line-strong:#33373f;
+  --accent:#8399ff;
+  --accent-ink:#0c0d11;
+  --accent-soft:#1a2142;
+  --dot:rgba(236,235,230,.07);
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+  --nav-bg:rgba(12,13,17,.8);
+  --band:#111318;
+}
+
+/* ============ BASE ============ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:#f0f0ed;color:#111;font-family:'Inter',sans-serif;font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15.5px;line-height:1.7;-webkit-font-smoothing:antialiased;transition:background-color .3s ease,color .3s ease;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+::selection{background:var(--accent);color:var(--accent-ink)}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 3rem;background:rgba(12,12,16,0.85);backdrop-filter:blur(14px);border-bottom:1px solid #222;transition:background .4s ease,border-color .4s ease}
-.logo{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:#e8e8e0;text-decoration:none;display:flex;align-items:center;gap:.5rem;letter-spacing:.02em;transition:color .4s ease;white-space:nowrap}
-.nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
-.nav-links a{font-size:.78rem;color:#b3b3b3;text-decoration:none;transition:color .4s ease;letter-spacing:.05em;text-transform:uppercase}
-.nav-links a:hover{color:#fff}
-.nav-toggle{display:none;align-items:center;justify-content:center;flex-direction:column;gap:5px;width:44px;height:44px;border:1px solid rgba(128,128,128,.35);border-radius:5px;background:transparent;color:inherit;cursor:pointer}
-.nav-toggle span{width:18px;height:2px;background:currentColor;transition:transform .2s,opacity .2s}
+/* Language switching: show only the active language */
+html[lang="pt"] [data-l="en"],html[lang="en"] [data-l="pt"]{display:none !important}
 
-/* HERO */
-#home-wrap{min-height:100vh;padding-top:0;background:#111;position:relative;border-bottom:1px solid #1a1a1a;background-image:url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAGQBkADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDyGiiirJCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAopaKAExS0UUAFFFFABRRRRYAooxS0wEopaMUgEopcUYosAmKWjFLQAlFLRTASilooASilooATFGKWiiwBRRRigAooxRigAooxRigAooxRigAooxRigAooxRigAooxRigAooxRigAooxRigAooxRigAooxRigAooxRQAmKMUtFFgEopaKAEopaKAEopaKAEpMU6kxQAlFLijFKwCUUuKKAEoooxTAKKKKVgCiiigApMUtFACUUtFACUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRS4oASilooASlxRRQAUUUYoAKKMUtACUUtGKAEpcUuKKYCUUtFACUuKMUYoAMUUYpcUAJRS0UAJRS0YoATFGKdRQAmKKXFGKAEopcUYoASilxS4oENop2KMUANop2KMUANop2KMUAJijFLRQAmKMUuKMUAJijFLijFACYoxS4oxQAmKMUuKMUAJijFLijFACYoxS4oxQAmKMUtFACYpKdijFADaKdijFADaKdijFADaKdikxQAlFLijFAxKMUuKMUANxRinUUANopcUYoASilooASjFLikxQAYpKXFGKAEopaKAExSU6jFADaXFGKKQCUUtJigAooxRQAYpKWigBKKWigBKKXFJQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUYpaAEoxS0UAFFFFABRS0YoASilxS4oASilopgJilxRS4oASilooASilooEJS0uKKBiUUuKMUAJRinUUCEoxS4oxQAmKMU7FGKAExRilxS4oAbiinYoxQAmKMUuKXFADcUYp2KMUCG4oxTsUYoAbilxTsUYoAbRinYoxQA3FGPanUYoAbijFOxRigBMUYpcUYoATFJTsUYoASjFLijFACYopcUYoAbRTsUYoATFGKXFGKAG4oxTsUYoAbj2oxTsUUANxRinUYoAbikxT8UYoAZijFOxRigBuKMU7FGKAG4oxTsUmKBjaMU7FGKAG4oxTsUmKAG4oxTsUYoAbiilxRigBuKKdRQA2ilxRigYlJTqMUANopaKBCUUtFAxMUmKdikoASilooAbRTsUmKQCUUuKKAEooooATFFLRQAlFLSYoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKXFACUUtFABRRRQAUUYpaAEpcUUtACUUtFMAopcUYoASilooAKKMUtAhKKXFLigY3FLilxRigQlLiloxQFxMUUuKXFACYoxS4pcUANpcUuKMUCExRinYoxQA3FLilpcUANoxTsUYoATFGKXFLQA2jFOxRinYBMUYp2KMUWAbijFOxRiiwDcUuKXFGKAExRilxS4oAbijFOxRigBtFOxRigBtFOxRigBtFOxRigBtFOxRigBtFOxRigBtFOxRigBtFOxRigBtFOxRigBuKMU7FGKAG4oxTsUmKAExRilxRigBuKMU7FGKLANxRilxRiiwDcUYp2KMUWAbijFOpMUgG4op2KMUBcbikxT8UmKAG4oxTsUYoAbikp2KMUANxRinYpMUDG0Yp2KTFACYpKdiigBuKTFOxRigBtFOxSYoASilpMUAJRS0UDEopaTFACUUtFACYpKdSUgEopaTFABRRRQAlFLRQAlFLikoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigApcUUUAFFFGKACilopgFFLRQAmKWilxQAlLiiigAooxS0AJS0UtAhKMUtFABiilxRigAoxS0YoEJilxS4ooATFLilxRQAlGKWlxQAmKMUuKWmAmKMUuKMUAFGKWigBKMUuKXFAhuKWlxS4oAbS4pcUUAJijFLilxQA3FGKdijFACYoxTsUYpgNxS4pcUuKAG4oxTsUYoAbijFOxRigBuKMU7FGKAExRinAUYosA3FGKdijFADcUYp2KMUCG4oxTsUYoAbijFOxRigY3FGKdigiiwDMUYp2KMUANxRinYoxQA3FGKdijFADcUmKfikxQA3FGKdijFADMUYp2KMUANxRinYpMUgExSYp2KMUANxSYp+KTFADcUYp2KTFACYpMU6igY3FGKXFGKAG4oxTqTFADcUU6kpAJikxTqMUANxSYp1GKAG4opcUUANoxS4oxQMbiilooASkp1JQAlFLSYoGGKSlooASkxTsUlACUUtFADaKWikAlFFFABikpaKAEooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiloAKKKKACijFLTAKKKWgAoopcUAJS4oooAKKBS0AJilopaBCUtFLigBKXFFLQAlLRilxQISlxRijFABS0YpcUAJijFLS0AJilopcUwEopaKACilxRigQmKMU7FFACUYp2KMUAJijFOxRigBMUYp2KMUwExRinYoxQA3FLilxS4oAbijFOxS4oENxRinYoxTATFGKXFLQA3FGKdRQAmKMUuKMUAJijFLijFACYop2KKAG4oxTsUYoAbijFOooAbijFOooAbijFOxRigBuKMU6jFADcUYpcUYoATFGKXFGKAG4oxTqKAG4oxTqTFADcUYp2KMUAMxRin4pMUgG4pMU/FJigY3FGKdijFADMUYp2KMUAMxRinYoxSAZiinYoxQAzFGKdRQA2ilxRigBtFLRQMSkxTsUlADcUYp1JSASkp2KTFACYpMUuKKAExSU7FJigBMUlOpMUDEpKdikoASkxTqSgBKKWkxQMMUlLRQAlFLikoASilpKAEopaTFABRRRSASilpKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKMUYpaACiiigAoopaACloopgFFFLQAUUUUAFLiiigQUtFFABS4oooAKWiigQUuKKKACilpaAExS0UtMAoopaAExS4oooAKKXFFAgpaKXFACUuKMUuKAEopcUtACYpcUYpcUwExS4paMUAJilxS0UCExRinUUwExS0UuKAEopaKAExS4opcUAJRS4pcUANop1FACYoxS0tAhuKMU7FGKAG4pcUuKMUAJRilxS4oAbijFOxRigBuKMU7FGKAG4oxTsUYoAbikxTsUYoAbijFOxRigBuKMU6koAbRTqKBjaKdikxQAmKTFOxSUAJRS0UAJSYp2KSgBuKMU6igBuKTFOopANxSU7FGKAG4pMU7FJigY3FGKdSYpAJikxTqTFACUlOpKAG0U6kxQAmKTFLRQMSilpKAEpMU6kxQAlJTqSkAmKSlooASkpaKAExSUtFAxKSlooATFJS0UAJRRRQMSilpKACkpaKAExSUtJSAKKKKAExRS0mKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiloAKKKKAClpKWgApaSlpgFFFLQAUUUUAFLRRQIKWiigApaKKBBS0UUALRRRQAUtFLQAUtFFMAoopaACiiloAKKKWgQUuKKKACloooAKXFFLTATFLRS0AFFLiigQYopaKYBRRS0AJS0UuKAEoxS0tACUtFLQAmKKWigQUYpaKAEpcUuKKYCYopcUtACYoxS0YoATFGKXFLQIbijFOoxQA3FGKdRQA3FGKdRQA3FGKdiigBuKMU6kxQAmKMUuKKBjaMU6kxQAmKSnUYosA3FFLRSAbRinUlACUhp1JQA3FFOpKBiUmKdikoASilpDQAlGKWikA2ilooAbSYp1JQMSkp1JQAlJS0UgExSUtFADaKWkoASilpKBiUUtJQAUlLRQA3FJTqSkAlFFFACUlLRQAlJS0UAJSUtFAxKKKKAEooooGJRS0lABSUtJQAUlLSUgCiiigBKKWkoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigApaBRQAUUUooAKKKBTAWiiigApaQUtABS0lLQIKWkpaAClpKWgApaSloEFLRRQAUtIKWgBaUUlKKACiilFMAoooFAC0UUtAgpaSloAKWiigApaKKAFoopaYBS0gpaBBS0CigAoxRS0wCiiloAKXFJS0AFLRRQIKKWigAopaKYBRRS0AFFFLQIKKKKACjFLRQAYooooAKKMUtACUUtFACUUtFACUUtJigAoxRRQAmKKWigBKKKKAEopaSgBKKWkoGJRS0UANopaKQCUlLRQMSkpaDQA2ilpKACkpaSgApKWigBKSlpDSASilpKBiUlLRSASkpaKAEpKWkoASilpKAEooNFAxKKU0lACGilpKQCUlLRQAlJS0GgBKSlpKACkpaSgYUlLSUABpKWkoAKSlpDQMKKKKAEooNFACUUppKQBSUtBoASiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAWiiigApRSUooAKUUlKKYBRRRQAClpBS0CClpKWgAFLSUtAB3paSloBi0UgpaBC0UUUALS0lAoAWlpKWgApaSlpgFKKSlFABS0lLQIUUCgUUALQKKKAFpaSlpgFLSUtAC0UUUCFooHSimAoopKWgApaSloAWiiigQtFFFAC0UUUALRRRTAWiiigQoopKWgApaSlFABRRRQAUopKKAFooooAKKKKACiiigAooooAKSiigAooooAKSlNJQAUGikoAKKKKAEooooGJRRRSASiiigBKKKKBiUhpaSgAoooNACUUUHpQAlFFFIBKSlpKBhSUtJQAhooNFIBDQaD1oNACUlLSUABpKU0lAwpKWkoAKSlpKQBSUGigBKKKKAEoopDQAUnelpKBoKQ0tJQAUlLSUAFIaWkNABRRRQMDSUppKACkpaSkAUUUUAJRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAApaSloAKKKKAFooooAWiiimAClpKWgApaSigQtLSUUALS0lFAC0tJS0CAUtJS0AApaSloAWlptLQAtFFFMBaKKKAFpaSigQtLSUUAOFFJS0ALRSUtMBaBRRQAtLSUUCHCikopgLS0lFAC0tJRQAtLTc0tADs0UlFAC0uaSigQtLTaWgBaKSlzTAWikooEOzRSUUALmlzTaXNAC0UlFAC0UlLmgAozRmjNABmijNGaACijNJQAtFJRQAuaTNGaSgBaM0lFABRSUUALmkozSUDFpKKSkAtJRRQAUZpKKBhSUUmaAFpKKKACkoooAKDSUUAFJS0lIBKKKKBiUUUlIAoNFJQAUlFFABSUUUAJRRRQMSiiigANJRSGkAUhpaSgApDS0lABSUtJQAUlFFAwpKWkoAKSiigApDS0lAwooooASiiikAlFFFABSGlpKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKWkooAWiiigApaSigBaWkozTAWiiigBaKBRQAUtJS0CFFFJSigBaKSloELRSUtAC0UlLQAtLTaWgBaWm0tMBaWkooAWlzSZooAWlpuaWgQtLTc5paAHUUmaKAHUZpKKAHUuabRTAdS03NANAh2aWm0tMBaKSloAWikooAXNLmkooAdRTaXNAhc0tNzS0ALS02jNADs0ZpM0ZoAdRTc0ZpgOzRmkzRmgB2aM03NGaAHZozTc0ZoAdmjNNzRmgB+aTNNzRmgB2aM03NGaAHZozTc0ZoAXNGaTNGaLgLRTc0ZpALmjNJmjNAC0lJmigBaTNFJmgYtFJmkoAXNJmiigAopM0UAFFFJQAtJRSZoAWkopKQC5pKSigYUUlGaQBRSUUAFJRSE0ALSUUmaAFpKKKBhSUUUAFJRSUALSUUlIAoopM0AFFFJQAUUUlABRQaSgYUUUlABRRQaBiUUUUAFJRmigApKKKACiiikAUlFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABS0lFAC0UUUAFLSUUwFFLSUUALSikooAWikFLQAtFJRQIUUtJRQAtLSUUAOzRSZooEOzRSUUAOzRSUUAOopKKAHUUlLTAWikooAXNLmkooAdmim5paBDs0U2lzQA6jNNzS5oAdS5puaM0AOzRmkzRmmA6jNNzS5oAdmjNJmjNAh1FNozTAdRmkzRmgB1FJRQAuaXNNooAdmjNJmjNAC5pabmjNAh2aKbmjNADs0uaZmjNAD80ZpmaXNAx2aM03NGaBDs0ZpuaM0AOzRmm5pM0DH5pM03NGaAHUZpuaKAHZozTc0ZoAXNGaTNGaAFzSZpKKAFopKKADNGaTNGaAFopuaKAFzRmkzRmkFgzRSUmaBi0UmaM0ALmkpM0ZoAM0UmaTNIBaKTNJQAtGaSkzQAuaTNFFAwopKKACiikoAKKTNJSAWjNJRQAUZpKKACjNJRQAUlFFAwpKKKACikooAKKKSgYppKKKACkNFFABSUUUAFFFFIApKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKWkooAWijNFABRmiimAtLmm5paAFopKWgBaKSigBaWkooAWikpaAFopKM0CHUZpKKAHUUlGaBDs0UmaKAHZozTaXNADqM0lGaAHUZpuaXNMB1FNzS5oAWlzTc0uaAFzRmkooAdRSZozQIdRmm5pc0AOzRmm5pc0AOozTc0ZpgOzS5puaM0AOzS5pmaXNADs0ZpuaM0APzRTc0ZouIdmjNNzRmmA7NLTc0ZoAdRmm5ozQA7NGabmjNADs0ZpuaXNAC5opM0ZoAWjNJmjNAC5ozSZpM0AOzRmm5ozQA7NGabmjNADqTNJmjNAC5ozTc0ZoAdRTc0ZpXAXNGabmjNAxc0ZpM0maAHZpM0maM0ALmim5ozQApNGaTNJmkAuaKTNJmgBaKTNGaAFpKSigYZoozSZoAWikzSZoAWikzRmgAzRSZopAFGaTNJQAtFJRmgAopM0UAGaKSigYUUmaKACiikoGLSUUUAFFJRQAUUUlAC5pKKTNAC0lFFIAooooAKSiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAFopKKAFooooAM0tJRQAtLTc0tMBaKSlzQAtFJRQAtGaSloAXNFJRQA7NFNpaBC0tNpc0ALS5puaKAHZpc02igQ6jNJRmgB2aM03NLQA7NGabRmgB9FNzRQA6jNJmjNMB2aM0maM0ALmlzTc0UCHZozTc0uaBjs0ZpuaM0CHZpc0zNGaAH5ozTc0UAOzS5pmaXNADs0ZpuaM0wHZozTc0ZoAdmjNNozQA7NLmm5ozQA7NGabmjNADs0ZpuaM0AOzRmm5ozQA7NGabmjNADs0maTNGaAFzRmm5ooAdmjNNzRmgB2aM03NGaAHZpM0maM0gFzRmm0ZoAdmkzTc0ZoAdmjNNozQAuaM0maTNADs0maSigBc0UmaM0DFzSUmaM0ALRTaKAFzRmkpKQC5ozSUmaAFzRSZooAXNJmkooAXNJSUZoGLSUZpKAFozSUlAC0ZpKKBhmiikoAWikooAKKM0lAC0lFJmgBaTNFFIAooooAKKSigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigBaKSigBaKKKLgFLmkooAWikpc0wFopKKAFozSZpc0ALRSUUALRSZpc0ALRmkooEOoptLQAuaM0lGaAHZpaZmlzQFh1FNpc0CFzS5puaM0AOzS5pmaXNADs0ZptFADqWm5ozQA7NGabmlzQAuaXNNozTAdmjNNzRmgLDs0uabmjNADqKbmjNADqM0maM0ALmjNJmjNAC5ozSZozQAuaXNNooAdmjNNzRmgB2aM03NGaAHZozTc0ZoAdmjNNzRmgQ7NJmkooGLmjNJmjNAC5ozSZozQAuaKTNGaAFopuaM0AOzSZpM0ZoAXNGabmjNAWHZpM0maM0ALmjNJmkzSAdSZpM0ZoAWjNJmkzQA7NJmkpM0AOzSZpM0ZoAXNFJmkoAdSZpM0maBi5ozSZooAWikzSZoAXNFJRQAUUZpM0DFopKKADNFGaTNAC0UlFABRRmkoAXNJRRSAKKKM0XAKKSigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKWkooAWiiigAooooAM0tJRTAWjNJS0gFzRSUUwFozRRQAtFJRQAtFJS0AGaM0UUCFopKKAFzS5puaWgBaKSigB1GaTNFAC0ZpKKBDs0ZpuaWgBc0uabRQA7NFNzS5oAWjNJmjNAC5pabRmgBc0uaTNGaAFzRmkooAXNGaSigBc0UlFAC5pc02igB2aM02igB2aM02igB2aSkooAWjNJRQAuaM0lFAC5ozSUUALmkzRmjNAC0maTNFAC5opM0ZoAWjNJmkzQA7NJmkooAXNGaSjNABmikooGLmikozQAUUlFAC5pM0UmaAFopKKAFpM0UUAFFFJQMWikooAM0UUUAFGaSigAzRRSUgFpM0UUwCiiikAUUUUAFJRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFLRRQAUUUUAFFFFABRRRQAUtJS0AFFFFMBaKSloAKKKKAClpKKAFooooAKKKKBBS0lFAC0UUUAFLSUUALRRRQAUuaSigBaKSloAKKKKBBRRRQAtFJRQAtFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRSUUAFFFFABRRRQAUUUlAxc0lFFABRRRQAUlFFABRRRQAUlFFABRRRQAUUUUDCkoooAKKKKACiikoAKKKKACkpaSkAUUUUAFFFFABRRRQAUlLRQAlFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFLRQAUUUUAFFFFABRRRQAUUtFACUtFGKACilopgJS0UUAFFGKWgBKKWigBMUtFFABRRiloASilooEFFGKWgBKKWigAxRRiloASilxRigBKKXFLQISiloxQMSjFLijFAhMUYp2KMUAJRS4oxQAlFLRigBKKXFGKAEop2KMUANpcUtFACYoxS0UAJijFLRQAmKSnUUANop2KMUANopcUYoASilxRQAlFLijFADcUYp2KMUANxRS4oxQAlFLiigY2inUmKAEopcUYoEJRilpMUDEopaKAEopaTFACUUtFACUUtJigYUmKWigBKKWigBKKWkxQAUmKWigBKKWigBKSlxRSASilooASiiigAooooAKKKKAEopaKAEooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigApaSgUALRRRQAUUUUAFFFAoAWiiimAUUUtABRRRQAUYpaKACiiigAooooEFFLRQAUUUUAFLRRQAUUUtACUtFFABRS0UAFFFLQISjFLRQAUUUUAFFLRQAYoxRRQAUUUtACUUtFACUUtFABijFGKWgBMUYpaKAEoxS0UBcTFGKWigLiYoxS0UBcTFFLRQFxMUYpaKAExRilpMUAJRS0UAJRS0UAJRS0lABijFFFACUUtFACUUUUAJiilooASilxSUAJRS0UDEpKWigBKKWkoAKSlooASiiigBKKWigBKKKKACiiigYYpKWigBKKKKAEopaSkAUUUUwEooNFIAooooAKKKKACkoNFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAC0UlFAC0UUUAFFFFACiikooAWlpKKYC0UUUAFLSUUALRRRQAUUUUCFopKWgAooooAWikpaAClpKKBC0UUUALRSUUALS0lFAC0UlLmgAooooAWikooAWiiigApaSigBaKSigBaM0ZooAWikooAWikooAWikpc0AFFGaM0AFFGaM0AFFGaSgBaKSigBaKSigAzRRRmgAopKKAFpKKKAsFFFFABRSUUAFFFFABRRmkzQAtJRRQAUUZpKACiiigApKKKACiikoGLSUUUAFFFJQAUUUUAFFFFAwpKKKACiiigApKKKACiikpAFFFFABRRRQAUUZpKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKWkooAWikozQAtFFFABS0lFAC0UlLmmAtFJRQAtFJmloAWikooAWijNGaAClzSUUALRSUZoAWlpM0UALRSUZoEOopM0UALRSUUAOopKM0ALRSUZoEOopuaXNAC0UlFAC0UlFAC5paSkoAdRSZozQAtFJmjNAC0ZpKKAFozSUUALmjNJRQAuaM0lFAC5opKKAFzRSUUALRSZozQAtFJmjNAC0maSloAKKSigBaKSigBaKTNJmgBaKTNFAC0UmaKBhRSUUALRSUZoAKKTNFAC0lFGaACikzRQMXNJRRQAUUZozQAUUlFABRRSZoAWikooAKKM0lAC0lFFIAooooAKKKSgBaSiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACjNFFAC5opKKAFoozRQAUUUUAGaWkooAWjNJS5pgLRSUUALRSUuaADNLmkooAWikooAWjNJS5oAM0tJRQAtFJRQAuaXNNooEOopM0ZoAXNGaTNFAC0UlFADqKbmlzQAuaM0maM0ALmjNJmjNAC5ozSZozQA7NFNooAdRTaKBDqKbRQA6im0UAOoptFADqM02igBc0ZpM0ZoGLmjNJmjNAC5ozSZozQAtFJmkzQAtFJRQAuaM0lGaAFopM0ZoAXNJmkooAWikooGLSZoooAM0UZpM0ALRSUUALmkzRRQAUUZpKAFopKKADNFGaSgBaTNFFIAooooAKKKM0AFGaSigAzRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAC0UlFAC0UmaM0ALRRRRcAozRRQAtFJRTAWjNJS5oAWim0tAC0UlFAC0UmaXNAC0UlFAC0UlFAC0UlFAC0UZozQAUZozRmgAzRmiigBc0UlFAC0UlFAC0UlFAhaKSigBaKSigBaKSigBaKSigBaKSigBaKSigYtGaSigAzRmiigAzRRmjNABRRmjNABRRmkoAWikooAWikooAKKM0maAFopKKAFopKSgBc0UZpKAFopKKADNFFFIAoooouAUUmaM0ALRSUUAGaKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAWikooAWiiigAooooAKKKKACiiigAzS5pKKAFopKXNABRmiimAZpaSikAtFJRQAtFFFMAooooAM0ZoooAM0ZoooAXNGaSigBc0UlFAC0UlFAC0UlFAC0ZpKKAFzRmkooAM0ZoooAM0ZoooAKKKKACiiigAopKKQC0maKKADNFFFMAoozSUgFpM0UUAFFFFABRRRQAUUUUAFFFFABRmkooAM0UUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB//Z");background-size:cover;background-position:center;}
-#home-wrap::before{content:'';position:absolute;inset:0;background:rgba(8,8,12,0.65);z-index:0;}
-#home{position:relative;z-index:1;}
-#home{max-width:1100px;margin:0 auto;padding:6rem 3rem 5rem;min-height:100vh;display:grid;grid-template-columns:1fr auto;gap:5rem;align-items:center}
-.hero-inner{max-width:700px}
-.hero-tag{
-  display:inline-block;
-  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
-  color:#9a9a9a;margin-bottom:2rem;font-family:'Inter',sans-serif;
+.wrap{max-width:var(--max);margin:0 auto;padding:0 max(var(--gutter),env(safe-area-inset-right)) 0 max(var(--gutter),env(safe-area-inset-left))}
+.mono{font-size:.84rem;font-weight:500;font-variant-numeric:tabular-nums}
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:var(--accent-ink);padding:.5rem 1rem;z-index:300}
+.skip:focus{left:1rem;top:1rem}
+
+/* ============ NAV ============ */
+.nav{position:fixed;inset:0 0 auto;z-index:100;background:var(--nav-bg);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,background-color .3s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav-inner{display:flex;align-items:center;gap:1.5rem;height:64px}
+.logo{display:flex;align-items:center;gap:.55rem;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.3rem;line-height:1;text-decoration:none;white-space:nowrap;letter-spacing:-.01em}
+.nav-links{display:flex;gap:.25rem;list-style:none;margin-left:auto}
+.nav-links a{display:block;padding:.4rem .7rem;font-size:.84rem;color:var(--muted);text-decoration:none;border-radius:8px;transition:color .2s,background-color .2s}
+.nav-links a:hover{color:var(--text);background:var(--surface-2)}
+.nav-links a.active{color:var(--text)}
+.nav-links a.active::after{content:'';display:block;height:2px;margin-top:2px;background:var(--accent);border-radius:2px}
+.controls{display:flex;align-items:center;gap:.4rem}
+.seg{display:flex;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.seg button{font-size:.74rem;font-weight:700;letter-spacing:.03em;padding:.3rem .6rem;border-radius:999px;color:var(--faint);transition:color .2s,background-color .2s}
+.seg button[aria-pressed="true"]{background:var(--text);color:var(--bg)}
+.icon-btn{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);transition:color .2s,border-color .2s}
+.icon-btn:hover{color:var(--text);border-color:var(--line-strong)}
+.icon-btn .i-sun{display:none}
+:root[data-theme="dark"] .icon-btn .i-sun{display:block}
+:root[data-theme="dark"] .icon-btn .i-moon{display:none}
+.menu-btn{display:none}
+.menu-btn span{display:block;width:16px;height:1.5px;background:currentColor;transition:transform .2s,opacity .2s}
+.menu-btn span+span{margin-top:4px}
+
+/* ============ HERO ============ */
+.hero{position:relative;padding:calc(64px + clamp(3rem,9vh,6rem)) 0 clamp(4rem,10vh,6rem);overflow:hidden}
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(2rem,6vw,5rem);align-items:center}
+h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:calc(clamp(3.2rem,8vw,6rem) * 1.08);line-height:.95;letter-spacing:-.02em;margin-bottom:1.6rem}
+.lead{font-size:clamp(1rem,1.4vw,1.12rem);color:var(--muted);max-width:34em;margin-bottom:2rem}
+.lead strong{color:var(--text);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;height:44px;padding:0 1.15rem;border-radius:10px;font-size:.88rem;font-weight:500;text-decoration:none;transition:transform .2s,background-color .2s,border-color .2s,color .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--text);color:var(--bg)}
+.btn-primary:hover{background:var(--accent);color:var(--accent-ink)}
+.btn-ghost{border:1px solid var(--line-strong);color:var(--text)}
+.btn-ghost:hover{border-color:var(--text)}
+.socials{display:flex;gap:.4rem;margin-left:.3rem}
+.socials a{display:grid;place-items:center;width:44px;height:44px;border-radius:10px;color:var(--muted);transition:color .2s,background-color .2s}
+.socials a:hover{color:var(--text);background:var(--surface-2)}
+
+.portrait{position:relative;justify-self:center;width:min(100%,320px);aspect-ratio:1}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%;border:6px solid var(--surface);box-shadow:var(--shadow)}
+.portrait canvas{position:absolute;left:-45%;top:-45%;width:190%;height:190%;z-index:0;pointer-events:none}
+.portrait-3d{position:relative;z-index:2;width:100%;height:100%;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+
+/* Entrance: 3D intro sequence */
+h1 .line{display:block;overflow:hidden;padding-bottom:.06em;perspective:700px}
+h1 .line>span{display:inline-block;transform-origin:50% 100%}
+.js h1 .line>span{animation:rise3d 1.15s cubic-bezier(.16,.84,.24,1) both;animation-delay:calc(.15s + var(--i,0) * .12s)}
+.js .intro{animation:fadeUp .9s cubic-bezier(.16,.84,.24,1) both;animation-delay:var(--d,.5s)}
+.js .portrait{animation:portraitIn 1.4s cubic-bezier(.16,.84,.24,1) both .2s}
+.js .nav{animation:navIn .8s cubic-bezier(.16,.84,.24,1) both}
+@keyframes rise3d{from{opacity:0;transform:translateY(105%) rotateX(-80deg)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes portraitIn{from{opacity:0;transform:perspective(1000px) rotateY(-40deg) rotateX(12deg) scale(.82)}to{opacity:1;transform:none}}
+@keyframes navIn{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:none}}
+
+/* Scroll progress */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:101;background:var(--accent);transform-origin:0 50%;transform:scaleX(var(--p,0));pointer-events:none}
+
+
+/* ============ SECTIONS ============ */
+.section{--sec-bg:var(--bg);background:var(--sec-bg);padding:clamp(3.5rem,9vh,5.5rem) 0;border-top:1px solid var(--line)}
+.section.band{--sec-bg:var(--band)}
+.sec-head{margin-bottom:clamp(2rem,5vh,2.75rem)}
+h2{font-family:var(--font-display);font-weight:600;font-size:clamp(1.7rem,3.2vw,2.3rem);letter-spacing:-.025em;line-height:1.15}
+h2::after{content:'';display:block;width:40px;height:3px;margin-top:.75rem;background:var(--accent);border-radius:2px}
+
+/* Vertical timeline */
+.tl{position:relative;padding-left:2.5rem}
+.tl::before{content:'';position:absolute;left:8px;top:.5rem;bottom:.5rem;width:2px;background:var(--line-strong)}
+.tl>*{position:relative}
+.tl>*+*{margin-top:2.5rem}
+.tl>*::before{content:'';position:absolute;left:calc(-2.5rem + 2px);top:.3rem;width:14px;height:14px;border-radius:50%;background:var(--sec-bg);border:2px solid var(--accent);box-sizing:border-box}
+.tl>*::after{content:'';position:absolute;left:calc(-2.5rem + 6px);top:calc(.3rem + 4px);width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+/* ============ SECTION MOTION ============ */
+/* Elements animate individually as they enter the viewport (JS adds .m-item / .m-sub and toggles .on) */
+.js .m-item{opacity:0;transition:opacity .9s cubic-bezier(.16,.84,.24,1),transform .9s cubic-bezier(.16,.84,.24,1)}
+.js .m-item[data-m="up"]{transform:translateY(26px)}
+.js .m-item[data-m="left"]{transform:translateX(-32px)}
+.js .m-item[data-m="rise3d"]{transform:perspective(1000px) translateY(44px) rotateX(16deg);transform-origin:50% 0}
+.js .m-item.on{opacity:1;transform:none}
+.js .m-done.card,.js .m-done.skill{transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease,border-color .3s}
+.tilting{transition:transform .12s ease-out,box-shadow .3s ease,border-color .3s !important;will-change:transform}
+.js .m-sub{opacity:0;transform:translateY(10px) scale(.9);transition:opacity .6s ease,transform .6s cubic-bezier(.16,.84,.24,1);transition-delay:calc(var(--bd,0ms) + 250ms + var(--ci,0) * 45ms)}
+.js .bullets .m-sub{transform:translateX(-14px)}
+.js .gallery .m-sub{transform:translateX(30px) rotateY(-25deg)}
+.js .on .m-sub{opacity:1;transform:none}
+/* Headings: text slides up from a mask, accent bar draws in */
+.js .sec-head h2{overflow:hidden;padding-bottom:3px}
+.js .sec-head h2>span{display:inline-block;transform:translateY(110%);transition:transform 1s cubic-bezier(.16,.84,.24,1)}
+.js .sec-head.on h2>span{transform:none}
+.js .sec-head h2::after{transform:scaleX(0);transform-origin:0 50%;transition:transform .9s cubic-bezier(.16,.84,.24,1) .35s}
+.js .sec-head.on h2::after{transform:none}
+/* Timeline line draws with scroll; markers pop in */
+.js .tl::before{transform:scaleY(var(--draw,0));transform-origin:50% 0}
+.js .tl>.m-item::after{transform:scale(0);transition:transform .5s cubic-bezier(.34,1.56,.64,1) .35s}
+.js .tl>.m-item.on::after{transform:scale(1)}
+
+/* About */
+.about{max-width:50rem}
+.about p{color:var(--muted);margin-bottom:1rem}
+.about p:last-child{margin-bottom:0}
+.about p strong{color:var(--text);font-weight:500}
+.skills-title{font-family:var(--font-display);font-weight:700;font-size:1.15rem;letter-spacing:-.01em;margin:3rem 0 1.25rem}
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;perspective:1200px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.35rem 1.4rem 1.4rem;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s;will-change:transform}
+.skill:hover{border-color:var(--line-strong);box-shadow:var(--shadow)}
+.skill-head{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.skill-icon{display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;border-radius:10px;background:var(--accent-soft);color:var(--accent)}
+.skill-icon svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.skill h4{font-size:.98rem;font-weight:700;letter-spacing:-.005em}
+.skill-list{list-style:none;display:flex;flex-wrap:wrap;gap:.4rem}
+.skill-list li{font-size:.82rem;font-weight:500;padding:.28rem .7rem;border-radius:999px;background:var(--surface-2);color:var(--text)}
+
+/* Org card (experience) */
+.org{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(1.4rem,3vw,2.2rem)}
+.org+.org{margin-top:1rem}
+.org.plain{background:none;border:0;border-radius:0;padding:0}
+.tl>.org.plain+.org.plain{margin-top:3rem}
+.tl>.org.plain::before{top:21px}
+.tl>.org.plain::after{top:25px}
+.org-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.6rem}
+.logo-box{display:grid;place-items:center;flex:0 0 56px;width:56px;height:56px;padding:.45rem;border-radius:10px;background:#fff;border:1px solid var(--line)}
+.logo-box img{width:100%;height:100%;object-fit:contain}
+.org-name{font-weight:600;font-size:1.08rem;line-height:1.3}
+.org-meta{color:var(--faint);margin-top:.15rem}
+.role{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:1.5rem}
+.role+.role{margin-top:2rem}
+.role-date{color:var(--muted);line-height:1.6;padding-top:.2rem}
+.dur{display:block;color:var(--faint)}
+.role-title{font-family:var(--font-display);font-weight:600;font-size:1.2rem;letter-spacing:-.01em;line-height:1.3;margin-bottom:.4rem}
+.desc{color:var(--muted);font-size:.93rem}
+.desc strong{color:var(--text);font-weight:600}
+.desc a,.text-link{color:var(--text);text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px;transition:text-decoration-color .2s,color .2s}
+.desc a:hover,.text-link:hover{text-decoration-color:var(--accent);color:var(--accent)}
+.bullets{list-style:none;margin:.8rem 0 0;display:grid;gap:.5rem}
+.bullets li{position:relative;padding-left:1.2rem}
+.bullets li::before{content:'';position:absolute;left:0;top:.68em;width:6px;height:6px;border-radius:1px;background:var(--accent);transform:rotate(45deg)}
+.tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1rem}
+.tag{font-size:.75rem;font-weight:500;padding:.2rem .6rem;border-radius:5px;background:var(--surface-2);color:var(--muted)}
+
+/* Timeline list (education, activities, awards) */
+.item-date{display:block;color:var(--muted);margin-bottom:.35rem}
+.item-date .dur{display:inline;color:var(--faint)}
+.item-date .dur::before{content:' · '}
+.item-title{font-family:var(--font-display);font-weight:600;font-size:1.2rem;letter-spacing:-.01em;line-height:1.3}
+.item-org{display:block;color:var(--accent);font-weight:500;font-size:.88rem;margin:.25rem 0 .6rem}
+.item-by{color:var(--faint)}
+/* Awards: three static cards */
+.aw3d-stage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;align-items:stretch}
+.aw-card{display:flex}
+.aw-inner{flex:1;display:flex;flex-direction:column}
+.aw-inner{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 18px 36px -22px rgba(0,0,0,.45)}
+.aw-cover{flex-shrink:0;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--surface-2)}
+.aw-cover img{width:100%;height:100%;object-fit:cover}
+.aw-icon{flex-shrink:0;align-self:flex-start;position:relative;z-index:2;display:grid;place-items:center;width:52px;height:52px;margin:-26px 0 0 1.4rem;border-radius:15px;background:var(--surface);border:1px solid var(--line);color:var(--accent);box-shadow:var(--shadow)}
+.aw-icon svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.aw-body{flex:1;display:flex;flex-direction:column;padding:1rem 1.4rem 1.5rem}
+.aw-meta{color:var(--muted);margin-bottom:.35rem}
+.aw-title{font-size:1.12rem;font-weight:700;line-height:1.3;letter-spacing:-.01em;margin-bottom:.5rem}
+.aw-body .desc{font-size:.9rem}
+.aw-thumbs{display:flex;gap:.45rem;margin-top:auto;padding-top:1rem}
+.aw-thumbs button{flex:1 1 0;min-width:0;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.aw-thumbs img{width:100%;height:56px;object-fit:cover}
+@media(max-width:1000px){
+  .aw3d-stage{grid-template-columns:minmax(0,1fr);gap:1.25rem}
+  .aw-inner{display:grid;grid-template-columns:minmax(0,38%) minmax(0,1fr);grid-template-rows:auto 1fr}
+  .aw-cover{grid-row:1/3;aspect-ratio:auto;height:100%;min-height:230px}
+  .aw-icon{margin:1.25rem 0 0 1.4rem}
+  .aw-body{padding-top:.9rem}
 }
-h1{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(2.8rem,7vw,5.5rem);
-  font-weight:800;line-height:.95;
-  letter-spacing:-.04em;
-  color:#fff;
-  margin-bottom:2rem;
+@media(max-width:640px){
+  .aw-inner{display:block}
+  .aw-cover{aspect-ratio:2/1;height:auto;min-height:0}
+  .aw-icon{margin:-26px 0 0 1.2rem}
+  .aw-body{padding:1rem 1.2rem 1.35rem}
 }
-.hero-desc{font-size:.95rem;color:#bdbdbd;max-width:480px;line-height:1.85;margin-bottom:2.5rem;font-weight:300}
-.hero-desc strong{color:#e2e2e2;font-weight:400}
-.ctas{display:flex;gap:.8rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;font-size:.8rem;font-weight:500;text-decoration:none;padding:.6rem 1.4rem;border-radius:5px;transition:all .2s;letter-spacing:.02em}
-.btn-dark{background:#e8e8e0;color:#111}
-.btn-dark:hover{background:#c8c8c0;transform:translateY(-1px)}
-.btn-light{background:transparent;color:#b8b8b8;border:1px solid #444}
-.btn-light:hover{color:#fff;border-color:#777;transform:translateY(-1px)}
+.edu-inst{display:flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:700;color:var(--accent);letter-spacing:.05em;text-transform:uppercase;margin:.35rem 0 .7rem}
 
-/* WAVE */
-/* Scroll fade-in for sections */
-.fade-in{
-  opacity:1;
-  transform:translateY(0);
-  transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+/* Projects */
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(1.4rem,3vw,2rem);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease,border-color .3s;will-change:transform}
+.card:hover{box-shadow:var(--shadow);border-color:var(--line-strong)}
+@media(hover:none){.card:hover{transform:none;box-shadow:none}}
+.card.featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);padding:0;overflow:hidden}
+.covers{display:grid;grid-template-rows:1fr 1fr;gap:2px;background:var(--line);min-height:340px}
+.covers button{display:block;overflow:hidden;min-height:0}
+.covers img{width:100%;height:100%;object-fit:cover;transition:filter .4s ease}
+.covers button:hover img{filter:brightness(1.08)}
+.card-body{display:flex;flex-direction:column;padding:clamp(1.4rem,3vw,2.2rem)}
+.badge{align-self:flex-start;display:inline-flex;align-items:center;gap:.4rem;font-size:.74rem;font-weight:600;padding:.28rem .75rem;border-radius:999px;background:var(--surface-2);color:var(--muted);margin-bottom:1.1rem}
+.badge.award{background:var(--accent-soft);color:var(--accent)}
+.badge.live::before{content:'';width:6px;height:6px;border-radius:50%;background:#2fb36d;box-shadow:0 0 0 3px rgba(47,179,109,.2)}
+.card-title{font-family:var(--font-display);font-weight:600;font-size:1.35rem;letter-spacing:-.02em;line-height:1.25}
+.card.featured .card-title{font-size:clamp(1.5rem,2.6vw,1.9rem)}
+.card-period{color:var(--faint);margin:.3rem 0 .9rem}
+.card .tags{margin-top:auto;padding-top:1.2rem}
+
+/* Gallery thumbnails */
+.gallery{display:flex;gap:.5rem;margin-top:1rem;overflow-x:auto;padding-bottom:.25rem;scrollbar-width:thin}
+.gallery button{flex:0 0 auto;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.gallery img{height:96px;width:auto;max-width:170px;object-fit:cover;transition:transform .3s ease,opacity .2s}
+.gallery button:hover img{transform:scale(1.05)}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(2rem,5vw,4rem);align-items:start}
+.contact p{color:var(--muted);margin-bottom:1.6rem;max-width:32em}
+.c-rows{border-top:1px solid var(--line)}
+.c-row{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.c-row .mono{color:var(--faint);font-size:.84rem}
+.c-row a{text-decoration:none;overflow-wrap:anywhere}
+.c-row a:hover{color:var(--accent)}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:1.8rem 0;color:var(--faint);font-size:.8rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* Lightbox */
+#lb{position:fixed;inset:0;z-index:999;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0);transition:background-color .35s ease}
+#lb.open{display:flex}
+#lb.show{background:rgba(5,6,9,.92)}
+#lb-img{max-width:90vw;max-height:86vh;border-radius:10px;opacity:0;transform:scale(.94);transition:opacity .35s ease,transform .35s cubic-bezier(.22,1,.36,1)}
+#lb.show #lb-img{opacity:1;transform:none}
+.lb-btn{position:absolute;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:1.6rem;line-height:1;opacity:0;transition:opacity .3s,background-color .2s}
+.lb-btn:hover{background:rgba(255,255,255,.2)}
+#lb.show .lb-btn{opacity:1}
+#lb-close{top:1.2rem;right:1.2rem}
+#lb-prev{left:1.2rem;top:50%;transform:translateY(-50%)}
+#lb-next{right:1.2rem;top:50%;transform:translateY(-50%)}
+#lb-count{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6)}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1000px){
+  .nav-links a{padding:.4rem .5rem;font-size:.8rem}
 }
-.fade-in.animate{
-  opacity:0;
-  transform:translateY(40px);
-}
-.fade-in.animate.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-/* Stagger children */
-.fade-in .sec-header{ transition-delay:.05s }
-.fade-in .about-grid{ transition-delay:.15s }
-.fade-in .tl-row:nth-child(1){ animation:none; transition-delay:.1s }
-.fade-in .tl-row:nth-child(2){ transition-delay:.2s }
-.fade-in .tl-row:nth-child(3){ transition-delay:.3s }
-.fade-in .tl-row:nth-child(4){ transition-delay:.4s }
-.fade-in .tl-row:nth-child(5){ transition-delay:.5s }
-.fade-in .tl-row:nth-child(6){ transition-delay:.6s }
-
-
-/* DIVIDER */
-.divwrap{padding:0 3rem;max-width:1130px;margin:0 auto}
-.divwrap hr{border:none;border-top:1px solid #ddd}
-
-/* SECTION */
-.section{padding:4.5rem 3rem}
-.section-inner{max-width:1100px;margin:0 auto}
-.sec-header{display:flex;align-items:baseline;gap:1.2rem;margin-bottom:3rem}
-.sec-num{font-size:.7rem;color:#767676;letter-spacing:.15em}
-h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;letter-spacing:-.03em;color:#111}
-
-/* ABOUT - grey bg */
-#about{background:#f2f2f0}
-.about-card{background:#fff;border-radius:14px;border:1px solid #e4e4e0;padding:2.5rem 3rem;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
-.about-text p{color:#555;margin-bottom:1rem;font-size:.95rem;line-height:1.85}
-.about-text p strong{color:#111;font-weight:500}
-.skill-row{display:flex;align-items:center;gap:2rem;padding:.9rem 0;border-bottom:1px solid #eee;font-size:.87rem}
-.skill-row:last-child{border-bottom:none}
-.skill-key{color:#767676;min-width:95px;font-size:.78rem}
-.skill-val{color:#333}
-
-/* EXPERIENCE - white bg */
-#work{background:#fff}
-/* EDUCATION - grey bg */
-#education{background:#f2f2f0}
-/* PROJECTS - white bg */
-#projects{background:#fff}
-/* ACTIVITIES - grey bg */
-#experience{background:#f2f2f0}
-/* CONTACT - white bg */
-#contact{background:#fff}
-
-/* TIMELINE */
-.tl{position:relative;margin-left:0;padding-left:0}
-.tl::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:2px;background:#ccc}
-#education .tl::before{background:#c5c5c2}
-.tl-row{position:relative;padding:0 0 3rem 4.5rem}
-.tl-row:last-child{padding-bottom:0}
-#work .work-company,#experience .work-company{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
-#work .work-company-logo,#experience .work-company-logo{display:flex;align-items:center;justify-content:center;width:64px;height:52px;flex:0 0 64px;background:#fff;border:1px solid #e7e7e4;border-radius:6px;padding:.35rem}
-#work .work-company-logo img,#experience .work-company-logo img{display:block;width:100%;height:100%;object-fit:contain}
-#work .work-company-name,#experience .work-company-name{font-family:'Inter',sans-serif;font-size:1.15rem;font-weight:600;line-height:1.25;letter-spacing:0;color:#111}
-#work .work-company-type,#experience .work-company-type{font-size:.78rem;color:#767676}
-#work .work-role-grid,#experience .work-role-grid{display:grid;grid-template-columns:12rem minmax(0,1fr);gap:1rem;margin-bottom:.8rem}
-#work .additional-role{margin-top:1.5rem}
-#work .work-role-grid .tl-date,#experience .work-role-grid .tl-date{margin:0;padding-top:.2rem}
-#work .work-role-grid .tl-deg,#experience .work-role-grid .tl-deg{font-size:1.35rem;font-weight:600;color:#111;margin:0}
-#work .tl-duration,#experience .tl-duration{display:block;margin-top:.1rem}
-#work .tl-desc,#experience .tl-desc{margin-left:13rem}
-#experience .activity-roles{margin-left:13rem}
-#experience .activity-role-block + .activity-role-block{margin-top:1.25rem}
-.tl-row::before{content:'';position:absolute;left:4px;top:3px;width:18px;height:18px;background:#f2f2f0;border:2px solid #bbb;transform:rotate(45deg);z-index:1;transition:background .2s,border-color .2s}
-#work .tl-row::before{background:#fff}
-.tl-row::after{content:'';position:absolute;left:9px;top:8px;width:8px;height:8px;background:#3b5bdb;transform:rotate(45deg);z-index:2}
-.tl-row:hover::before{background:#3b5bdb;border-color:#3b5bdb}
-.tl-date{display:inline-block;background:none;color:#767676;font-size:.72rem;font-weight:500;padding:0;border-radius:0;margin-bottom:.5rem;letter-spacing:.08em;text-transform:uppercase}
-.tl-duration{opacity:.6;font-weight:400}
-.tl-deg{font-family:'Inter',sans-serif;font-size:1.35rem;font-weight:600;color:#111;line-height:1.3;margin-bottom:.5rem;letter-spacing:0}
-.tl-org{display:flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:700;color:#3b5bdb;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.7rem}
-.tl-org::before{content:'';width:26px;height:2px;background:#3b5bdb;flex-shrink:0}
-.tl-desc{font-size:.9rem;color:#555;line-height:1.8}
-.tl-desc strong{color:#111;font-weight:600}
-.tl-desc a{color:#111;text-decoration:underline;text-underline-offset:2px}
-.tl-desc a:hover{color:#555}
-.tl-list{list-style:none;margin:.6rem 0 0}
-.tl-list li{position:relative;padding-left:1.1rem;margin-bottom:.5rem}
-.tl-list li:last-child{margin-bottom:0}
-.tl-list li::before{content:'';position:absolute;left:0;top:.6em;width:5px;height:5px;background:#3b5bdb;transform:rotate(45deg)}
-.tl-stack{margin-top:.9rem}
-.tl-roles{margin-top:1rem}
-.tl-role{padding-left:1.1rem;border-left:2px solid #ddd;margin-bottom:1.2rem}
-.tl-role:last-child{margin-bottom:0}
-.tl-role-title{font-size:.92rem;font-weight:600;color:#111;margin-bottom:.2rem}
-.tl-role-date{font-size:.7rem;color:#767676;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
-.tl-role-desc{font-size:.87rem;color:#555;line-height:1.8}
-
-/* PROJECTS */
-.proj-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
-.proj-card{display:flex;flex-direction:column;background:#fff;border:1px solid #e6e6e2;border-radius:14px;padding:1.8rem 2rem;transition:transform .25s ease,box-shadow .25s ease}
-.proj-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.07)}
-@media(hover:none){.proj-card:hover{transform:none;box-shadow:none}.proj-img:hover{transform:none}}
-.proj-featured{grid-column:1/-1;display:grid;grid-template-columns:55% minmax(0,1fr);padding:0;overflow:hidden}
-.proj-covers{display:grid;grid-template-rows:1fr 1fr;gap:2px;min-height:300px;contain:size}
-.proj-cover{display:block;width:100%;height:100%;min-height:0;object-fit:cover;cursor:pointer}
-.proj-body{display:flex;flex-direction:column;padding:1.8rem 2rem}
-.proj-badge{align-self:flex-start;font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .7rem;border-radius:999px;background:#f1f1ee;color:#767676;margin-bottom:1rem}
-.proj-badge-award{background:#edf1ff;color:#3b5bdb}
-.proj-name{font-size:1.3rem;font-weight:600;color:#111;line-height:1.3}
-.proj-period{font-size:.75rem;color:#767676;margin-bottom:.8rem}
-.proj-desc{font-size:.87rem;color:#555;line-height:1.8;margin-bottom:.9rem}
-.proj-desc a{color:#111;text-decoration:underline;text-underline-offset:2px}
-.proj-desc a:hover{color:#555}
-.proj-imgs{display:flex;gap:.7rem;margin-bottom:.75rem;flex-wrap:wrap}
-.tl-row .proj-imgs{margin-top:.8rem}
-.proj-img{height:110px;width:auto;max-width:185px;object-fit:cover;border-radius:6px;border:1px solid #eee;cursor:pointer;transition:transform .2s,opacity .2s}
-.proj-img:hover{transform:scale(1.04) translateY(-2px)}
-.tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.65rem}
-.proj-card .tags{margin-top:auto;padding-top:1rem}
-
-.tag{font-size:.68rem;padding:.15rem .55rem;background:#f5f5f3;border:1px solid #e8e8e5;border-radius:4px;color:#666}
-
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.contact-intro{font-size:.97rem;color:#555;line-height:1.85;margin-bottom:2rem}
-.c-row{display:flex;gap:2rem;align-items:baseline;padding:.75rem 0;border-bottom:1px solid #eee;font-size:.87rem}
-.c-row:first-child{border-top:1px solid #eee}
-.c-label{font-size:.73rem;color:#767676;min-width:70px}
-.c-row a{color:#111;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
-.c-row a:hover{border-color:#111}
-
-/* FOOTER */
-footer{background:#fff;padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #eee;font-size:.75rem;color:#767676}
-
-
-
-/* RESPONSIVE */
 @media(max-width:900px){
-  #home{grid-template-columns:1fr;}
-  .hero-photo-wrap{display:none !important;}
-  
-  #home{padding:4rem 1.5rem 3rem}
-  .about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}
-  .about-card{padding:1.75rem}
-  .proj-grid{grid-template-columns:minmax(0,1fr)}
-  .proj-featured{grid-template-columns:minmax(0,1fr)}
-  .proj-covers{grid-template-rows:none;min-height:0;contain:none}
-  .proj-cover{height:auto;aspect-ratio:16/9}
-  nav{padding:1rem 1.5rem}
-  .section{padding:3.5rem 1.5rem}
-  .divwrap{padding:0 1.5rem}
-  footer{padding:1.5rem}
-}
-@media(max-width:760px){
-  nav{gap:1rem;padding:.75rem 1rem}
-  .nav-toggle{display:flex;margin-left:auto}
-  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:.5rem 1rem .75rem;background:rgba(12,12,16,.98);box-shadow:0 14px 20px rgba(0,0,0,.14);max-height:calc(100vh - 4rem);overflow-y:auto}
-  nav.nav-light .nav-links{background:rgba(255,255,255,.99)}
-  nav.menu-open .nav-links{display:flex}
-  .nav-links li{flex:0 0 auto;border-bottom:1px solid rgba(128,128,128,.2)}
-  .nav-links li:last-child{margin-top:.35rem;border-top:1px solid rgba(128,128,128,.2);border-bottom:0}
-  .nav-links a{display:flex;align-items:center;min-height:44px;padding:.45rem .25rem;font-size:.75rem;white-space:nowrap}
-  nav.menu-open .nav-toggle span:first-child{transform:translateY(7px) rotate(45deg)}
-  nav.menu-open .nav-toggle span:nth-child(2){opacity:0}
-  nav.menu-open .nav-toggle span:last-child{transform:translateY(-7px) rotate(-45deg)}
-}
-@media(max-width:600px){
-  #home{grid-template-columns:minmax(0,1fr);align-content:center;gap:1.5rem;padding:6.25rem 1.25rem 3rem;min-height:100svh}
-  .hero-inner{grid-row:2}
-  .hero-photo-wrap{display:flex !important;grid-row:1;width:100%;margin:0 auto;}
-  #home .hero-photo-wrap img{width:clamp(136px,38vw,168px);height:clamp(136px,38vw,168px)}
-  #home .hero-photo-wrap::before{width:clamp(180px,52vw,220px);height:clamp(180px,52vw,220px)}
-  .hero-tag{font-size:.62rem;letter-spacing:.12em;margin-bottom:1.25rem}
-  h1{font-size:clamp(2.5rem,11vw,3.2rem);margin-bottom:1.25rem}
-  .hero-desc{font-size:.88rem;margin-bottom:1.5rem}
-  .hero-icons{gap:.85rem;margin-top:1.5rem}
-  .hero-icon{width:44px;height:44px}
-  .section{padding:2.75rem 1.15rem}
-  .sec-header{margin-bottom:2rem}
-  h2{font-size:1.55rem}
-  .tl-deg{font-size:1.2rem}
-  .tl-desc,.about-text p,.proj-desc{font-size:.84rem}
-  .proj-card{padding:1.5rem 1.4rem}
-  .proj-featured{padding:0}
-  .proj-body{padding:1.5rem 1.4rem}
-  .proj-name{font-size:1.2rem}
-  .proj-imgs{gap:.5rem;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;padding:.15rem 0 .5rem}
-  .proj-img{flex:0 0 auto;height:78px;max-width:132px}
-  .tl-row{padding-left:3.5rem}
-  #work .work-company{gap:.75rem;margin-bottom:1.1rem}
-  #work .work-company-logo{width:54px;height:44px;flex-basis:54px}
-  #work .work-company-name{font-size:1.05rem}
-  #work .work-role-grid{grid-template-columns:1fr;gap:.15rem;margin-bottom:.7rem}
-  #work .additional-role{margin-top:1.25rem}
-  #work .work-role-grid .tl-date{font-size:.68rem}
-  #work .work-role-grid .tl-deg{font-size:1.2rem}
-  #work .tl-desc{margin-left:0}
-  #experience .work-company{gap:.75rem;margin-bottom:1.1rem}
-  #experience .work-company-logo{width:54px;height:44px;flex-basis:54px}
-  #experience .work-company-name{font-size:1.05rem}
-  #experience .work-role-grid{grid-template-columns:1fr;gap:.15rem;margin-bottom:.7rem}
-  #experience .work-role-grid .tl-date{font-size:.68rem}
-  #experience .work-role-grid .tl-deg{font-size:1.2rem}
-  #experience .tl-desc,#experience .activity-roles{margin-left:0}
-  .skill-row{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:.75rem;align-items:start}
-  .skill-key{min-width:0}
-  .skill-val,.c-row a{min-width:0;overflow-wrap:anywhere}
-  .c-row{gap:1rem}
-  footer{align-items:flex-start;flex-direction:column;gap:.35rem}
-  html{scroll-padding-top:76px}
-}
+  .menu-btn{display:grid}
+  .nav-links{position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;padding:.5rem var(--gutter) 1rem;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 20px 30px rgba(0,0,0,.08);display:none;margin:0;max-height:calc(100dvh - 64px);overflow-y:auto;overscroll-behavior:contain}
+  .nav.open .nav-links{display:flex}
+  .nav-links a{padding:.75rem .25rem;font-size:.95rem;border-radius:0;border-bottom:1px solid var(--line)}
+  .nav-links li:last-child a{border-bottom:0}
+  .nav-links a.active::after{display:none}
+  .controls{margin-left:auto}
+  .nav.open .menu-btn span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+  .nav.open .menu-btn span:nth-child(2){opacity:0}
+  .nav.open .menu-btn span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
 
-/* LIGHTBOX */
-.lb{
-  display:none;position:fixed;inset:0;z-index:9999;
-  align-items:center;justify-content:center;
-  cursor:pointer;
-  background:rgba(0,0,0,0);
-  transition:background .35s ease;
-}
-.lb.open{display:flex}
-.lb.visible{background:rgba(0,0,0,.88)}
-.lb img{
-  max-width:90vw;max-height:88vh;
-  border-radius:8px;cursor:default;
-  transform:scale(.88);opacity:0;
-  transition:transform .35s cubic-bezier(.22,1,.36,1), opacity .35s ease;
-}
-.lb.visible img{transform:scale(1);opacity:1}
-.lb-x{
-  position:absolute;top:1.5rem;right:2rem;
-  font-size:2rem;color:#fff;cursor:pointer;
-  opacity:0;transition:opacity .3s ease .1s;
-}
-.lb.visible .lb-x{opacity:1}
-html{scroll-padding-top:60px}
 
-/* Hero photo */
-.hero-photo-wrap{
-  position:relative;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-  align-self:center;
+  .contact{grid-template-columns:1fr}
+  .skills{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card.featured{grid-template-columns:1fr}
+  .covers{min-height:0;grid-template-rows:none;grid-template-columns:1fr 1fr}
+  .covers img{aspect-ratio:4/3}
 }
-
-.hero-photo-wrap img{
-  position:relative;z-index:1;
-  width:320px;height:320px;
-  border-radius:50%;
-  object-fit:cover;
-  object-position:center top;
-  border:3px solid rgba(255,255,255,0.1);
-  filter:drop-shadow(0 20px 50px rgba(0,0,0,0.6));
-  display:block;
+@media(max-width:720px){
+  .hero-grid{grid-template-columns:1fr}
+  .portrait{order:-1;justify-self:start;width:132px}
+  .portrait img{border-width:4px}
+  .projects{grid-template-columns:1fr}
+  .tl{padding-left:1.9rem}
+  .tl>*::before{left:calc(-1.9rem + 2px)}
+  .tl>*::after{left:calc(-1.9rem + 6px)}
+  .role,.item{grid-template-columns:1fr;gap:.3rem}
+  .role-date .dur{display:inline}
+  .role-date .dur::before{content:' · '}
+  .item-date{padding-top:0}
+  .socials{margin-left:0}
 }
-.hero-photo-wrap::before{
-  content:'';
-  position:absolute;
-  width:420px;height:420px;
-  border-radius:50%;
-  background:radial-gradient(circle,
-    rgba(80,140,255,0.30) 0%,
-    rgba(59,91,219,0.18) 35%,
-    rgba(20,40,120,0.10) 60%,
-    transparent 78%);
-  z-index:0;
-  filter:blur(8px);
+@media(max-width:540px){.skills{grid-template-columns:1fr}}
+/* Small phones */
+@media(max-width:420px){
+  :root{--gutter:1rem}
+  body{font-size:15px}
+  .nav-inner{gap:.6rem}
+  .logo{font-size:1.15rem}
+  .controls{gap:.3rem}
+  .seg button{padding:.28rem .5rem;font-size:.7rem}
+  .icon-btn{width:36px;height:36px}
+  .actions .btn{flex:1 1 auto;justify-content:center}
+  .covers{grid-template-columns:1fr}
+  .covers img{aspect-ratio:16/10}
+  .c-row{grid-template-columns:5.5rem minmax(0,1fr)}
+  .org-head{gap:.75rem;align-items:flex-start}
+  .org-head .logo-box{flex-basis:46px;width:46px;height:46px}
+  .tl>.org.plain::before{top:16px}
+  .tl>.org.plain::after{top:20px}
+  .gallery img{height:80px}
 }
-
-/* LIGHTBOX */
-#lb{
-  display:none;
-  position:fixed;inset:0;
-  z-index:9999;
-  background:rgba(0,0,0,0);
-  transition:background .4s ease;
-  align-items:center;
-  justify-content:center;
+@media(max-width:340px){
+  .logo{font-size:1.02rem}
+  .seg button{padding:.25rem .4rem}
+  .icon-btn{width:34px;height:34px}
 }
-#lb.lb-open{display:flex}
-#lb.lb-show{background:rgba(0,0,0,.9)}
-#lb-img{
-  max-width:90vw;
-  max-height:88vh;
-  border-radius:10px;
-  opacity:0;
-  transform:scale(.9);
-  transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1);
-  cursor:default;
+/* Phones in landscape: keep hero compact and side by side */
+@media(max-height:500px) and (orientation:landscape){
+  .hero{padding:calc(64px + 1.5rem) 0 2.5rem}
+  .hero-grid{grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr)}
+  .portrait{order:0;justify-self:center;width:min(100%,170px)}
+  .nav-links{max-height:calc(100vh - 64px)}
 }
-#lb.lb-show #lb-img{opacity:1;transform:scale(1)}
-#lb-close{
-  position:absolute;top:1.5rem;right:2rem;
-  color:#fff;font-size:2.2rem;
-  cursor:pointer;opacity:0;
-  transition:opacity .3s ease;
-  line-height:1;user-select:none;
+/* Large and ultra-wide screens */
+@media(min-width:1600px){
+  :root{--max:1280px}
+  body{font-size:16.5px}
+  .portrait{width:min(100%,360px)}
 }
-#lb.lb-show #lb-close{opacity:1}
-.lb-arrow{
-  position:absolute;top:50%;transform:translateY(-50%);
-  display:flex;align-items:center;justify-content:center;
-  width:52px;height:52px;border-radius:50%;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.2);
-  color:#fff;font-size:2rem;line-height:1;
-  cursor:pointer;opacity:0;user-select:none;
-  transition:opacity .3s ease,background .25s,border-color .25s,transform .25s;
+@media(min-width:2200px){
+  :root{--max:1440px}
+  html{font-size:18px}
 }
-.lb-arrow:hover{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.6)}
-#lb.lb-show .lb-arrow{opacity:1}
-#lb-prev{left:1.5rem}
-#lb-next{right:1.5rem}
-@media(max-width:600px){
-  .lb-arrow{width:42px;height:42px;font-size:1.6rem}
-  #lb-prev{left:.5rem}
-  #lb-next{right:.5rem}
-}
-
-/* HERO ICONS */
-.hero-icons{display:flex;gap:1.2rem;margin-top:2rem;}
-.hero-icon{
-  display:flex;align-items:center;justify-content:center;
-  width:50px;height:50px;border-radius:50%;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.2);
-  color:rgba(255,255,255,0.7);
-  text-decoration:none;
-  transition:background .25s,color .25s,border-color .25s,transform .25s;
-}
-.hero-icon:hover{
-  background:rgba(255,255,255,0.2);
-  color:#fff;
-  border-color:rgba(255,255,255,0.6);
-  transform:translateY(-3px);
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .js .m-item,.js .m-sub,.js .sec-head h2>span,.js .sec-head h2::after,.js .tl::before,.js .tl>.m-item::after{opacity:1 !important;transform:none !important}
 }
 </style>
 </head>
 <body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="pt">Saltar para o conteúdo</span></a>
 
-<div id="home-wrap">
-<nav>
-  <a href="#home" class="logo">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <!-- antenna tower -->
-      <circle cx="12" cy="9" r="1.6" fill="currentColor" stroke="none"/>
-      <path d="M12 11L9 21M12 11L15 21M10.2 17H13.8"/>
-      <!-- radio waves -->
-      <path d="M8.5 5.5A5 5 0 0 0 8.5 12.5M15.5 5.5A5 5 0 0 1 15.5 12.5"/>
-      <path d="M5.6 2.6A9 9 0 0 0 5.6 15.4M18.4 2.6A9 9 0 0 1 18.4 15.4"/>
-    </svg>
-    Afonso Mendes
-  </a>
-  <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-navigation">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links" id="site-navigation">
-    <li><a href="#about">About</a></li>
-    <li><a href="#work">Experience</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Activities</a></li>
-    <li><a href="#awards">Awards</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="CV_AfonsoMendes_ENG.pdf" target="_blank">CV ↗</a></li>
-  </ul>
-</nav>
-
-<div id="home">
-  <div class="hero-inner">
-    <p class="hero-tag">Telecommunications &amp; Informatics Engineering · IST Lisbon</p>
-    <h1>Afonso<br>Mendes</h1>
-    <p class="hero-desc"><strong>Master's student at Instituto Superior Técnico</strong>, University of Lisbon.</p>
-    <div class="ctas">
-      <div class="hero-icons">
-      <!-- LinkedIn -->
-      <a href="https://linkedin.com/in/afonso-figueira-mendes" target="_blank" class="hero-icon" title="LinkedIn">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-      </a>
-      <!-- GitHub -->
-      <a href="https://github.com/afonsofm" target="_blank" class="hero-icon" title="GitHub">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-        </svg>
-      </a>
-      <!-- Email -->
-      <a href="mailto:afonsomendes.tech@gmail.com" class="hero-icon" title="Email">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="4" width="20" height="16" rx="2"/>
-          <path d="M2 7l10 7 10-7"/>
-        </svg>
-      </a>
-      <!-- CV -->
-      <a href="CV_AfonsoMendes_ENG.pdf" download class="hero-icon" title="Download CV">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <polyline points="14 2 14 8 20 8"/>
-          <line x1="9" y1="13" x2="15" y2="13"/>
-          <line x1="9" y1="17" x2="13" y2="17"/>
-          <line x1="9" y1="10" x2="11" y2="10"/>
-        </svg>
-      </a>
-    </div>
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo" aria-label="Afonso Mendes">
+      Afonso Mendes
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about"><span data-l="en">About</span><span data-l="pt">Sobre</span></a></li>
+      <li><a href="#work"><span data-l="en">Experience</span><span data-l="pt">Experiência</span></a></li>
+      <li><a href="#projects"><span data-l="en">Projects</span><span data-l="pt">Projetos</span></a></li>
+      <li><a href="#awards"><span data-l="en">Awards</span><span data-l="pt">Prémios</span></a></li>
+      <li><a href="#education"><span data-l="en">Education</span><span data-l="pt">Formação</span></a></li>
+      <li><a href="#activities"><span data-l="en">Activities</span><span data-l="pt">Atividades</span></a></li>
+      <li><a href="#contact"><span data-l="en">Contact</span><span data-l="pt">Contacto</span></a></li>
+    </ul>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Language / Idioma">
+        <button type="button" data-set-lang="pt" aria-pressed="false" lang="pt">PT</button>
+        <button type="button" data-set-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+      <button type="button" class="icon-btn" id="theme-btn" aria-label="Toggle theme">
+        <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button type="button" class="icon-btn menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
-  <div class="hero-photo-wrap">
-    <img src="images/IST Foto.jpg" alt="Afonso Mendes"/>
-  </div>
-</div>
-</div><!-- /home-wrap -->
+</header>
 
-</div>
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1><span class="line"><span style="--i:0">Afonso</span></span><span class="line"><span style="--i:1">Mendes</span></span></h1>
+        <p class="lead intro" style="--d:.55s" data-l="en"><strong>Master's student in Telecommunications and Informatics Engineering</strong> at Instituto Superior Técnico, University of Lisbon.</p>
+        <p class="lead intro" style="--d:.55s" data-l="pt"><strong>Estudante de mestrado em Engenharia de Telecomunicações e Informática</strong> no Instituto Superior Técnico, Universidade de Lisboa.</p>
+        <div class="actions intro" style="--d:.7s">
+          <a href="#projects" class="btn btn-primary"><span data-l="en">See projects</span><span data-l="pt">Ver projetos</span> <span aria-hidden="true">→</span></a>
+          <a href="CV_AfonsoMendes_ENG.pdf" target="_blank" rel="noopener" class="btn btn-ghost"><span data-l="en">Résumé</span><span data-l="pt">Currículo</span> <span aria-hidden="true">↗</span></a>
+          <div class="socials">
+            <a href="https://linkedin.com/in/afonso-figueira-mendes" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://github.com/afonsofm" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="mailto:afonsomendes.tech@gmail.com" aria-label="Email" title="Email">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="portrait">
+        <canvas id="globe" aria-hidden="true"></canvas>
+        <div class="portrait-3d" id="portrait-3d"><img src="images/opt/portrait-720.jpg" alt="Afonso Mendes" width="320" height="320" fetchpriority="high" decoding="async"/></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT -->
-<div class="section fade-in" id="about">
-  <div class="section-inner">
-    <div class="about-card">
-      <div class="sec-header">
-        <h2>About Me</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-text">
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2><span data-l="en">About me</span><span data-l="pt">Sobre mim</span></h2></div>
+    <div class="about">
+      <div>
+        <div data-l="en">
           <p>I'm a <strong>technology-driven engineer</strong> focused on the infrastructure that connects the world — mobile networks, network architectures, security, and information systems. I thrive on complexity and bring a structured, committed approach to every challenge.</p>
           <p>I'm a <strong>natural collaborator</strong> who communicates openly and adapts quickly to any team dynamic. Whether in the lab, at a hackathon, or representing a brand on campus, I bring the same energy: focused, proactive, and results-oriented.</p>
           <p>Beyond engineering, I compete in <strong>padel, tennis, and running</strong> — having already completed a half marathon. That same discipline shapes how I approach every project.</p>
         </div>
-        <div>
-          <div class="skill-row"><span class="skill-key">Programming</span><span class="skill-val">C, C++, Java, Python, SQL, FastAPI, Streamlit</span></div>
-          <div class="skill-row"><span class="skill-key">Networks</span><span class="skill-val">TCP/IP, GNS3, Packet Tracer, Wireshark</span></div>
-          <div class="skill-row"><span class="skill-key">Telecom</span><span class="skill-val">5G, LoRa, SDR, MATLAB, Arduino, SDRSharp, Arduino IDE</span></div>
-          <div class="skill-row"><span class="skill-key">Tools</span><span class="skill-val">VirtualBox, BigQuery, CloudSQL, Google Cloud Platform, Grafana</span></div>
-          <div class="skill-row"><span class="skill-key">Languages</span><span class="skill-val">Portuguese (Native) · English (C1)</span></div>
-          <div class="skill-row"><span class="skill-key">Soft Skills</span><span class="skill-val">Teamwork · Leadership · Communication</span></div>
+        <div data-l="pt">
+          <p>Sou um <strong>engenheiro movido pela tecnologia</strong>, focado na infraestrutura que liga o mundo — redes móveis, arquiteturas de rede, segurança e sistemas de informação. Gosto de complexidade e trago uma abordagem estruturada e empenhada a cada desafio.</p>
+          <p>Sou um <strong>colaborador nato</strong>: comunico de forma aberta e adapto-me depressa a qualquer equipa. Seja no laboratório, num hackathon ou a representar uma marca no campus, trago a mesma energia: foco, proatividade e orientação para resultados.</p>
+          <p>Fora da engenharia, compito em <strong>padel, ténis e corrida</strong> — já completei uma meia maratona. É essa mesma disciplina que molda a forma como encaro cada projeto.</p>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="divwrap"><hr/></div>
-
-<!-- PROFESSIONAL EXPERIENCE -->
-<div class="section fade-in" id="work">
-  <div class="section-inner">
-    <div class="sec-header">
-      <h2>Professional Experience</h2>
+    <h3 class="skills-title"><span data-l="en">Skills</span><span data-l="pt">Competências</span></h3>
+    <div class="skills">
+      <div class="skill">
+        <div class="skill-head"><span class="skill-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></span><h4><span data-l="en">Programming</span><span data-l="pt">Programação</span></h4></div>
+        <ul class="skill-list"><li>C</li><li>C++</li><li>Java</li><li>Python</li><li>SQL</li><li>FastAPI</li><li>Streamlit</li></ul>
+      </div>
+      <div class="skill">
+        <div class="skill-head"><span class="skill-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M11 7l-5 10M13 7l5 10M7 19h10"/></svg></span><h4><span data-l="en">Networks</span><span data-l="pt">Redes</span></h4></div>
+        <ul class="skill-list"><li>TCP/IP</li><li>GNS3</li><li>Packet Tracer</li><li>Wireshark</li></ul>
+      </div>
+      <div class="skill">
+        <div class="skill-head"><span class="skill-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="1.5"/><path d="M12 12v9M8.5 6.5a5 5 0 0 0 0 7M15.5 6.5a5 5 0 0 1 0 7M5.6 3.6a9 9 0 0 0 0 12.8M18.4 3.6a9 9 0 0 1 0 12.8"/></svg></span><h4><span data-l="en">Telecommunications</span><span data-l="pt">Telecomunicações</span></h4></div>
+        <ul class="skill-list"><li>5G</li><li>LoRa</li><li>SDR</li><li>MATLAB</li><li>Arduino</li><li>SDRSharp</li></ul>
+      </div>
+      <div class="skill">
+        <div class="skill-head"><span class="skill-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 9.5 4.25 4.25 0 0 0 7 18z"/></svg></span><h4><span data-l="en">Cloud &amp; tools</span><span data-l="pt">Cloud e ferramentas</span></h4></div>
+        <ul class="skill-list"><li>Google Cloud Platform</li><li>BigQuery</li><li>CloudSQL</li><li>Grafana</li><li>VirtualBox</li></ul>
+      </div>
+      <div class="skill">
+        <div class="skill-head"><span class="skill-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><h4><span data-l="en">Languages</span><span data-l="pt">Línguas</span></h4></div>
+        <ul class="skill-list"><li><span data-l="en">Portuguese · native</span><span data-l="pt">Português · nativo</span></li><li><span data-l="en">English · C1</span><span data-l="pt">Inglês · C1</span></li></ul>
+      </div>
+      <div class="skill">
+        <div class="skill-head"><span class="skill-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2A5 5 0 0 1 21 19"/></svg></span><h4>Soft skills</h4></div>
+        <ul class="skill-list"><li><span data-l="en">Teamwork</span><span data-l="pt">Trabalho em equipa</span></li><li><span data-l="en">Leadership</span><span data-l="pt">Liderança</span></li><li><span data-l="en">Communication</span><span data-l="pt">Comunicação</span></li></ul>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section band" id="work">
+  <div class="wrap">
+    <div class="sec-head"><h2><span data-l="en">Professional experience</span><span data-l="pt">Experiência profissional</span></h2></div>
     <div class="tl">
-      <div class="tl-row">
-        <div class="work-company">
-          <div class="work-company-logo"><img src="images/Logos/Log%C3%B3tipo_da_NOS.png" alt="NOS logo"/></div>
+      <article class="org">
+        <div class="org-head">
+          <div class="logo-box"><img src="images/Logos/Log%C3%B3tipo_da_NOS.png" alt="NOS"/></div>
           <div>
-            <div class="work-company-name">NOS SGPS</div>
-            <div class="work-company-type">Lisbon, Portugal</div>
+            <div class="org-name">NOS SGPS</div>
+            <div class="org-meta mono"><span data-l="en">Lisbon, Portugal</span><span data-l="pt">Lisboa, Portugal</span><span data-total></span></div>
           </div>
         </div>
-        <div class="work-role-grid">
-          <div class="tl-date">Jul 2026 — Sep 2026</div>
-          <div class="tl-deg">Summer Intern</div>
+        <div class="role">
+          <div class="role-date mono"><span class="d" data-from="2026-07" data-to="2026-09" data-dur></span></div>
+          <div>
+            <h3 class="role-title"><span data-l="en">Summer Intern</span><span data-l="pt">Estágio de Verão</span></h3>
+            <div class="desc" data-l="en">
+              Summer internship in <strong>Data Engineering &amp; Analytics</strong>, working on NOS's internal data portal.
+              <ul class="bullets">
+                <li>Built an end-to-end <strong>Complaints Management module</strong> (BigQuery/CloudSQL backend via Cloud Functions) with CRUD forms, status workflow, and many-to-many data relationships.</li>
+                <li>Developed a <strong>Logs/Audit module</strong> with page-load time tracking, new filters (date, user, module), and a fix for lost audit events in production.</li>
+                <li>Diagnosed and fixed performance bottlenecks, cutting page load times from <strong>~10s to under 1s</strong>.</li>
+                <li>Built SLA/statistics and Grafana dashboards (BigQuery SQL) to monitor portal usage.</li>
+                <li>Migrated legacy data from the old <strong>PostgreSQL</strong>-based portal into the new platform.</li>
+              </ul>
+            </div>
+            <div class="desc" data-l="pt">
+              Estágio de verão em <strong>Data Engineering &amp; Analytics</strong>, no portal interno de dados da NOS.
+              <ul class="bullets">
+                <li>Desenvolvi de ponta a ponta um <strong>módulo de Gestão de Reclamações</strong> (backend em BigQuery/CloudSQL via Cloud Functions), com formulários CRUD, fluxo de estados e relações de dados muitos-para-muitos.</li>
+                <li>Criei um <strong>módulo de Logs/Auditoria</strong> com medição do tempo de carregamento das páginas, novos filtros (data, utilizador, módulo) e a correção de eventos de auditoria perdidos em produção.</li>
+                <li>Diagnostiquei e corrigi estrangulamentos de desempenho, reduzindo o tempo de carregamento das páginas de <strong>~10 s para menos de 1 s</strong>.</li>
+                <li>Construí dashboards de SLA/estatísticas e em Grafana (SQL em BigQuery) para monitorizar a utilização do portal.</li>
+                <li>Migrei dados legados do antigo portal em <strong>PostgreSQL</strong> para a nova plataforma.</li>
+              </ul>
+            </div>
+            <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">BigQuery</span><span class="tag">CloudSQL</span><span class="tag">Google Cloud Platform</span><span class="tag">Grafana</span></div>
+          </div>
         </div>
-        <div class="tl-desc">Summer internship in <strong>Data Engineering &amp; Analytics</strong>, working on NOS's internal data portal.
-          <ul class="tl-list">
-            <li>Built an end-to-end <strong>Complaints Management module</strong> (BigQuery/CloudSQL backend via Cloud Functions) with CRUD forms, status workflow, and many-to-many data relationships.</li>
-            <li>Developed a <strong>Logs/Audit module</strong> with page-load time tracking, new filters (date, user, module), and a fix for lost audit events in production.</li>
-            <li>Diagnosed and fixed performance bottlenecks, cutting page load times from <strong>~10s to under 1s</strong>.</li>
-            <li>Built SLA/statistics and Grafana dashboards (BigQuery SQL) to monitor portal usage.</li>
-            <li>Migrated legacy data from the old <strong>PostgreSQL</strong>-based portal into the new platform.</li>
-          </ul>
-          <div class="tags tl-stack"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">BigQuery</span><span class="tag">CloudSQL</span><span class="tag">Google Cloud Platform</span><span class="tag">Grafana</span></div>
+        <div class="role">
+          <div class="role-date mono"><span class="d" data-from="2025-09" data-to="now" data-dur></span></div>
+          <div>
+            <h3 class="role-title"><span data-l="en">Campus Ambassador</span><span data-l="pt">Embaixador de Campus</span></h3>
+            <p class="desc" data-l="en">Representing NOS within the IST university community — promoting career opportunities and building bridges between students and the company.</p>
+            <p class="desc" data-l="pt">Represento a NOS na comunidade universitária do IST — divulgo oportunidades de carreira e aproximo os estudantes da empresa.</p>
+          </div>
         </div>
-        <div class="work-role-grid additional-role">
-          <div class="tl-date">Sep 2025 — Present</div>
-          <div class="tl-deg">Campus Ambassador</div>
-        </div>
-        <div class="tl-desc">Representing NOS within the IST university community — promoting career opportunities and building bridges between students and the company.</div>
-      </div>
+      </article>
     </div>
   </div>
-</div>
-
-<div class="divwrap"><hr/></div>
-
-<!-- EDUCATION -->
-<div class="section fade-in" id="education">
-  <div class="section-inner">
-    <div class="sec-header">
-      <h2>Education</h2>
-    </div>
-    <div class="tl">
-      <div class="tl-row">
-        <div class="tl-date">2025 — 2027</div>
-        <div class="tl-deg">Master's in Telecommunications and Informatics Engineering</div>
-        <div class="tl-org">Instituto Superior Técnico — University of Lisbon</div>
-        <div class="tl-desc">Double specialization in Telecommunications Systems &amp; Network and Systems Management. Deep expertise in 5G mobile networks, optical networks, network architectures, and business processes applied to infrastructure management.</div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-date">2021 — 2025</div>
-        <div class="tl-deg">Bachelor's in Electronics, Telecommunications and Computer Engineering</div>
-        <div class="tl-org">Instituto Superior de Engenharia de Lisboa — Polytechnic University of Lisbon</div>
-        <div class="tl-desc">Interdisciplinary foundation in programming (C, C++, Java, Python), telecommunications (network protocols, simulation tools, transmission systems, radio communications), and electronics.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="divwrap"><hr/></div>
+</section>
 
 <!-- PROJECTS -->
-<div class="section fade-in" id="projects">
-  <div class="section-inner">
-    <div class="sec-header">
-      <h2>Projects</h2>
-    </div>
-    <div class="proj-grid">
-      <div class="proj-card proj-featured lb-group" id="centurion">
-        <div class="proj-covers">
-          <img src="images/Centurion/img_6408-3861x2167.webp" alt="Centurion helmet" class="proj-cover" onclick="openLb(this)"/>
-          <img src="images/Centurion/img_6404-3233x1815.webp" alt="Centurion presentation" class="proj-cover" onclick="openLb(this)"/>
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="sec-head"><h2><span data-l="en">Projects</span><span data-l="pt">Projetos</span></h2></div>
+    <div class="projects">
+      <article class="card featured" id="centurion">
+        <div class="covers lb-group">
+          <button type="button" data-lb><img src="images/Centurion/img_6408-3861x2167.webp" decoding="async" alt="Centurion helmet" loading="lazy"/></button>
+          <button type="button" data-lb><img src="images/Centurion/img_6404-3233x1815.webp" decoding="async" alt="Centurion presentation" loading="lazy"/></button>
         </div>
-        <div class="proj-body">
-          <span class="proj-badge proj-badge-award">★ Award winner</span>
-          <div class="proj-name">Centurion — Smart Helmet</div>
-          <div class="proj-period">Nov 2025 – Jun 2026</div>
-          <p class="proj-desc">Smart helmet for e-scooter riders built on C-ITS principles. Detects nearby vehicles using GPS and ultrasonic sensors, alerting riders in real time to improve urban road safety. Recognized with the <a href="#merit-award"><strong>Critical Techworks Merit Award, Joy in Motion</strong></a>.</p>
-          <div class="tags"><span class="tag">C-ITS</span><span class="tag">GPS</span><span class="tag">IoT</span><span class="tag">Vehicular Networks</span></div>
+        <div class="card-body">
+          <span class="badge award">★ <span data-l="en">Award winner</span><span data-l="pt">Projeto premiado</span></span>
+          <h3 class="card-title">Centurion — <span data-l="en">Smart Helmet</span><span data-l="pt">Capacete Inteligente</span></h3>
+          <div class="card-period mono"><span class="d" data-from="2025-11" data-to="2026-06"></span></div>
+          <p class="desc" data-l="en">Smart helmet for e-scooter riders built on C-ITS principles. Detects nearby vehicles using GPS and ultrasonic sensors, alerting riders in real time to improve urban road safety. Recognized with the <a href="#merit-award"><strong>Critical Techworks Merit Award, Joy in Motion</strong></a>.</p>
+          <p class="desc" data-l="pt">Capacete inteligente para utilizadores de trotinetes elétricas, baseado nos princípios C-ITS. Deteta veículos próximos através de GPS e sensores ultrassónicos e alerta o condutor em tempo real, para tornar as estradas urbanas mais seguras. Distinguido com o <a href="#merit-award"><strong>Prémio de Mérito Critical Techworks, Joy in Motion</strong></a>.</p>
+          <div class="tags"><span class="tag">C-ITS</span><span class="tag">GPS</span><span class="tag">IoT</span><span class="tag"><span data-l="en">Vehicular Networks</span><span data-l="pt">Redes Veiculares</span></span></div>
         </div>
-      </div>
-      <div class="proj-card">
-        <span class="proj-badge">In progress · MSc thesis</span>
-        <div class="proj-name">Multi-Link Scheduling for Wi-Fi 7</div>
-        <div class="proj-period">Sep 2026 – 2027</div>
-        <p class="proj-desc">Master's thesis currently in development.</p>
-        <div class="tags"><span class="tag">Thesis</span><span class="tag">Telecommunications</span></div>
-      </div>
-      <div class="proj-card">
-        <span class="proj-badge">BSc thesis</span>
-        <div class="proj-name">CSS-LoRa Signal Analysis</div>
-        <div class="proj-period">Feb – Jul 2025</div>
-        <p class="proj-desc">Bachelor's thesis on LoRa signal characterization and collision analysis. Combined hardware (Arduino, SDR) with software tools (SDRSharp, MATLAB) to model interference patterns in low-power wide-area networks.</p>
+      </article>
+      <article class="card">
+        <span class="badge live"><span data-l="en">In progress · MSc thesis</span><span data-l="pt">Em curso · Tese de mestrado</span></span>
+        <h3 class="card-title"><span data-l="en">Multi-Link Scheduling for Wi&#8209;Fi&nbsp;7</span><span data-l="pt">Escalonamento Multi-Link para Wi&#8209;Fi&nbsp;7</span></h3>
+        <div class="card-period mono"><span class="d" data-from="2026-09" data-to="2027"></span></div>
+        <p class="desc" data-l="en">Master's thesis currently in development.</p>
+        <p class="desc" data-l="pt">Tese de mestrado atualmente em desenvolvimento.</p>
+        <div class="tags"><span class="tag">Wi-Fi 7</span><span class="tag"><span data-l="en">Thesis</span><span data-l="pt">Tese</span></span><span class="tag"><span data-l="en">Telecommunications</span><span data-l="pt">Telecomunicações</span></span></div>
+      </article>
+      <article class="card">
+        <span class="badge"><span data-l="en">BSc thesis</span><span data-l="pt">Tese de licenciatura</span></span>
+        <h3 class="card-title"><span data-l="en">CSS-LoRa Signal Analysis</span><span data-l="pt">Análise de Sinais CSS-LoRa</span></h3>
+        <div class="card-period mono"><span class="d" data-from="2025-02" data-to="2025-07"></span></div>
+        <p class="desc" data-l="en">Bachelor's thesis on LoRa signal characterization and collision analysis. Combined hardware (Arduino, SDR) with software tools (SDRSharp, MATLAB) to model interference patterns in low-power wide-area networks.</p>
+        <p class="desc" data-l="pt">Tese de licenciatura sobre caracterização de sinais LoRa e análise de colisões. Combinou hardware (Arduino, SDR) com ferramentas de software (SDRSharp, MATLAB) para modelar padrões de interferência em redes de longo alcance e baixo consumo (LPWAN).</p>
         <div class="tags"><span class="tag">LoRa</span><span class="tag">MATLAB</span><span class="tag">SDR</span><span class="tag">Arduino</span><span class="tag">LPWAN</span></div>
-      </div>
+      </article>
     </div>
   </div>
-</div>
-
-<div class="divwrap"><hr/></div>
-
-<!-- ACTIVITIES -->
-<div class="section fade-in" id="experience">
-  <div class="section-inner">
-    <div class="sec-header">
-      <h2>Activities &amp; Volunteering</h2>
-    </div>
-    <div class="tl">
-      <div class="tl-row">
-        <div class="work-company">
-          <div class="work-company-logo"><img src="images/Logos/Logo_JUNITEC.png" alt="JUNITEC logo"/></div>
-          <div>
-            <div class="work-company-name">JUNITEC — Júnior Empresa do Instituto Superior Técnico</div>
-            <div class="work-company-type">Lisbon, Portugal</div>
-          </div>
-        </div>
-        <div class="work-role-grid">
-          <div class="tl-date">Oct 2026 — Present</div>
-          <div class="tl-deg">Innovation Department Trainee</div>
-        </div>
-        <div class="tl-desc">Trainee in the Innovation team at Portugal's first junior enterprise, taking part in the <a href="https://junitec.pt/inovacao" target="_blank">Innovation Hub ↗</a>, a programme that starts with an intensive Innovation Bootcamp to find real-world problems and evolves through product development and MVP building towards launching a startup.</div>
-      </div>
-      <div class="tl-row">
-        <div class="work-company">
-          <div class="work-company-logo"><img src="images/Logos/Logo%20JET.png" alt="JET logo"/></div>
-          <div>
-            <div class="work-company-name">JET — Jornadas Tecnológicas e Empresariais</div>
-            <div class="work-company-type">Oeiras, Portugal</div>
-          </div>
-        </div>
-        <div class="activity-role-block">
-          <div class="work-role-grid">
-            <div class="tl-date">Aug 2026 — Present</div>
-            <div class="tl-deg">External Relations Team Leader</div>
-          </div>
-          <div class="tl-desc">Leading the department responsible for connecting companies and the academic community at IST's largest business fair, coordinating the team and partnerships that generate recruitment, networking and collaboration opportunities.</div>
-        </div>
-        <div class="activity-role-block">
-          <div class="work-role-grid">
-            <div class="tl-date">Sep 2025 — Jul 2026</div>
-            <div class="tl-deg">External Relations Team Member</div>
-          </div>
-          <div class="tl-desc">Contributed to connecting companies and the academic community, fostering a dynamic space for recruitment, networking and collaboration opportunities.</div>
-        </div>
-      </div>
-      <div class="tl-row">
-        <div class="work-company">
-          <div class="work-company-logo"><img src="images/Logos/missao_pais.png" alt="Missão País logo"/></div>
-          <div>
-            <div class="work-company-name">Missão País</div>
-            <div class="work-company-type">Coimbra, Portugal</div>
-          </div>
-        </div>
-        <div class="work-role-grid">
-          <div class="tl-date">Feb 2026</div>
-          <div class="tl-deg">Community Volunteering</div>
-        </div>
-        <div class="tl-desc">Week-long volunteering immersion in isolated communities across Portugal. Sharpened resilience, empathy, and teamwork.</div>
-      </div>
-      <div class="tl-row">
-        <div class="work-company">
-          <div class="work-company-logo"><img src="images/Logos/Web_Summit_logo.webp" alt="Web Summit logo"/></div>
-          <div>
-            <div class="work-company-name">Web Summit Lisbon</div>
-            <div class="work-company-type">Lisbon, Portugal</div>
-          </div>
-        </div>
-        <div class="work-role-grid">
-          <div class="tl-date">Nov 2023 &amp; Nov 2024</div>
-          <div class="tl-deg">Volunteer — Response &amp; Support</div>
-        </div>
-        <div class="tl-desc">Two editions at one of the world's biggest tech conferences, providing direct support to attendees and internal teams.</div>
-      </div>
-      <div class="tl-row">
-        <div class="work-company">
-          <div class="work-company-logo"><img src="images/Logos/futuralia-logo.png" alt="Futurália logo"/></div>
-          <div>
-            <div class="work-company-name">Futurália</div>
-            <div class="work-company-type">Lisbon, Portugal</div>
-          </div>
-        </div>
-        <div class="work-role-grid">
-          <div class="tl-date">Mar 2023</div>
-          <div class="tl-deg">ISEL Ambassador</div>
-        </div>
-        <div class="tl-desc">Selected to represent ISEL's engineering programmes at Portugal's largest education fair.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="divwrap"><hr/></div>
+</section>
 
 <!-- AWARDS -->
-<div class="section fade-in" id="awards" style="background:#e6e6e0">
-  <div class="section-inner">
-    <div class="sec-header">
-      <h2>Awards &amp; Distinctions</h2>
+<section class="section band" id="awards">
+  <div class="wrap">
+    <div class="sec-head"><h2><span data-l="en">Awards &amp; distinctions</span><span data-l="pt">Prémios e distinções</span></h2></div>
+    <div class="aw3d" id="aw3d">
+      <div class="aw3d-stage">
+        <article class="aw-card" id="merit-award">
+          <div class="aw-inner lb-group">
+            <button type="button" class="aw-cover" data-lb><img src="images/opt/merit4-800.jpg" data-full="images/opt/merit4-1600.jpg" decoding="async" alt="Merit Award ceremony 1" loading="lazy"/></button>
+            <span class="aw-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 16v5M7 4h10v5a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span>
+            <div class="aw-body">
+              <div class="aw-meta mono"><span class="d" data-from="2026-06"></span><span class="item-by"> · Critical Techworks</span></div>
+              <h3 class="aw-title"><span data-l="en">Critical Techworks Merit Award, Joy in Motion</span><span data-l="pt">Prémio de Mérito Critical Techworks, Joy in Motion</span></h3>
+              <p class="desc" data-l="en">Recognized for <a href="#centurion"><strong>Centurion</strong></a>, a smart helmet for e-scooter riders built on C-ITS principles, detecting nearby vehicles and alerting riders in real time to improve urban road safety. <a href="https://tecnico.ulisboa.pt/pt/noticias/campus-e-comunidade/tecnico-distingue-projeto-de-capacete-inteligente-com-o-premio-de-merito-joy-in-motion/" target="_blank" rel="noopener">Read the article ↗</a></p>
+              <p class="desc" data-l="pt">Distinguido pelo <a href="#centurion"><strong>Centurion</strong></a>, um capacete inteligente para utilizadores de trotinetes elétricas baseado nos princípios C-ITS, que deteta veículos próximos e alerta o condutor em tempo real para tornar as estradas urbanas mais seguras. <a href="https://tecnico.ulisboa.pt/pt/noticias/campus-e-comunidade/tecnico-distingue-projeto-de-capacete-inteligente-com-o-premio-de-merito-joy-in-motion/" target="_blank" rel="noopener">Ler o artigo ↗</a></p>
+              <div class="aw-thumbs">
+                <button type="button" data-lb><img src="images/opt/merit3-800.jpg" data-full="images/opt/merit3-1600.jpg" decoding="async" alt="Merit Award ceremony 2" loading="lazy"/></button>
+                <button type="button" data-lb><img src="images/opt/merit2-800.jpg" data-full="images/opt/merit2-1600.jpg" decoding="async" alt="Merit Award ceremony 3" loading="lazy"/></button>
+                <button type="button" data-lb><img src="images/opt/merit1-800.jpg" data-full="images/opt/merit1-1600.jpg" decoding="async" alt="Merit Award ceremony 4" loading="lazy"/></button>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="aw-card">
+          <div class="aw-inner lb-group">
+            <button type="button" class="aw-cover" data-lb><img src="images/EletroStars_DEEC.jpeg" alt="ElectroStars — Afonso Mendes, DEEC" loading="lazy" style="object-position:center 22%"/></button>
+            <span class="aw-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v4M8 21h8"/></svg></span>
+            <div class="aw-body">
+              <div class="aw-meta mono"><span class="d" data-from="2026-05"></span><span class="item-by"> · DEEC, Instituto Superior Técnico</span></div>
+              <h3 class="aw-title"><span data-l="en">ElectroStars — Student Spotlight Interview</span><span data-l="pt">ElectroStars — Entrevista Student Spotlight</span></h3>
+              <p class="desc" data-l="en">Featured in DEEC's ElectroStars series, an interview covering my academic path and involvement in projects such as <a href="#centurion"><strong>Centurion</strong></a> and the BEST Entrepreneurship Experience. <a href="https://deec.tecnico.ulisboa.pt/noticias/comunidade/electrostars-afonso-mendes" target="_blank" rel="noopener">Read the full interview ↗</a></p>
+              <p class="desc" data-l="pt">Destaque na série ElectroStars do DEEC, numa entrevista sobre o meu percurso académico e o envolvimento em projetos como o <a href="#centurion"><strong>Centurion</strong></a> e o BEST Entrepreneurship Experience. <a href="https://deec.tecnico.ulisboa.pt/noticias/comunidade/electrostars-afonso-mendes" target="_blank" rel="noopener">Ler a entrevista completa ↗</a></p>
+            </div>
+          </div>
+        </article>
+        <article class="aw-card">
+          <div class="aw-inner lb-group">
+            <button type="button" class="aw-cover" data-lb><img src="images/opt/bee1-800.jpg" data-full="images/opt/bee1-1600.jpg" decoding="async" alt="BEST Entrepreneurship Experience 1" loading="lazy"/></button>
+            <span class="aw-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="15" r="6"/><path d="M8.5 10.2L6 2h4l2 5 2-5h4l-2.5 8.2M11 13.5l1.2-.8v5"/></svg></span>
+            <div class="aw-body">
+              <div class="aw-meta mono"><span class="d" data-from="2026-03"></span><span class="item-by"> · BEST Lisbon</span></div>
+              <h3 class="aw-title">BEST Entrepreneurship Experience</h3>
+              <p class="desc" data-l="en">Awarded <strong>1st Place</strong> for our solution and professional pitch in a corporate challenge competition applying engineering thinking to real business problems. <a href="https://deec.tecnico.ulisboa.pt/noticias/premios-e-distincoes/afonso-mendes-tiago-videira-e-jose-oliveira-vencem-o-best-entrepreneurship-experience" target="_blank" rel="noopener">Read the article ↗</a></p>
+              <p class="desc" data-l="pt">Vencedores do <strong>1.º lugar</strong> pela solução e pelo pitch apresentados numa competição de desafios empresariais que aplica o pensamento de engenharia a problemas reais de negócio. <a href="https://deec.tecnico.ulisboa.pt/noticias/premios-e-distincoes/afonso-mendes-tiago-videira-e-jose-oliveira-vencem-o-best-entrepreneurship-experience" target="_blank" rel="noopener">Ler o artigo ↗</a></p>
+              <div class="aw-thumbs">
+                <button type="button" data-lb><img src="images/opt/bee2-800.jpg" data-full="images/opt/bee2-1600.jpg" decoding="async" alt="BEST Entrepreneurship Experience 2" loading="lazy"/></button>
+                <button type="button" data-lb><img src="images/opt/bee3-800.jpg" data-full="images/opt/bee3-1600.jpg" decoding="async" alt="BEST Entrepreneurship Experience 3" loading="lazy"/></button>
+                <button type="button" data-lb><img src="images/opt/bee4-800.jpg" data-full="images/opt/bee4-1600.jpg" decoding="async" alt="BEST Entrepreneurship Experience 4" loading="lazy"/></button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="wrap">
+    <div class="sec-head"><h2><span data-l="en">Education</span><span data-l="pt">Formação</span></h2></div>
     <div class="tl">
-      <div class="tl-row" id="merit-award">
-        <div class="tl-date">Jun 2026</div>
-        <div class="tl-deg">Critical Techworks Merit Award, Joy in Motion</div>
-        <div class="tl-org">Critical Techworks</div>
-        <div class="tl-desc">Recognized for <a href="#centurion"><strong>Centurion</strong></a>, a smart helmet for e-scooter riders built on C-ITS principles, detecting nearby vehicles and alerting riders in real time to improve urban road safety. <a href="https://tecnico.ulisboa.pt/pt/noticias/campus-e-comunidade/tecnico-distingue-projeto-de-capacete-inteligente-com-o-premio-de-merito-joy-in-motion/" target="_blank">Read the article ↗</a></div>
-        <div class="proj-imgs">
-          <img src="images/Centurion/merit4.jpg" alt="Centurion Merit Award 4" class="proj-img" onclick="openLb(this)"/>
-          <img src="images/Centurion/merit3.jpeg" alt="Centurion Merit Award 3" class="proj-img" onclick="openLb(this)"/>
-          <img src="images/Centurion/merit2.jpg" alt="Centurion Merit Award 2" class="proj-img" onclick="openLb(this)"/>
-          <img src="images/Centurion/merit1.jpg" alt="Centurion Merit Award 1" class="proj-img" onclick="openLb(this)"/>
+      <div class="item">
+        <div class="item-date mono"><span class="d" data-from="2025" data-to="2027"></span></div>
+        <div>
+          <h3 class="item-title"><span data-l="en">Master's in Telecommunications and Informatics Engineering</span><span data-l="pt">Mestrado em Engenharia de Telecomunicações e Informática</span></h3>
+          <div class="edu-inst"><span>Instituto Superior Técnico — <span data-l="en">University of Lisbon</span><span data-l="pt">Universidade de Lisboa</span></span></div>
+          <p class="desc" data-l="en">Double specialization in Telecommunications Systems &amp; Network and Systems Management. Deep expertise in 5G mobile networks, optical networks, network architectures, and business processes applied to infrastructure management.</p>
+          <p class="desc" data-l="pt">Dupla especialização em Sistemas de Telecomunicações e em Gestão de Redes e Sistemas. Conhecimento aprofundado em redes móveis 5G, redes óticas, arquiteturas de rede e processos de negócio aplicados à gestão de infraestruturas.</p>
         </div>
       </div>
-      <div class="tl-row">
-        <div class="tl-date">May 2026</div>
-        <div class="tl-deg">ElectroStars — Student Spotlight Interview</div>
-        <div class="tl-org">DEEC, Instituto Superior Técnico</div>
-        <div class="tl-desc">Featured in DEEC's ElectroStars series, an interview covering my academic path and involvement in projects such as <a href="#centurion"><strong>Centurion</strong></a> and the BEST Entrepreneurship Experience. <a href="https://deec.tecnico.ulisboa.pt/noticias/comunidade/electrostars-afonso-mendes" target="_blank">Read the full interview ↗</a></div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-date">Mar 2026</div>
-        <div class="tl-deg">BEST Entrepreneurship Experience</div>
-        <div class="tl-org">BEST Lisbon</div>
-        <div class="tl-desc">Awarded <strong>1st Place</strong> for our solution and professional pitch in a corporate challenge competition applying engineering thinking to real business problems. <a href="https://deec.tecnico.ulisboa.pt/noticias/premios-e-distincoes/afonso-mendes-tiago-videira-e-jose-oliveira-vencem-o-best-entrepreneurship-experience" target="_blank">Read the article ↗</a></div>
-        <div class="proj-imgs">
-          <img src="images/BEE/BEE1.JPEG" alt="BEST Entrepreneurship Experience 1" class="proj-img" onclick="openLb(this)"/>
-          <img src="images/BEE/BEE2.jpg" alt="BEST Entrepreneurship Experience 2" class="proj-img" onclick="openLb(this)"/>
-          <img src="images/BEE/BEE3.JPEG" alt="BEST Entrepreneurship Experience 3" class="proj-img" onclick="openLb(this)"/>
-          <img src="images/BEE/BEE4.jpg" alt="BEST Entrepreneurship Experience 4" class="proj-img" onclick="openLb(this)"/>
+      <div class="item">
+        <div class="item-date mono"><span class="d" data-from="2021" data-to="2025"></span></div>
+        <div>
+          <h3 class="item-title"><span data-l="en">Bachelor's in Electronics, Telecommunications and Computer Engineering</span><span data-l="pt">Licenciatura em Engenharia Eletrónica e Telecomunicações e de Computadores</span></h3>
+          <div class="edu-inst"><span>Instituto Superior de Engenharia de Lisboa — <span data-l="en">Polytechnic University of Lisbon</span><span data-l="pt">Politécnico de Lisboa</span></span></div>
+          <p class="desc" data-l="en">Interdisciplinary foundation in programming (C, C++, Java, Python), telecommunications (network protocols, simulation tools, transmission systems, radio communications), and electronics.</p>
+          <p class="desc" data-l="pt">Base interdisciplinar em programação (C, C++, Java, Python), telecomunicações (protocolos de rede, ferramentas de simulação, sistemas de transmissão, comunicações rádio) e eletrónica.</p>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="divwrap"><hr/></div>
+<!-- ACTIVITIES -->
+<section class="section band" id="activities">
+  <div class="wrap">
+    <div class="sec-head"><h2><span data-l="en">Activities &amp; volunteering</span><span data-l="pt">Atividades e voluntariado</span></h2></div>
+    <div class="tl">
+      <article class="org plain">
+        <div class="org-head">
+          <div class="logo-box"><img src="images/Logos/Logo_JUNITEC.png" alt="JUNITEC"/></div>
+          <div>
+            <div class="org-name">JUNITEC — Júnior Empresa do Instituto Superior Técnico</div>
+            <div class="org-meta mono"><span data-l="en">Lisbon, Portugal</span><span data-l="pt">Lisboa, Portugal</span><span data-total></span></div>
+          </div>
+        </div>
+        <div class="role">
+          <div class="role-date mono"><span class="d" data-from="2026-10" data-to="now" data-dur></span></div>
+          <div>
+            <h3 class="role-title"><span data-l="en">Innovation Department Trainee</span><span data-l="pt">Trainee no Departamento de Inovação</span></h3>
+            <p class="desc" data-l="en">Trainee in the Innovation team at Portugal's first junior enterprise, taking part in the <a href="https://junitec.pt/inovacao" target="_blank" rel="noopener">Innovation Hub ↗</a>, a programme that starts with an intensive Innovation Bootcamp to find real-world problems and evolves through product development and MVP building towards launching a startup.</p>
+            <p class="desc" data-l="pt">Trainee na equipa de Inovação da primeira júnior empresa de Portugal, a participar no <a href="https://junitec.pt/inovacao" target="_blank" rel="noopener">Innovation Hub ↗</a>, um programa que começa com um Innovation Bootcamp intensivo para identificar problemas reais e evolui para o desenvolvimento de produto e a construção de um MVP, até ao lançamento de uma startup.</p>
+          </div>
+        </div>
+      </article>
+      <article class="org plain">
+        <div class="org-head">
+          <div class="logo-box"><img src="images/Logos/Logo%20JET.png" alt="JET"/></div>
+          <div>
+            <div class="org-name">JET — Jornadas Tecnológicas e Empresariais</div>
+            <div class="org-meta mono">Oeiras, Portugal<span data-total></span></div>
+          </div>
+        </div>
+        <div class="role">
+          <div class="role-date mono"><span class="d" data-from="2026-08" data-to="now" data-dur></span></div>
+          <div>
+            <h3 class="role-title"><span data-l="en">External Relations Team Leader</span><span data-l="pt">Team Leader de Relações Externas</span></h3>
+            <p class="desc" data-l="en">Leading the department responsible for connecting companies and the academic community at IST's largest business fair, coordinating the team and partnerships that generate recruitment, networking and collaboration opportunities.</p>
+            <p class="desc" data-l="pt">Lidero o departamento responsável por ligar as empresas e a comunidade académica na maior feira empresarial do IST, coordenando a equipa e as parcerias que geram oportunidades de recrutamento, networking e colaboração.</p>
+          </div>
+        </div>
+        <div class="role">
+          <div class="role-date mono"><span class="d" data-from="2025-09" data-to="2026-07" data-dur></span></div>
+          <div>
+            <h3 class="role-title"><span data-l="en">External Relations Team Member</span><span data-l="pt">Membro da equipa de Relações Externas</span></h3>
+            <p class="desc" data-l="en">Contributed to connecting companies and the academic community, fostering a dynamic space for recruitment, networking and collaboration opportunities.</p>
+            <p class="desc" data-l="pt">Contribuí para ligar as empresas e a comunidade académica, criando um espaço dinâmico de oportunidades de recrutamento, networking e colaboração.</p>
+          </div>
+        </div>
+      </article>
+      <article class="org plain">
+        <div class="org-head">
+          <div class="logo-box"><img src="images/Logos/missao_pais.png" alt="Missão País"/></div>
+          <div>
+            <div class="org-name">Missão País</div>
+            <div class="org-meta mono">Coimbra, Portugal</div>
+          </div>
+        </div>
+        <div class="role">
+          <div class="role-date mono"><span class="d" data-from="2026-02"></span></div>
+          <div>
+            <h3 class="role-title"><span data-l="en">Community Volunteering</span><span data-l="pt">Voluntariado comunitário</span></h3>
+            <p class="desc" data-l="en">Week-long volunteering immersion in isolated communities across Portugal. Sharpened resilience, empathy, and teamwork.</p>
+            <p class="desc" data-l="pt">Uma semana de voluntariado em comunidades isoladas de Portugal. Reforçou a resiliência, a empatia e o trabalho em equipa.</p>
+          </div>
+        </div>
+      </article>
+      <article class="org plain">
+        <div class="org-head">
+          <div class="logo-box"><img src="images/Logos/Web_Summit_logo.webp" alt="Web Summit"/></div>
+          <div>
+            <div class="org-name">Web Summit Lisbon</div>
+            <div class="org-meta mono"><span data-l="en">Lisbon, Portugal</span><span data-l="pt">Lisboa, Portugal</span></div>
+          </div>
+        </div>
+        <div class="role">
+          <div class="role-date mono"><span class="d" data-dates="2023-11,2024-11"></span></div>
+          <div>
+            <h3 class="role-title"><span data-l="en">Volunteer — Response &amp; Support</span><span data-l="pt">Voluntário — Response &amp; Support</span></h3>
+            <p class="desc" data-l="en">Two editions at one of the world's biggest tech conferences, providing direct support to attendees and internal teams.</p>
+            <p class="desc" data-l="pt">Duas edições numa das maiores conferências de tecnologia do mundo, a dar apoio direto aos participantes e às equipas internas.</p>
+          </div>
+        </div>
+      </article>
+      <article class="org plain">
+        <div class="org-head">
+          <div class="logo-box"><img src="images/Logos/futuralia-logo.png" alt="Futurália"/></div>
+          <div>
+            <div class="org-name">Futurália</div>
+            <div class="org-meta mono"><span data-l="en">Lisbon, Portugal</span><span data-l="pt">Lisboa, Portugal</span></div>
+          </div>
+        </div>
+        <div class="role">
+          <div class="role-date mono"><span class="d" data-from="2023-03"></span></div>
+          <div>
+            <h3 class="role-title"><span data-l="en">ISEL Ambassador</span><span data-l="pt">Embaixador do ISEL</span></h3>
+            <p class="desc" data-l="en">Selected to represent ISEL's engineering programmes at Portugal's largest education fair.</p>
+            <p class="desc" data-l="pt">Selecionado para representar os cursos de engenharia do ISEL na maior feira de educação do país.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
 <!-- CONTACT -->
-<div class="section fade-in" id="contact">
-  <div class="section-inner">
-    <div class="sec-header">
-      <h2>Get In Touch</h2>
-    </div>
-    <div class="contact-grid">
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="sec-head"><h2><span data-l="en">Get in touch</span><span data-l="pt">Vamos conversar</span></h2></div>
+    <div class="contact">
       <div>
-        <p class="contact-intro">Whether it's an opportunity, a collaboration, or just a conversation about technology — I'm always open to connecting.</p>
-        <div class="ctas">
-          <a href="mailto:afonsomendes.tech@gmail.com" class="btn btn-dark">Send Email</a>
-          <a href="CV_AfonsoMendes_ENG.pdf" download class="btn btn-dark">Download CV ↓</a>
+        <p data-l="en">Whether it's an opportunity, a collaboration, or just a conversation about technology — I'm always open to connecting.</p>
+        <p data-l="pt">Seja uma oportunidade, uma colaboração ou apenas uma conversa sobre tecnologia — estou sempre disponível para falar.</p>
+        <div class="actions">
+          <a href="mailto:afonsomendes.tech@gmail.com" class="btn btn-primary"><span data-l="en">Send email</span><span data-l="pt">Enviar email</span></a>
+          <a href="CV_AfonsoMendes_ENG.pdf" download class="btn btn-ghost"><span data-l="en">Download CV</span><span data-l="pt">Descarregar CV</span> <span aria-hidden="true">↓</span></a>
         </div>
       </div>
-      <div>
-        <div class="c-row"><span class="c-label">Email</span><a href="mailto:afonsomendes.tech@gmail.com">afonsomendes.tech@gmail.com</a></div>
-        <div class="c-row"><span class="c-label">LinkedIn</span><a href="https://linkedin.com/in/afonso-figueira-mendes" target="_blank">Afonso Mendes ↗</a></div>
-        <div class="c-row"><span class="c-label">Location</span><span style="color:#111">Oeiras, Lisbon, Portugal</span></div>
+      <div class="c-rows">
+        <div class="c-row"><span class="mono">LinkedIn</span><a href="https://linkedin.com/in/afonso-figueira-mendes" target="_blank" rel="noopener">Afonso Mendes ↗</a></div>
+        <div class="c-row"><span class="mono">GitHub</span><a href="https://github.com/afonsofm" target="_blank" rel="noopener">afonsofm ↗</a></div>
+        <div class="c-row"><span class="mono"><span data-l="en">Location</span><span data-l="pt">Localização</span></span><span><span data-l="en">Oeiras, Lisbon, Portugal</span><span data-l="pt">Oeiras, Lisboa, Portugal</span></span></div>
       </div>
     </div>
   </div>
-</div>
+</section>
+
+</main>
 
 <footer>
-  <span>© 2026 · Afonso Mendes · Lisbon, Portugal</span>
-  <span id="last-updated"></span>
+  <div class="wrap">
+    <span>© 2026 · Afonso Mendes · <span data-l="en">Lisbon, Portugal</span><span data-l="pt">Lisboa, Portugal</span></span>
+    <span id="last-updated"></span>
+  </div>
 </footer>
 
-<script>
-  const d = new Date(document.lastModified);
-  const opts = { day: '2-digit', month: 'long', year: 'numeric' };
-  document.getElementById('last-updated').textContent = 'Last updated: ' + d.toLocaleDateString('en-GB', opts);
-</script>
-
-<script>
-  
-
-  // Nav color on scroll
-  const navEl = document.querySelector('nav');
-  const navStyles = {
-    'home-wrap': { bg: 'rgba(12,12,16,0.85)', border: '#222',    logo: '#e8e8e0', links: '#888' },
-    'about':     { bg: 'rgba(242,242,240,0.97)', border: '#ddd',    logo: '#111', links: '#999' },
-    'work':      { bg: 'rgba(255,255,255,0.97)', border: '#e5e5e5', logo: '#111', links: '#999' },
-    'education': { bg: 'rgba(242,242,240,0.97)', border: '#ddd',    logo: '#111', links: '#999' },
-    'projects':  { bg: 'rgba(255,255,255,0.97)', border: '#e5e5e5', logo: '#111', links: '#999' },
-    'experience':{ bg: 'rgba(242,242,240,0.97)', border: '#ddd',    logo: '#111', links: '#999' },
-    'contact':   { bg: 'rgba(255,255,255,0.97)', border: '#e5e5e5', logo: '#111', links: '#999' },
-  };
-  function setNav(id){
-    const s = navStyles[id]; if(!s) return;
-    navEl.classList.toggle('nav-light', id !== 'home-wrap');
-    navEl.style.background = s.bg;
-    navEl.style.borderBottomColor = s.border;
-    navEl.querySelector('.logo').style.color = s.logo;
-    navEl.querySelector('.nav-toggle').style.color = s.logo;
-    navEl.querySelectorAll('.nav-links a').forEach(a => a.style.color = s.links);
-  }
-  const sectionIds = ['home-wrap','about','work','education','projects','experience','contact'];
-  function onScroll(){
-    const navH = navEl.offsetHeight;
-    let current = 'home-wrap';
-    for(const id of sectionIds){
-      const el = document.getElementById(id);
-      if(!el) continue;
-      if(el.getBoundingClientRect().top <= navH + 10) current = id;
-    }
-    setNav(current);
-  }
-  window.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
-
-  const navToggle = document.querySelector('.nav-toggle');
-  function closeNavMenu(){
-    navEl.classList.remove('menu-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.setAttribute('aria-label', 'Open navigation menu');
-  }
-  navToggle.addEventListener('click', () => {
-    const isOpen = navEl.classList.toggle('menu-open');
-    navToggle.setAttribute('aria-expanded', String(isOpen));
-    navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
-  });
-  navEl.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', closeNavMenu));
-  document.addEventListener('click', e => {
-    if(!navEl.contains(e.target)) closeNavMenu();
-  });
-  document.addEventListener('keydown', e => {
-    if(e.key === 'Escape') closeNavMenu();
-  });
-
-  // Smooth scroll nav links
-  document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
-    a.addEventListener('click', function(e){
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if(target){
-        const top = target.getBoundingClientRect().top + window.scrollY - navEl.offsetHeight;
-        window.scrollTo({top, behavior:'smooth'});
-      }
-    });
-  });
-
-  // Fade-in on scroll
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }});
-  }, {threshold:0.08});
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // Lightbox
-  let lbImages = [];
-  let lbIndex = 0;
-  function openLb(imgEl){
-    const group = imgEl.closest('.proj-imgs, .lb-group');
-    lbImages = group ? Array.from(group.querySelectorAll('img')) : [imgEl];
-    lbIndex = lbImages.indexOf(imgEl);
-    showLbImage();
-    const lb = document.getElementById('lb');
-    lb.classList.add('lb-open');
-    document.body.style.overflow = 'hidden';
-    requestAnimationFrame(()=> requestAnimationFrame(()=>{
-      lb.classList.add('lb-show');
-    }));
-  }
-  function showLbImage(){
-    const img = document.getElementById('lb-img');
-    img.src = lbImages[lbIndex].src;
-    img.alt = lbImages[lbIndex].alt;
-    const showArrows = lbImages.length > 1;
-    document.getElementById('lb-prev').style.display = showArrows ? 'flex' : 'none';
-    document.getElementById('lb-next').style.display = showArrows ? 'flex' : 'none';
-  }
-  function lbPrev(e){
-    if(e) e.stopPropagation();
-    if(lbImages.length < 2) return;
-    lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
-    showLbImage();
-  }
-  function lbNext(e){
-    if(e) e.stopPropagation();
-    if(lbImages.length < 2) return;
-    lbIndex = (lbIndex + 1) % lbImages.length;
-    showLbImage();
-  }
-  function closeLb(){
-    const lb = document.getElementById('lb');
-    lb.classList.remove('lb-show');
-    document.body.style.overflow = '';
-    setTimeout(()=> lb.classList.remove('lb-open'), 420);
-  }
-  document.addEventListener('keydown', e=>{
-    if(!document.getElementById('lb').classList.contains('lb-open')) return;
-    if(e.key==='Escape') closeLb();
-    if(e.key==='ArrowLeft') lbPrev();
-    if(e.key==='ArrowRight') lbNext();
-  });
-
-  // Duration labels next to date ranges (e.g. "Sep 2025 — Jan 2026 · 5 months")
-  const MONTHS = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
-  function parseDateSide(side, fallbackYear){
-    const parts = side.trim().split(/\s+/);
-    if(parts.length === 2 && MONTHS.hasOwnProperty(parts[0]) && /^\d{4}$/.test(parts[1])){
-      return {month: MONTHS[parts[0]], year: parseInt(parts[1], 10), hasMonth: true};
-    }
-    if(parts.length === 1 && MONTHS.hasOwnProperty(parts[0]) && fallbackYear !== null){
-      return {month: MONTHS[parts[0]], year: fallbackYear, hasMonth: true};
-    }
-    if(parts.length === 1 && /^\d{4}$/.test(parts[0])){
-      return {month: null, year: parseInt(parts[0], 10), hasMonth: false};
-    }
-    return null;
-  }
-  function formatDuration(totalMonths){
-    if(totalMonths <= 0) return null;
-    if(totalMonths % 12 === 0){
-      const y = totalMonths / 12;
-      return y + (y === 1 ? ' year' : ' years');
-    }
-    if(totalMonths > 12){
-      const y = Math.floor(totalMonths / 12), m = totalMonths % 12;
-      return `${y} yr${y > 1 ? 's' : ''} ${m} mo${m > 1 ? 's' : ''}`;
-    }
-    return totalMonths + (totalMonths === 1 ? ' month' : ' months');
-  }
-  function parseRange(text){
-    if(text.includes('&')) return null;
-    const m = text.match(/^(.+?)\s*[—–]\s*(.+)$/);
-    if(!m) return null;
-    const left = m[1].trim(), right = m[2].trim();
-    let rightParsed;
-    if(/^present$/i.test(right)){
-      const now = new Date();
-      rightParsed = {month: now.getMonth(), year: now.getFullYear(), hasMonth: true};
-    } else {
-      rightParsed = parseDateSide(right, null);
-    }
-    if(!rightParsed) return null;
-    const leftParsed = parseDateSide(left, rightParsed.year);
-    if(!leftParsed) return null;
-    return {left: leftParsed, right: rightParsed};
-  }
-  function computeDurationLabel(text){
-    const r = parseRange(text);
-    if(!r) return null;
-    const leftParsed = r.left, rightParsed = r.right;
-    if(!leftParsed.hasMonth && !rightParsed.hasMonth){
-      const years = rightParsed.year - leftParsed.year;
-      return years > 0 ? years + (years === 1 ? ' year' : ' years') : null;
-    }
-    const startMonth = leftParsed.hasMonth ? leftParsed.month : 0;
-    const endMonth = rightParsed.hasMonth ? rightParsed.month : 11;
-    const totalMonths = (rightParsed.year * 12 + endMonth) - (leftParsed.year * 12 + startMonth) + 1;
-    return formatDuration(totalMonths);
-  }
-  // Total time at each company/org, from its earliest role start to its latest role end
-  document.querySelectorAll('#work .work-company-type, #experience .work-company-type').forEach(el => {
-    let start = Infinity, end = -Infinity;
-    el.closest('.tl-row').querySelectorAll('.tl-date').forEach(d => {
-      const r = parseRange(d.textContent.trim());
-      if(!r || !r.left.hasMonth || !r.right.hasMonth) return;
-      start = Math.min(start, r.left.year * 12 + r.left.month);
-      end = Math.max(end, r.right.year * 12 + r.right.month);
-    });
-    const label = end >= start ? formatDuration(end - start + 1) : null;
-    if(label) el.textContent += ' · ' + label.replace(/\byears?\b/, m => m === 'year' ? 'yr' : 'yrs').replace(/\bmonths?\b/, m => m === 'month' ? 'mo' : 'mos');
-  });
-  document.querySelectorAll('#work .tl-date, #work .tl-role-date, #experience .tl-date, #experience .tl-role-date').forEach(el => {
-    const label = computeDurationLabel(el.textContent.trim());
-    if(label){
-      const span = document.createElement('span');
-      span.className = 'tl-duration';
-      span.textContent = el.closest('#work, #experience') ? label : ' · ' + label;
-      el.appendChild(span);
-    }
-  });
-</script>
-
-<div id="lb" onclick="if(event.target===this||event.target.id==='lb-close')closeLb()">
-  <span id="lb-close">×</span>
-  <span id="lb-prev" class="lb-arrow" onclick="lbPrev(event)">‹</span>
-  <img id="lb-img" src="" alt="" />
-  <span id="lb-next" class="lb-arrow" onclick="lbNext(event)">›</span>
+<!-- LIGHTBOX -->
+<div id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button type="button" class="lb-btn" id="lb-close" aria-label="Close">×</button>
+  <button type="button" class="lb-btn" id="lb-prev" aria-label="Previous">‹</button>
+  <img id="lb-img" src="" alt=""/>
+  <button type="button" class="lb-btn" id="lb-next" aria-label="Next">›</button>
+  <span id="lb-count" class="mono"></span>
 </div>
 
+<script>
+(function(){
+  var root = document.documentElement;
+
+  /* ---------- i18n strings for JS-rendered text ---------- */
+  var T = {
+    en: {
+      months:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+      monthsLong:['January','February','March','April','May','June','July','August','September','October','November','December'],
+      present:'Present', and:' & ',
+      yr:function(n){return n + (n === 1 ? ' yr' : ' yrs');},
+      mo:function(n){return n + (n === 1 ? ' mo' : ' mos');},
+      join:' ',
+      updated:'Last updated',
+      title:'Afonso Mendes · Telecommunications & Networks Engineer | Portfolio',
+      desc:'Portfolio of Afonso Mendes, MSc student in Telecommunications and Informatics Engineering at Instituto Superior Técnico (Lisbon). 5G, LoRa/SDR, C-ITS vehicular networks, Wi-Fi 7, data engineering at NOS and award-winning projects.',
+      theme:{dark:'Switch to light mode', light:'Switch to dark mode'},
+      menu:'Menu', close:'Close', prev:'Previous', next:'Next', viewer:'Image viewer'
+    },
+    pt: {
+      months:['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+      monthsLong:['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'],
+      present:'Presente', and:' e ',
+      yr:function(n){return n + (n === 1 ? ' ano' : ' anos');},
+      mo:function(n){return n + (n === 1 ? ' mês' : ' meses');},
+      join:' e ',
+      updated:'Última atualização',
+      title:'Afonso Mendes · Engenheiro de Telecomunicações e Redes | Portefólio',
+      desc:'Portefólio de Afonso Mendes, estudante de mestrado em Engenharia de Telecomunicações e Informática no Instituto Superior Técnico (Lisboa). 5G, LoRa/SDR, redes veiculares C-ITS, Wi-Fi 7, engenharia de dados na NOS e projetos premiados.',
+      theme:{dark:'Mudar para modo claro', light:'Mudar para modo escuro'},
+      menu:'Menu', close:'Fechar', prev:'Anterior', next:'Seguinte', viewer:'Visualizador de imagens'
+    }
+  };
+  function lang(){ return root.getAttribute('lang') === 'pt' ? 'pt' : 'en'; }
+
+  /* ---------- Dates & durations ---------- */
+  function nowIdx(){ var d = new Date(); return d.getFullYear() * 12 + d.getMonth(); }
+  function toIdx(v){
+    if(v === 'now') return nowIdx();
+    var p = v.split('-');
+    return p[1] ? (+p[0]) * 12 + (+p[1] - 1) : null;
+  }
+  function fmtDate(v, t){
+    if(v === 'now') return t.present;
+    var p = v.split('-');
+    return p[1] ? t.months[+p[1] - 1] + ' ' + p[0] : p[0];
+  }
+  function fmtDur(n, t){
+    if(n <= 0) return '';
+    var y = Math.floor(n / 12), m = n % 12;
+    if(!y) return t.mo(m);
+    if(!m) return t.yr(y);
+    return t.yr(y) + t.join + t.mo(m);
+  }
+  function renderDates(){
+    var t = T[lang()];
+    document.querySelectorAll('.d').forEach(function(el){
+      var from = el.dataset.from, to = el.dataset.to, list = el.dataset.dates, txt;
+      if(list){
+        txt = list.split(',').map(function(v){ return fmtDate(v, t); }).join(t.and);
+      } else {
+        txt = fmtDate(from, t) + (to ? ' – ' + fmtDate(to, t) : '');
+      }
+      el.textContent = txt;
+      if(el.hasAttribute('data-dur')){
+        var a = toIdx(from), b = toIdx(to);
+        if(a !== null && b !== null){
+          var s = document.createElement('span');
+          s.className = 'dur';
+          s.textContent = (el.hasAttribute('data-inline') ? ' · ' : '') + fmtDur(b - a + 1, t);
+          if(el.hasAttribute('data-inline')) s.style.display = 'inline';
+          el.appendChild(s);
+        }
+      }
+    });
+    // Total time per organisation (earliest start → latest end)
+    document.querySelectorAll('[data-total], [data-total-range]').forEach(function(el){
+      var scope = el.closest('.org, .org-group');
+      var min = Infinity, max = -Infinity, minV, maxV;
+      scope.querySelectorAll('.d[data-dur]').forEach(function(d){
+        var a = toIdx(d.dataset.from), b = toIdx(d.dataset.to);
+        if(a !== null && a < min){ min = a; minV = d.dataset.from; }
+        if(b !== null && b > max){ max = b; maxV = d.dataset.to; }
+      });
+      if(max < min){ el.textContent = ''; return; }
+      if(el.hasAttribute('data-total')){
+        el.textContent = ' · ' + fmtDur(max - min + 1, t);
+      } else {
+        el.textContent = fmtDate(minV, t) + ' – ' + fmtDate(maxV, t);
+        var s = document.createElement('span');
+        s.className = 'dur';
+        s.textContent = fmtDur(max - min + 1, t);
+        el.appendChild(s);
+      }
+    });
+  }
+
+  /* ---------- Language ---------- */
+  function applyLang(l){
+    root.setAttribute('lang', l);
+    try { localStorage.setItem('lang', l); } catch(e){}
+    var t = T[l];
+    document.title = t.title;
+    document.querySelector('meta[name="description"]').setAttribute('content', t.desc);
+    document.querySelectorAll('[data-set-lang]').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.dataset.setLang === l));
+    });
+    var lm = new Date(document.lastModified);
+    document.getElementById('last-updated').textContent =
+      t.updated + ': ' + lm.getDate() + ' ' + (l === 'pt' ? 'de ' + t.monthsLong[lm.getMonth()] + ' de ' : t.monthsLong[lm.getMonth()] + ' ') + lm.getFullYear();
+    document.getElementById('menu-btn').setAttribute('aria-label', t.menu);
+    document.getElementById('lb-close').setAttribute('aria-label', t.close);
+    document.getElementById('lb-prev').setAttribute('aria-label', t.prev);
+    document.getElementById('lb-next').setAttribute('aria-label', t.next);
+    document.getElementById('lb').setAttribute('aria-label', t.viewer);
+    updateThemeLabel();
+    renderDates();
+  }
+  document.querySelectorAll('[data-set-lang]').forEach(function(b){
+    b.addEventListener('click', function(){ applyLang(b.dataset.setLang); });
+  });
+
+  /* ---------- Theme ---------- */
+  var themeBtn = document.getElementById('theme-btn');
+  function updateThemeLabel(){
+    var cur = root.getAttribute('data-theme');
+    themeBtn.setAttribute('aria-label', T[lang()].theme[cur]);
+    themeBtn.title = T[lang()].theme[cur];
+  }
+  themeBtn.addEventListener('click', function(){
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch(e){}
+    updateThemeLabel();
+  });
+
+  applyLang(lang());
+
+  /* ---------- Nav ---------- */
+  var nav = document.getElementById('nav'), menuBtn = document.getElementById('menu-btn');
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  function closeMenu(){ nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
+  menuBtn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  document.querySelectorAll('.nav-links a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  document.addEventListener('click', function(e){ if(!nav.contains(e.target)) closeMenu(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+
+  // Highlight current section in nav
+  var links = {};
+  document.querySelectorAll('.nav-links a').forEach(function(a){ links[a.getAttribute('href').slice(1)] = a; });
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        Object.keys(links).forEach(function(k){ links[k].classList.toggle('active', k === en.target.id); });
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('main section[id]').forEach(function(s){ spy.observe(s); });
+
+
+  /* ---------- Motion: progress bar, 3D globe, tilt ---------- */
+  var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  var progress = document.getElementById('progress');
+  function onProgress(){
+    var max = document.documentElement.scrollHeight - innerHeight;
+    progress.style.setProperty('--p', max > 0 ? Math.min(1, scrollY / max) : 0);
+  }
+  window.addEventListener('scroll', onProgress, {passive:true});
+  window.addEventListener('resize', onProgress);
+  onProgress();
+
+  // Rotating dotted globe with orbiting "satellites" behind the portrait
+  var cv = document.getElementById('globe'), ctx = cv.getContext('2d');
+  var hero = document.getElementById('top'), portrait3d = document.getElementById('portrait-3d');
+  var N = 540, pts = [], rgb = [43,71,209], W = 0, H = 0, dpr = 1;
+  for(var i = 0; i < N; i++){
+    var y = 1 - (i / (N - 1)) * 2, r = Math.sqrt(1 - y * y), th = i * 2.399963;
+    pts.push([Math.cos(th) * r, y, Math.sin(th) * r]);
+  }
+  var orbits = [
+    {tiltX:1.15, tiltZ:.35, radius:1.25, speed:.00045, phase:0},
+    {tiltX:1.9,  tiltZ:-.6, radius:1.4, speed:-.00032, phase:2.1}
+  ];
+  function readColor(){
+    var c = getComputedStyle(root).getPropertyValue('--accent').trim();
+    var m = /^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i.exec(c);
+    if(m) rgb = [parseInt(m[1],16), parseInt(m[2],16), parseInt(m[3],16)];
+  }
+  function sizeCanvas(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  var rotY = 0, tx = 0, ty = 0, mx = 0, my = 0, running = true, rafId = null;
+  function rgba(a){ return 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',' + a.toFixed(3) + ')'; }
+  function draw(t){
+    ctx.clearRect(0, 0, W, H);
+    var cx = W / 2, cy = H / 2, R = W * 0.33;
+    var a = rotY + mx, b = 0.38 + my;
+    var ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
+    for(var i = 0; i < N; i++){
+      var p = pts[i];
+      var x1 = p[0] * ca - p[2] * sa, z1 = p[0] * sa + p[2] * ca;
+      var y2 = p[1] * cb - z1 * sb, z2 = p[1] * sb + z1 * cb;
+      var depth = (z2 + 1) / 2, s = 1 + z2 * 0.12;
+      ctx.fillStyle = rgba(0.06 + depth * 0.55);
+      ctx.beginPath();
+      ctx.arc(cx + x1 * R * s, cy + y2 * R * s, 0.5 + depth * 1.3, 0, 6.2832);
+      ctx.fill();
+    }
+    // Orbits + satellites
+    orbits.forEach(function(o){
+      var cX = Math.cos(o.tiltX + my), sX = Math.sin(o.tiltX + my), cZ = Math.cos(o.tiltZ + mx * .5), sZ = Math.sin(o.tiltZ + mx * .5);
+      function proj(ang){
+        var x = Math.cos(ang) * o.radius, y = 0, z = Math.sin(ang) * o.radius;
+        var y1 = y * cX - z * sX, z1 = y * sX + z * cX;
+        var x2 = x * cZ - y1 * sZ, y2 = x * sZ + y1 * cZ;
+        return [cx + x2 * R, cy + y2 * R, z1];
+      }
+      for(var k = 0; k < 140; k++){
+        var q = proj(k / 140 * 6.2832), d = (q[2] / o.radius + 1) / 2;
+        ctx.fillStyle = rgba(0.05 + d * 0.22);
+        ctx.fillRect(q[0] - .6, q[1] - .6, 1.2, 1.2);
+      }
+      var sat = proj(o.phase + t * o.speed), sd = (sat[2] / o.radius + 1) / 2;
+      var g = ctx.createRadialGradient(sat[0], sat[1], 0, sat[0], sat[1], 14);
+      g.addColorStop(0, rgba(0.55 * sd + 0.15)); g.addColorStop(1, rgba(0));
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(sat[0], sat[1], 14, 0, 6.2832); ctx.fill();
+      ctx.fillStyle = rgba(0.6 + sd * 0.4); ctx.beginPath(); ctx.arc(sat[0], sat[1], 2.6, 0, 6.2832); ctx.fill();
+    });
+  }
+  function loop(t){
+    rotY += 0.0022;
+    mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
+    draw(t);
+    rafId = running ? requestAnimationFrame(loop) : null;
+  }
+  readColor(); sizeCanvas();
+  new MutationObserver(function(){ readColor(); if(reduceMotion) draw(0); }).observe(root, {attributes:true, attributeFilter:['data-theme']});
+  window.addEventListener('resize', function(){ sizeCanvas(); if(reduceMotion) draw(0); });
+  if(reduceMotion){
+    draw(0);
+  } else {
+    rafId = requestAnimationFrame(loop);
+    new IntersectionObserver(function(en){
+      running = en[0].isIntersecting && !document.hidden;
+      if(running && !rafId) rafId = requestAnimationFrame(loop);
+    }).observe(hero);
+    document.addEventListener('visibilitychange', function(){
+      running = !document.hidden;
+      if(running && !rafId) rafId = requestAnimationFrame(loop);
+    });
+    if(finePointer){
+      hero.addEventListener('pointermove', function(e){
+        var r = hero.getBoundingClientRect();
+        var nx = (e.clientX - r.left) / r.width - .5, ny = (e.clientY - r.top) / r.height - .5;
+        tx = nx * 0.7; ty = ny * 0.4;
+        portrait3d.style.setProperty('--ry', (nx * 14).toFixed(2) + 'deg');
+        portrait3d.style.setProperty('--rx', (-ny * 10).toFixed(2) + 'deg');
+      });
+      hero.addEventListener('pointerleave', function(){
+        tx = ty = 0;
+        portrait3d.style.setProperty('--ry', '0deg');
+        portrait3d.style.setProperty('--rx', '0deg');
+      });
+    }
+  }
+
+  // 3D tilt following the mouse: rect cached on enter, one update per frame, fast transition while hovering
+  function attachTilt(host, target, maxX, maxY, extra){
+    var raf = null, px = 0, py = 0, rect = null;
+    host.addEventListener('pointerenter', function(){ rect = host.getBoundingClientRect(); target.classList.add('tilting'); });
+    host.addEventListener('pointermove', function(e){
+      if(!rect) rect = host.getBoundingClientRect();
+      px = (e.clientX - rect.left) / rect.width - .5;
+      py = (e.clientY - rect.top) / rect.height - .5;
+      if(!raf) raf = requestAnimationFrame(function(){
+        raf = null;
+        target.style.transform = 'perspective(1000px) rotateX(' + (-py * maxX).toFixed(2) + 'deg) rotateY(' + (px * maxY).toFixed(2) + 'deg)' + (extra || '');
+      });
+    });
+    host.addEventListener('pointerleave', function(){
+      rect = null;
+      if(raf){ cancelAnimationFrame(raf); raf = null; }
+      target.classList.remove('tilting');
+      target.style.transform = '';
+    });
+  }
+  if(finePointer && !reduceMotion){
+    document.querySelectorAll('.skill').forEach(function(el){
+      var max = el.classList.contains('featured') ? 3 : 6;
+      attachTilt(el, el, max, max, ' translateY(-4px)');
+    });
+  }
+
+  /* ---------- Section motion ---------- */
+  [
+    ['.tl > *', 'left'],
+    ['.skill', 'rise3d'],
+    ['#projects .card', 'up'],
+    ['.about p, .skills-title, .contact p, .contact .actions, .c-row', 'up']
+  ].forEach(function(g){
+    document.querySelectorAll('main ' + g[0].split(', ').join(', main ')).forEach(function(el){
+      el.classList.add('m-item'); el.setAttribute('data-m', g[1]);
+    });
+  });
+  document.querySelectorAll('main .skill-list, main .tags, main .bullets, main .gallery').forEach(function(list){
+    if(list.closest('#projects')) return;  // projects stay static
+    Array.prototype.forEach.call(list.children, function(c, i){ c.classList.add('m-sub'); c.style.setProperty('--ci', i); });
+  });
+  var mio = new IntersectionObserver(function(entries){
+    var shown = entries.filter(function(e){ return e.isIntersecting; }).map(function(e){ return e.target; });
+    shown.sort(function(a, b){ return a.compareDocumentPosition(b) & 4 ? -1 : 1; });
+    shown.forEach(function(el, i){
+      var d = Math.min(i, 6) * 90;
+      el.style.transitionDelay = d + 'ms';
+      el.style.setProperty('--bd', d + 'ms');
+      el.classList.add('on');
+      mio.unobserve(el);
+      // Clear the stagger delay afterwards so hover/tilt stays responsive
+      setTimeout(function(){ el.style.transitionDelay = ''; el.classList.add('m-done'); }, d + 1000);
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.m-item, .sec-head').forEach(function(el){ mio.observe(el); });
+
+  // Scroll-linked: timeline drawing, hero fade-out
+  var tls = document.querySelectorAll('.tl'),
+      heroGrid = document.querySelector('.hero-grid'), ticking = false;
+  function onMotionScroll(){
+    ticking = false;
+    var vh = innerHeight;
+    tls.forEach(function(tl){
+      var r = tl.getBoundingClientRect();
+      var p = (vh * 0.8 - r.top) / Math.max(r.height, 1);
+      tl.style.setProperty('--draw', Math.max(0, Math.min(1, p)).toFixed(3));
+    });
+    var y = scrollY;
+    if(y < vh * 1.1){
+      heroGrid.style.transform = 'translateY(' + (y * 0.2).toFixed(1) + 'px)';
+      heroGrid.style.opacity = Math.max(0, 1 - y / (vh * 0.8)).toFixed(3);
+    }
+  }
+  if(!reduceMotion){
+    window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(onMotionScroll); } }, {passive:true});
+    window.addEventListener('resize', onMotionScroll);
+    onMotionScroll();
+  }
+
+  /* ---------- Lightbox ---------- */
+  var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'),
+      lbCount = document.getElementById('lb-count'), prevBtn = document.getElementById('lb-prev'),
+      nextBtn = document.getElementById('lb-next'), imgs = [], idx = 0, opener = null;
+  function show(){
+    lbImg.src = imgs[idx].dataset.full || imgs[idx].src; lbImg.alt = imgs[idx].alt;
+    var multi = imgs.length > 1;
+    prevBtn.style.display = nextBtn.style.display = multi ? '' : 'none';
+    lbCount.textContent = multi ? (idx + 1) + ' / ' + imgs.length : '';
+  }
+  function open(btn){
+    var group = btn.closest('.lb-group');
+    imgs = Array.prototype.slice.call(group.querySelectorAll('img'));
+    idx = imgs.indexOf(btn.querySelector('img'));
+    opener = btn;
+    show();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ lb.classList.add('show'); }); });
+    document.getElementById('lb-close').focus();
+  }
+  function close(){
+    lb.classList.remove('show');
+    document.body.style.overflow = '';
+    setTimeout(function(){ lb.classList.remove('open'); }, 350);
+    if(opener) opener.focus();
+  }
+  function step(d){ if(imgs.length < 2) return; idx = (idx + d + imgs.length) % imgs.length; show(); }
+  document.querySelectorAll('[data-lb]').forEach(function(b){ b.addEventListener('click', function(){ open(b); }); });
+  document.getElementById('lb-close').addEventListener('click', close);
+  prevBtn.addEventListener('click', function(e){ e.stopPropagation(); step(-1); });
+  nextBtn.addEventListener('click', function(e){ e.stopPropagation(); step(1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowLeft') step(-1);
+    if(e.key === 'ArrowRight') step(1);
+  });
+})();
+</script>
 </body>
 </html>
