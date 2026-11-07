@@ -62,7 +62,7 @@
     var r = document.documentElement, t, l;
     try { t = localStorage.getItem('theme'); l = localStorage.getItem('lang'); } catch(e){}
     if(t !== 'light' && t !== 'dark') t = 'dark';
-    if(l !== 'pt' && l !== 'en') l = (navigator.language || '').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en';
+    if(l !== 'pt' && l !== 'en') l = 'en';
     r.setAttribute('data-theme', t);
     r.setAttribute('lang', l);
     r.classList.add('js');
